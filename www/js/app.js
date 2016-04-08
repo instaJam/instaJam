@@ -55,7 +55,7 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     views: {
       'tab-profile': {
         templateUrl: 'templates/tab-profile.html',
-        controller: 'feUserProfileCtrl'
+        controller: 'frUserProfileCtrl'
       }
     }
   })
