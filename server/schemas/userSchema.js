@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var userSchema = new Shema({
+var userSchema = new Schema({
     name: {
           first: String,
           last: String
@@ -22,7 +22,7 @@ var userSchema = new Shema({
         thread: {type: mongoose.Schema.Types.ObjectId, ref: 'Message'}
     }],
     profpic:{type:String, default:'http://1.bp.blogspot.com/-Tb_UK9_ePUM/U7oTNS-AnSI/AAAAAAAAPLE/2TT0ltTzqF4/s1600/default+image.jpg'},
-    loc:[Loc]
+    // loc:[Loc]
 })
 
 /////////////////////////////////////////
