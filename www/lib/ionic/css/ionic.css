@@ -6245,7 +6245,7 @@ button.item.item-button-right {
 .item-avatar-left,
 .item-avatar-left .item-content {
   padding-left: 72px;
-  min-height: 72px; }
+  min-height: 50px; }
   .item-avatar > img:first-child,
   .item-avatar .item-image,
   .item-avatar .item-content > img:first-child,
@@ -6255,7 +6255,7 @@ button.item.item-button-right {
   .item-avatar-left .item-content > img:first-child,
   .item-avatar-left .item-content .item-image {
     position: absolute;
-    top: 16px;
+    top: 8px;
     left: 16px;
     max-width: 40px;
     max-height: 40px;
@@ -6266,7 +6266,7 @@ button.item.item-button-right {
 .item-avatar-right,
 .item-avatar-right .item-content {
   padding-right: 72px;
-  min-height: 72px; }
+  min-height: 60px; }
   .item-avatar-right > img:first-child,
   .item-avatar-right .item-image,
   .item-avatar-right .item-content > img:first-child,
