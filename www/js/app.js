@@ -101,6 +101,6 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/Feed');
+  $urlRouterProvider.otherwise('/login');
 
 });

@@ -4,10 +4,13 @@
       <div id="content">
         <div id="profile-info">
           <img id="profile-image" src="../img/adam.jpg">
-          <h3 id="profile-name">Nick McArthur</h3>
+          <h3 id="profile-name">{{currentUser.username}}</h3>
           <span>Co-founder of<a href="#"> InstaJam</a></span>
             <p>Followers: 3,001</p>
+
         </div>
+<button type="button" name="button"  ng-click="logout()">Logout
+    </button>
       </div>
     </ion-list>
   </ion-content>
