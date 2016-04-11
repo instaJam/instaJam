@@ -49,8 +49,7 @@ userSchema.pre('save', function(next) {
 
 userSchema.methods.comparePassword = function(password, done) {
   bcrypt.compare(password, this.password, function(err, isMatch) {
-      console.log(this);
-      console.log(this.password);
+     
     done(err, isMatch);
   });
 };
