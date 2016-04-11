@@ -1,14 +1,17 @@
-angular.module('instajam').controller('frUserProfileCtrl', function($scope, $http){
+angular.module('instajam').controller('frUserProfileCtrl', function($scope,$state,$auth, userService){
 
-$scope.getCurrent = function() {
-    return $http({
-        method: 'GET',
-        url: '/api/me'
-    }).then(function(response) {
-        $scope.currentUser = response.data;
-    })
-}
+    userService.getCurrentUser().then(function(res){
+                $scope.currentUser = res.data;
+            })
 
-$scope.getCurrent();
+
+    $scope.logout = function(){
+        $auth.logout().then(function(res){
+            $state.go('login');
+        });
+    }
+
+
+
 
 })

@@ -40,12 +40,12 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.frFeed', {
+    url: '/Feed',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-frFeed': {
+        templateUrl: 'templates/tab-frFeed.html',
+        controller: 'frFeedCtrl'
       }
     }
   })
@@ -101,6 +101,6 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/login');
 
 });
