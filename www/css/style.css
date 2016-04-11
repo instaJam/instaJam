@@ -1,6 +1,13 @@
 
 /* Empty. Add your own CSS if you like */
-  #profile-bg {
+.postSize{
+  width: 320px;
+  height: 320px;
+}
+.postContent{
+  padding-top: 50px;
+}
+ #profile-bg {
         position: fixed;
         left: 0;
         top: 0px;
