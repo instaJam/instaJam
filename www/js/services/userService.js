@@ -8,11 +8,11 @@ this.getCurrentUser = function(){
 }
 
 
-this.editUserLoc = function(user, id){
+this.editUserLoc = function(info, id){
     return $http({
         method:"PUT",
         url:'/api/user/' + id,
-        data:{loc: user}
+        data:{loc: info}
     })
 }
 
