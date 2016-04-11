@@ -93,6 +93,11 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'frLoginCtrl'
+  })
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/newUserLogin.html',
+    controller: 'frLoginCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
