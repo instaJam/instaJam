@@ -1,7 +1,12 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var moment = require('moment');
+var jwt = require('jwt-simple');
+var cors = require('cors');
 var userCtrl = require('./controllers/userCtrl.js')
+var User = require('./schemas/userSchema.js');
+var Keys = require('./keys.js');
 var messageCtrl = require('./controllers/messageCtrl.js');
 var feedCtrl = require('./controllers/feedCtrl.js');
 var port = 3000;
@@ -14,23 +19,77 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static('../www'));
 
+/*
+ |--------------------------------------------------------------------------
+ | Login Required Middleware
+ |--------------------------------------------------------------------------
+ */
+function ensureAuthenticated(req, res, next) {
+  if (!req.header('Authorization')) {
+    return res.status(401).send({ message: 'Please make sure your request has an Authorization header' });
+  }
+  var token = req.header('Authorization').split(' ')[1];
+
+  var payload = null;
+  try {
+    payload = jwt.decode(token, Keys.TOKEN_SECRET);
+  }
+  catch (err) {
+    return res.status(401).send({ message: err.message });
+  }
+
+  if (payload.exp <= moment().unix()) {
+    return res.status(401).send({ message: 'Token has expired' });
+  }
+  req.user = payload.sub;
+  next();
+}
+
+/*
+ |--------------------------------------------------------------------------
+ | Generate JSON Web Token
+ |--------------------------------------------------------------------------
+ */
+function createJWT(user) {
+  var payload = {
+    sub: user._id,
+    iat: moment().unix(),
+    exp: moment().add(14, 'days').unix()
+  };
+  return jwt.encode(payload, Keys.TOKEN_SECRET);
+}
 
 
 
-
-
-///////
-//////ENDPOINTS
-/////
-
-//
-//USER ENDPOINTS
-//
+///////////////////
+//USER ENDPOINTS//
+/////////////////
+app.post('/auth/login', userCtrl.userLogin);
+app.post('/auth/signup', userCtrl.userSignUp);
 app.post('/api/user', userCtrl.addUser);
 app.get('/api/user', userCtrl.getAllUsers);
 app.get('/api/user/:id', userCtrl.getUser);
 app.put('/api/user/:id', userCtrl.updateUser);
 app.delete('/api/user/:id', userCtrl.deleteUser);
+app.get('/api/me', ensureAuthenticated, function(req, res) {
+  User.findById(req.user, function(err, user) {
+    res.send(user);
+  });
+});
+app.put('/api/me', ensureAuthenticated, function(req, res) {
+  User.findById(req.user, function(err, user) {
+    if (!user) {
+      return res.status(400).send({ message: 'User not found' });
+    }
+    user.displayName = req.body.displayName || user.displayName;
+    user.email = req.body.email || user.email;
+    user.save(function(err) {
+      res.status(200).end();
+    });
+  });
+});
+
+
 //
 //Messages/
 //
@@ -55,4 +114,6 @@ mongoose.connection.once('open', function() {
 });
 
 
-app.listen(port, () => console.log('There\'s a party on port ', port));
+app.listen(port, function() {
+     console.log('There\'s a party on port ', port);
+ })

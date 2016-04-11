@@ -3,13 +3,13 @@
     <div id="loginPage">
     <div class="list list-inset" id="loginForm">
       <label class="item item-input">
-        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Username" ng-model="user.username">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="Password">
+        <input type="password" placeholder="Password" ng-model="user.password">
       </label>
     </div>
-    <button class="button button-large button-balanced" id="submitBut">
+    <button class="button button-large button-balanced" id="submitBut" ng-click="login(user)">
   Login
 </button>
 <div id="createAcctBut">
