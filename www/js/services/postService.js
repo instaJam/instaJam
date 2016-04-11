@@ -9,7 +9,7 @@ this.getAllPosts = function(){
 this.like = function(userId, postId){
   return $http({
     method: "POST",
-    url: "api/post",
+    url: "api/post/likes",
     data: {
       userId: userId,
       postId: postId

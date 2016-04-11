@@ -21,11 +21,14 @@ module.exports = {
          });
     },
     addLike: function(req, res, next){
-      Post.findById(req.body.data.postId, function(err, post){
+      Post.findById(req.body.postId, function(err, post){
         if (err) {
           res.status(500).json(err);
         }else {
-          post.likes.push(req.body.data.userId);
+          console.log(req.body);
+          console.log(post);
+          post.likes.push(req.body.userId);
+          console.log(post);
           res.status(200).json(post);
         }
       })
