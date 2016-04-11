@@ -23,7 +23,7 @@ var userSchema = new Schema({
         thread: {type: mongoose.Schema.Types.ObjectId, ref: 'Message'}
     }],
     profpic:{type:String, default:'http://1.bp.blogspot.com/-Tb_UK9_ePUM/U7oTNS-AnSI/AAAAAAAAPLE/2TT0ltTzqF4/s1600/default+image.jpg'},
-    // loc:[Loc]
+    loc:{}
 })
 
 /////////////////////////////////////////
@@ -49,7 +49,7 @@ userSchema.pre('save', function(next) {
 
 userSchema.methods.comparePassword = function(password, done) {
   bcrypt.compare(password, this.password, function(err, isMatch) {
-     
+
     done(err, isMatch);
   });
 };

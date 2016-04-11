@@ -20,8 +20,13 @@ angular.module('instajam.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, userService) {
   $scope.settings = {
     enableFriends: true
   };
+
+  userService.getCurrentUser().then(function(res) {
+      $scope.profile= res.data;
+  })
+
 });
