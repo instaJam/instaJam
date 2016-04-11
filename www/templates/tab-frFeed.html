@@ -12,23 +12,26 @@
   <ion-content>
     <div class="postContent">
 
-      <div class="list" ng-repeat="chat in chats">
+      <div class="list" ng-repeat="post in allPosts">
         <div class="item item-avatar">
-          <img ng-src="{{chat.face}}">
-          <h2>{{chat.name}}</h2>
+          <img ng-src="{{post.user.profpic}}">
+          <h2>{{post.user.username}}</h2>
 
         </div>
         <div>
-          <img ng-src="{{chat.face}}" class="postSize">
+          <img ng-src="{{post.content}}" class="postSize">
         </div>
-        <div class="item item-button-left">
+        <div class="button-bar">
           <button class="button">
-            <i class="ion-ios-chatbubble-outline"></i>
+            <i class="ion-ios-chatbubble"></i>
+            <button class="button">
+              <i class="ion-happy-outline" ng-click="like(currentUser._id, post._id)" ></i>
+            </button>
           </button>
         </div>
-        <div class="list">
-          {{chat.name}}: {{chat.lastText}}
-        </div>
+
+
+          {{post.user.username}}: {{post.description}} {{likesCounter(post.likes) + "likes!"}}
 
 
       </div>

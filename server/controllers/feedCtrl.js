@@ -19,5 +19,15 @@ module.exports = {
                  res.status(200).json(resp);
              }
          });
+    },
+    addLike: function(req, res, next){
+      Post.findById(req.body.data.postId, function(err, post){
+        if (err) {
+          res.status(500).json(err);
+        }else {
+          post.likes.push(req.body.data.userId);
+          res.status(200).json(post);
+        }
+      })
     }
 }
