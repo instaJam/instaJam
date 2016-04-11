@@ -86,6 +86,7 @@ updateUser: function(req, res, next) {
             if (err) {
               res.status(500).send({ message: err.message });
             }
+            console.log(result);
             res.send({ token: createJWT(result) });
           });
         });
