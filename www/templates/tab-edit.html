@@ -1,23 +1,39 @@
-<ion-view view-title="tab-edit">
+<ion-view view-title="Edit Profile">
   <ion-content>
       <div>
-        profile pic:{{currentUser.profpic}}
+        profile pic:<img class="editPic" src="{{currentUser.profpic}}" />
       </br>
-        <button class="button button-positive" ng-click="userToggle()">user name:</button> {{currentUser.username}}
-        <label style="display:none" class="item item-input">
-  <input type="text" placeholder="username"
-  ng-model="user.username">
-          <button class="button button-positive" ng-click="editUser(user)">Change</button>
-</label>
+    <div id="usernameForm">
+        <button style="float:left; margin-left:1%" class="button button-positive" ng-click="userToggle()">user name:</button> <span id="userLabel">{{currentUser.username}}</span>
+        <div id="usernameChange" style="display:none" class="item item-input">
+  <input style="font-size:4vh" type="text" placeholder="new username"
+  ng-model="currentUser.username">
+          <button style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</button>
+</div>
+</div>
       </br>
-        email: {{currentUser.email}}
+      <div id="emailForm">
+          <button style="float:left; margin-left:1%" class="button button-positive" ng-click="emailToggle()">email:</button> <span id="emailLabel">{{currentUser.email}}</span>
+          <div id="emailChange" style="display:none" class="item item-input">
+    <input style="font-size:3vh" type="text" placeholder="new email"
+    ng-model="currentUser.email">
+            <button style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</button>
+  </div>
+  </div>
       </br>
-        bio: {{currentUser.bio}}
+      <div id="bioForm">
+          <button style="float:left; margin-left:1%" class="button button-positive" ng-click="bioToggle()">Bio:</button> <span id="bioLabel">{{currentUser.bio}}</span>
+          <div id="bioChange" style="display:none" class="item item-input">
+    <textarea style="font-size:3vh" type="text" placeholder="new bio"
+    ng-model="currentUser.bio"></textarea>
+            <submit style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</submit>
+  </div>
+  </div>
       </br>
         password: {{currentUser.password}}
 
-      </div>  <input type="text" placeholder="username"
+      <!-- </div>  <input type="text" placeholder="username"
         ng-model="currentUser.username">
-                <button class="button button-positive" ng-click="editUser(currentUser)">Change</button>
+                <button class="button button-positive" ng-click="editUser(currentUser)">Change</button> -->
   </ion-content>
 </ion-view>
