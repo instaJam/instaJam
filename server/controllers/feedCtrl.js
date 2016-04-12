@@ -32,5 +32,11 @@ module.exports = {
           res.status(200).json(post);
         }
       })
-    }
+  },
+  getUserPosts: function(req, res, next) {
+      var id = req.user;
+      Post.find({'user': id}, function(err, response) {
+          err ? res.status(500).send(err) : res.status(200).send(response);
+      })
+  }
 }
