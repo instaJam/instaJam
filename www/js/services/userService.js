@@ -7,6 +7,14 @@ this.getCurrentUser = function(){
     });
 }
 
+this.editUserLoc = function(info, id){
+    return $http({
+        method:"PUT",
+        url:'/api/user/' + id,
+        data:{loc: info}
+    })
+}
+
 this.editUser = function(user){
     return $http({
         method:"PUT",
@@ -14,4 +22,5 @@ this.editUser = function(user){
         data:user
     })
 }
+
 });

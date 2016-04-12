@@ -24,10 +24,8 @@ angular.module('instajam').controller('frUserProfileCtrl', function($scope,$stat
     }
 
 
-
-
-
-
-
+    $scope.editUser = function(user){
+        userService.editUser(user)
+    }
 
 })

@@ -7,6 +7,7 @@ var cors = require('cors');
 var userCtrl = require('./controllers/userCtrl.js')
 var User = require('./schemas/userSchema.js');
 var Keys = require('./keys.js');
+var Amazon = require('./controllers/awsController.js');
 var messageCtrl = require('./controllers/messageCtrl.js');
 var feedCtrl = require('./controllers/feedCtrl.js');
 var port = 3000;
@@ -16,7 +17,8 @@ var app = express();
 ///////////////
 //MIDDLEWARE//
 /////////////
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static('../www'));
 
 /*
@@ -76,31 +78,26 @@ app.get('/api/me', ensureAuthenticated, function(req, res) {
     res.send(user);
   });
 });
-app.put('/api/me', ensureAuthenticated, function(req, res) {
-  User.findById(req.user, function(err, user) {
-    if (!user) {
-      return res.status(400).send({ message: 'User not found' });
-    }
-    user.displayName = req.body.displayName || user.displayName;
-    user.email = req.body.email || user.email;
-    user.save(function(err) {
-      res.status(200).end();
-    });
-  });
-});
 
 
-//
-//Messages/
-//
+
+/////////////
+//Messages//
+///////////
 app.post('/api/message', messageCtrl.addMessage);
 app.delete('/api/message/:id', messageCtrl.deleteMessage);
 
 ///////////////////
-//POST ENDPOINTS//
+//FEED ENDPOINTS//
 /////////////////
 app.post('/api/post', feedCtrl.addPost);
 app.get('/api/post', feedCtrl.getAllPosts);
+app.post('/api/post/likes', feedCtrl.addLike);
+
+///////////
+//IMAGES//
+/////////
+app.post('/api/newimage', Amazon.saveImage);
 
 
 //////////////////
