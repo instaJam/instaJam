@@ -25,11 +25,14 @@ module.exports = {
         if (err) {
           res.status(500).json(err);
         }else {
-          console.log(req.body);
-          console.log(post);
           post.likes.push(req.body.userId);
-          console.log(post);
-          res.status(200).json(post);
+          post.save(function(err, data) {
+            if (err){
+              res.status(500).send(err);
+            }else {
+              res.status(200).json(data);
+            }
+          });
         }
       })
     }
