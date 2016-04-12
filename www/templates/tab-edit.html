@@ -4,7 +4,7 @@
         profile pic:{{currentUser.profpic}}
       </br>
         <button class="button button-positive" ng-click="userToggle()">user name:</button> {{currentUser.username}}
-        <label ng-hide="userhide" class="item item-input">
+        <label style="display:none" class="item item-input">
   <input type="text" placeholder="username"
   ng-model="user.username">
           <button class="button button-positive" ng-click="editUser(user)">Change</button>
