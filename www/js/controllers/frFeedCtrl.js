@@ -10,7 +10,6 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   $scope.getAllPosts = function() {
     postService.getAllPosts().then(function(res) {
         $scope.allPosts = res.data;
-        console.log($scope.currentUser._id);
       })
     }
   $scope.likesCounter = function (likesArray) {
