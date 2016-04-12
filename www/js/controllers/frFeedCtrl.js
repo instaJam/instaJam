@@ -24,8 +24,6 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   }
   $scope.getAllPosts();
 
-=======
-
   userService.getCurrentUser().then(function(data){
       $scope.currentUser = data.data;
   });
