@@ -1,5 +1,4 @@
 
-/* Empty. Add your own CSS if you like */
 .postSize{
   width: 320px;
   height: 320px;
@@ -8,89 +7,16 @@
   padding-top: 50px;
 }
 
-
-/*.item {
-    border-color: #fff;
-    background-color: #fff;
-    color: #444;
-    position: relative;
-    z-index: 2;
-    display: block;
-    margin: -1px;
-    padding: 16px;
-    border-width: 1px;
-    border-style: solid;
-    font-size: 16px;
-}*/
-
-
-.li-profile {
-  margin-top: 80px;
+.list-item-content {
+  padding: 5px;
 }
 
- #profile-bg {
-        position: fixed;
-        left: 0;
-        top: 0px;
-        width: 100%;
-        height: 115px;
-        background-image: url('../img/drums.jpg');
-        background-size: 100%;
-        background-position: 50% 20%;
-
-        text-align: center;
-      }
-
-      #content {
-        position: relative;
-        margin-top: 105px;
-        background-color: #FFF;
-        box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
-        padding-top: 145px;
-        color: #262F34;
-      }
-
-      #profile-info {
-        position: absolute;
-        top: -60px;
-        width: 100%;
-        z-index: 2;
-        text-align: center;
-      }
-      #profile-name {
-        color: #262F34;
-        font-size: 30px;
-        margin-top: 8px;
-      }
-      #profile-description {
-        font-size: 15px;
-        color: #888;
-      }
-      #profile-description a {
-        color: #888;
-      }
-
-      #profile-image {
-        display: block;
-        border-radius: 6px;
-        width: 65px;
-        height: 65px;
-        margin: 30px auto 0;
-        box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
-        border: 3px solid #F1D3BC;
-        margin-top: 40%;
-      }
-
-      .list-item-content {
-        padding: 5px;
-      }
-
-      .list-item {
-        color: #666666;
-      }
+.list-item {
+  color: #666666;
+}
 
 #loginPage {
-}
+  }
 #loginForm {
   margin-top: 30%;
 }
@@ -110,17 +36,62 @@
   margin-left: 5%;
 }
 
-#middleNav {
-    position: fixed;
-    left: 0;
-    width: 100%;
-    background-size: 100%;
-    background-position: 50% 20%;
-    text-align: center;
+.wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: column wrap;
+  flex-flow: column wrap;
+
+  font-weight: bold;
+  text-align: center;
 }
 
-.toggle-nav {
-  margin-left: 10px;
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.profile-bg {
+  height: 150px;
+  background-image: url('../img/drums.jpg');
+  background-size: 100%;
+  background-position: 50% 20%;
+  position: fixed;
+  left: 0;
+  width: 100%;
+}
+
+.footer {
+  border-top: 1px solid #ccc;
+  margin: 5px;
+  padding-top: 10px;
+}
+
+.middleNav {
+  justify-content: space-around;
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+.main {
+  text-align: center;
+  margin-top: 115px;
+}
+
+
+
+#profile-image {
+  display: block;
+  border-radius: 6px;
+  width: 65px;
+  height: 65px;
+  margin: 30px auto 0;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+  border: 3px solid #F1D3BC;
 }
 #usernameForm, #emailForm, #bioLabel {
   position: relative;
