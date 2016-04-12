@@ -1,6 +1,30 @@
-angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$cordovaGeolocation, userService){
+angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation){
   $scope.test = "hey it works";
   $scope.chats = Chats.all();
+
+  $scope.logout = function(){
+      $auth.logout().then(function(res){
+          $state.go('login');
+      });
+  }
+  $scope.getAllPosts = function() {
+    postService.getAllPosts().then(function(res) {
+        $scope.allPosts = res.data;
+        console.log($scope.currentUser._id);
+      })
+    }
+  $scope.likesCounter = function (likesArray) {
+    return likesArray.length;
+  }
+  $scope.like = function(userId, postId){
+    console.log(userId, postId);
+    postService.like(userId, postId).then(function(res){
+      $scope.getAllPosts();
+      })
+  }
+  $scope.getAllPosts();
+
+=======
 
   userService.getCurrentUser().then(function(data){
       $scope.currentUser = data.data;
