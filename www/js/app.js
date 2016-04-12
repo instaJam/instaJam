@@ -78,6 +78,15 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
         }
       }
     })
+    .state('tab.edit', {
+      url: '/edit',
+      views: {
+        'tab-edit': {
+        templateUrl: 'templates/tab-edit.html',
+        controller: 'frUserProfileCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',
@@ -94,6 +103,7 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     templateUrl: 'templates/login.html',
     controller: 'frLoginCtrl'
   })
+
   .state('signup', {
     url: '/signup',
     templateUrl: 'templates/newUserLogin.html',

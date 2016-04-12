@@ -11,6 +11,18 @@ angular.module('instajam').controller('frUserProfileCtrl', function($scope,$stat
         });
     }
 
+    $scope.userhide = true;
+
+    $scope.userToggle = function() {
+      $scope.userhide = $scope.userhide === false ? true: false;
+    }
+
+    $scope.editUser = function(user){
+      console.log(user);
+        userService.editUser(user)
+        $scope.userhide = true;
+    }
+
 
 
 
