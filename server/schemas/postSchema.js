@@ -3,6 +3,9 @@ var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
     content: String,
+    description: String,
+    likes: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    comments: [{user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}, comment: String}],
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 }, {timestamps: true})
 

@@ -92,6 +92,7 @@ app.delete('/api/message/:id', messageCtrl.deleteMessage);
 /////////////////
 app.post('/api/post', feedCtrl.addPost);
 app.get('/api/post', feedCtrl.getAllPosts);
+app.post('/api/post/likes', feedCtrl.addLike);
 
 ///////////
 //IMAGES//
