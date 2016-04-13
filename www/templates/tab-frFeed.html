@@ -12,14 +12,19 @@
   <ion-content>
     <div class="postContent">
 
-      <div class="list" ng-repeat="post in allPosts">
+      <div class="list" ng-repeat="post in allPosts | orderBy:'createdAt':true">
         <div class="item item-avatar">
           <img ng-src="{{post.user.profpic}}">
           <h2>{{post.user.username}}</h2>
 
         </div>
         <div>
-          <img ng-src="{{post.content}}" class="postSize">
+            <video id="example_video_1" class="video-js vjs-default-skin"
+              controls preload="auto" width="640" height="264"
+              data-setup='{"example_option":true}'>
+             <source ng-src="{{content}}" type="video/mp4">
+
+            </video>
         </div>
         <div class="button-bar">
           <button class="button">
@@ -30,16 +35,18 @@
           </button>
         </div>
 
-
-
-          {{post.user.username}}: {{post.description}} {{likesCounter(post.likes) + "likes!"}}
+          {{post.user.username}}: {{post.description}} {{likesCounter(post.likes) + " likes!"}}
 
 
       </div>
     </div>
 
 
-
+    <ion-item>
+                    <div class="video-container">
+                        <iframe src="http://www.youtube.com/embed/uJAWaE11Jf4" frameborder="0" width="560" height="315"></iframe>
+                    </div>
+                </ion-item>
 
   </ion-content>
 </ion-view>

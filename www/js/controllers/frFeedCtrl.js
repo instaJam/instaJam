@@ -1,15 +1,24 @@
-angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation){
+angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation, currentUser, $sce){
   $scope.test = "hey it works";
   $scope.chats = Chats.all();
+  $scope.currentUser = currentUser;
 
+
+
+// $scope.trustSrc = function(src) {
+//     console.log(src);
+//     //   return $sce.trustAsResourceUrl(src);
+//     };
   $scope.logout = function(){
       $auth.logout().then(function(res){
           $state.go('login');
       });
   }
+
   $scope.getAllPosts = function() {
     postService.getAllPosts().then(function(res) {
         $scope.allPosts = res.data;
+        $scope.content = $sce.trustAsResourceUrl(res.data[0].content);
       })
     }
   $scope.likesCounter = function (likesArray) {
@@ -22,10 +31,6 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       })
   }
   $scope.getAllPosts();
-
-  userService.getCurrentUser().then(function(data){
-      $scope.currentUser = data.data;
-  });
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {

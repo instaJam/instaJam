@@ -45,7 +45,14 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     views: {
       'tab-frFeed': {
         templateUrl: 'templates/tab-frFeed.html',
-        controller: 'frFeedCtrl'
+        controller: 'frFeedCtrl',
+        resolve: {
+            currentUser: function(userService) {
+                return userService.getCurrentUser().then(function(data){
+                    return data.data
+                });
+            }
+        }
       }
     }
   })
@@ -84,7 +91,14 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        controller: 'AccountCtrl',
+        resolve: {
+            currentUser: function(userService) {
+                return userService.getCurrentUser().then(function(data){
+                    return data.data
+                });
+            }
+        }
       }
     }
   })
