@@ -122,15 +122,21 @@
 .toggle-nav {
   margin-left: 10px;
 }
-#usernameForm, #emailForm, #bioLabel {
-  position: relative;
+#usernameForm, #emailForm, #bioForm, #passwordForm {
+  /*position: relative;*/
+  display: flex;
+  justify-content:flex-start;
   margin-bottom: 5%;
 }
-#userLabel, #emailLabel, #bioLabel {
+#userLabel, #emailLabel, #passwordLabel {
   /*float:left;*/
-  /*margin-right: 5%;
-  margin-left: 10%;*/
+  /*margin-right: 5%;*/
+  margin-left: 5%;
   font-size: 4vh;
+}
+#bioLabel {
+  margin-left: 5%;
+  font-size: 3vh;
 }
 .editPic {
   width:80%;
