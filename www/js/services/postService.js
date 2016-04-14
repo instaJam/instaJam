@@ -18,11 +18,32 @@ this.like = function(userId, postId){
 }
 this.dislike = function(userId, postId){
   return $http({
-    method: "post",
+    method: "POST",
     url: "api/post/dislike",
     data: {
       userId: userId,
       postId: postId
+    }
+  })
+}
+this.submitComment = function (userId, postId, newComment) {
+  return $http({
+    method: "POST",
+    url: "api/post/submitComment",
+    data: {
+      postId: postId,
+      userId: userId,
+      newComment: newComment
+    }
+  })
+}
+this.deleteComment = function(postId, commentId) {
+  return $http({
+    method: "POST",
+    url: "api/post/deleteComment",
+    data: {
+      postId: postId,
+      commentId: commentId
     }
   })
 }

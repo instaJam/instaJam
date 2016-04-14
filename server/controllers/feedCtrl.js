@@ -12,7 +12,7 @@ module.exports = {
         });
     },
     getAllPosts: function (req, res) {
-     Post.find({}, function (err, resp) {
+     Post.find({}).populate("comments.user").exec(function (err, resp) {
              if (err) {
                  res.status(500).json(err);
              } else {
@@ -57,5 +57,37 @@ module.exports = {
       Post.find({'user': id}, function(err, response) {
           err ? res.status(500).send(err) : res.status(200).send(response);
       })
+  },
+  submitComment: function(req, res, next) {
+    Post.findById(req.body.postId, function(err, post){
+      if (err) {
+        res.status(500).json(err);
+      }else {
+        post.comments.push({user: req.body.userId, comment: req.body.newComment});
+        post.save(function(err, data) {
+          if (err){
+            res.status(500).send(err);
+          }else {
+            res.status(200).json(data);
+          }
+        })
+      }
+    })
+  },
+  deleteComment: function(req, res, next) {
+    Post.findById(req.body.postId, function(err, post) {
+      if (err) {
+        res.status(500).json(err);
+      }else {
+        post.comments.splice(post.comments.indexOf(req.body.commentId, 0), 1);
+      }
+      post.save(function(err, data) {
+        if (err){
+          res.status(500).send(err);
+        }else {
+          res.status(200).json(data);
+        }
+      });
+    })
   }
 }
