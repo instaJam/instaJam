@@ -1,9 +1,8 @@
 angular.module('instajam').controller('frUserProfileCtrl', function($scope,$state,$auth, userService, $ionicModal){
 
-    userService.getCurrentUser().then(function(res){
+userService.getCurrentUser().then(function(res){
                 $scope.currentUser = res.data;
             })
-
 
     $scope.logout = function(){
         $auth.logout().then(function(res){
@@ -11,7 +10,6 @@ angular.module('instajam').controller('frUserProfileCtrl', function($scope,$stat
         });
     }
 
-    $scope.userhide = true;
 
     $scope.userToggle = function() {
       var c = document.getElementById('usernameChange');
@@ -46,38 +44,70 @@ angular.module('instajam').controller('frUserProfileCtrl', function($scope,$stat
 
       // $scope.userhide = $scope.userhide === false ? true: false;
     }
+    $scope.passwordToggle = function() {
+      var c = document.getElementById('passwordChange');
+      var a = document.getElementById('passwordLabel')
+      if (c.style.display === "block") {
+        a.style.display="block";
+        c.style.display="none";}
+      else {
+        a.style.display="none";      c.style.display="block";}
+
+      // $scope.userhide = $scope.userhide === false ? true: false;
+    }
 
     $scope.editUser = function(user){
       console.log(user);
         userService.editUser(user)
         var c = document.getElementById('emailChange');
         var a = document.getElementById('userLabel')
-        var d = document.getElementById('emailChange');
+        var d = document.getElementById('usernameChange');
         var b = document.getElementById('emailLabel')
         var f = document.getElementById('bioChange');
         var e = document.getElementById('bioLabel')
+        // var g = document.getElementById('passwordChange');
+        // var h = document.getElementById('passwordLabel')
         a.style.display="block";
         b.style.display="block";
         e.style.display="block";
+        // h.style.display="block";
         c.style.display="none";
         d.style.display="none";
         f.style.display="none";
+        // g.style.display="none";
     }
 
     // $scope.toggleProfileView = function() {
     //
     // }
-
-    $ionicModal.fromTemplateUrl('templates/settings.html', {
-    scope: $scope,
-    animation: 'slide-in-left'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });
+    $scope.profileSettings = function() {
+      $ionicModal.fromTemplateUrl('templates/settings.html', {
+      scope: $scope,
+      animation: 'slide-in-left'
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+    }
 
     $scope.settings = function() {
       $scope.modal.hide();
       $state.go('tab.edit');
     };
+
+    $scope.newMessage = function() {
+      $ionicModal.fromTemplateUrl('templates/new-message.html', {
+      scope: $scope,
+      animation: 'slide-in-left'
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+    }
+
+    $scope.sendMessage = function(message) {
+      $scope.message = message;
+      console.log(message);
+    }
 
 })

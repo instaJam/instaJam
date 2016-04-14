@@ -100,15 +100,21 @@
   box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
   border: 3px solid #F1D3BC;
 }
-#usernameForm, #emailForm, #bioLabel {
-  position: relative;
+#usernameForm, #emailForm, #bioForm, #passwordForm {
+  /*position: relative;*/
+  display: flex;
+  justify-content:flex-start;
   margin-bottom: 5%;
 }
-#userLabel, #emailLabel, #bioLabel {
+#userLabel, #emailLabel, #passwordLabel {
   /*float:left;*/
-  /*margin-right: 5%;
-  margin-left: 10%;*/
+  /*margin-right: 5%;*/
+  margin-left: 5%;
   font-size: 4vh;
+}
+#bioLabel {
+  margin-left: 5%;
+  font-size: 3vh;
 }
 .editPic {
   width:80%;
@@ -172,4 +178,23 @@
   font-weight: bold;
   font-size: 3em;
   text-align: center;
+}
+
+#map {
+  width: 90%;
+  height: 500px;
+  margin-top: 50px;
+  margin-right: 5%;
+  margin-left: 5%;
+  border-radius: 10px;
+  /*border-style:solid;*/
+  text-align: center;
+}
+.messageArea {
+  margin-right: 10px;
+  height: 250px;
+  line-height: 30px;
+  font-size: 18px;
+  padding: 15px;
+
 }

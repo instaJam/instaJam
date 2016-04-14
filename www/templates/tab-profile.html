@@ -1,17 +1,17 @@
+
 <ion-view hide-nav-bar="true">
   <div class="profile-bg"></div>
   <ion-content class="wrapper" ion-scroll="false">
       <div class="main">
             <img id="profile-image" ng-src="{{currentUser.profpic}}">
             <h2 id="profile-name">{{currentUser.username}}</h2>
-            {{currentUser.bio}}
             <p style="color: #b5b5b5;">
-              This is dummy data for the currentUser.bio that will go here.
+              {{currentUser.bio}}
             </p>
       </div>
       <div class="followNav">
         <div id="follow">
-          <h2>2,000</h2>
+          <h2>{{ currentUser.followers.length }}</h2>
           <h5>Followers</h5>
         </div>
         <!-- <div>
@@ -21,7 +21,7 @@
           </button>
         </div> -->
         <div>
-          <h2>139</h2>
+          <h2>{{ currentUser.following.length }}</h2>
           <h5>Following</h5>
         </div>
       </div>
@@ -37,7 +37,7 @@
         </button>
       </div>
       <div>
-        <button class="button button-icon" ng-click="modal.show()">
+        <button class="button button-icon" ng-click="profileSettings()">
           <i class="icon ion-ios-settings-strong"></i>
         </button>
       </div>

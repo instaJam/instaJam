@@ -48,4 +48,14 @@ this.deleteComment = function(postId, commentId) {
   })
 }
 
+this.postContent = function(data, user){
+    return $http({
+        method:"POST",
+        url:'/api/post',
+        data:{
+            content: data,
+            user: user
+        }
+    })
+}
 });

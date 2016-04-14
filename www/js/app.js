@@ -5,6 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'instajam.services' is found in services.js
 // 'instajam.controllers' is found in controllers.js
+var socket = io();
+
 angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services', 'satellizer', 'ngCordova'])
 
 .run(function($ionicPlatform) {
@@ -74,7 +76,7 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
       views: {
         'tab-chats': {
           templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+          controller: 'messageCtrl'
         }
       }
     })
@@ -108,7 +110,13 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     url: '/signup',
     templateUrl: 'templates/newUserLogin.html',
     controller: 'frLoginCtrl'
-  });
+  })
+
+  .state('map', {
+    url: '/map',
+    templateUrl: 'templates/map.html',
+    controller: 'mapCtrl',
+  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
