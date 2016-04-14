@@ -108,7 +108,13 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     url: '/signup',
     templateUrl: 'templates/newUserLogin.html',
     controller: 'frLoginCtrl'
-  });
+  })
+
+  .state('map', {
+    url: '/map',
+    templateUrl: 'templates/map.html',
+    controller: 'mapCtrl',
+  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
