@@ -191,3 +191,11 @@
   /*border-style:solid;*/
   text-align: center;
 }
+.messageArea {
+  margin-right: 10px;
+  height: 250px;
+  line-height: 30px;
+  font-size: 18px;
+  padding: 15px;
+
+}
