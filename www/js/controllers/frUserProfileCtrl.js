@@ -67,17 +67,34 @@ angular.module('instajam').controller('frUserProfileCtrl', function($scope,$stat
     // $scope.toggleProfileView = function() {
     //
     // }
-
-    $ionicModal.fromTemplateUrl('templates/settings.html', {
-    scope: $scope,
-    animation: 'slide-in-left'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });
+    $scope.profileSettings = function() {
+      $ionicModal.fromTemplateUrl('templates/settings.html', {
+      scope: $scope,
+      animation: 'slide-in-left'
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+    }
 
     $scope.settings = function() {
       $scope.modal.hide();
       $state.go('tab.edit');
     };
+
+    $scope.newMessage = function() {
+      $ionicModal.fromTemplateUrl('templates/new-message.html', {
+      scope: $scope,
+      animation: 'slide-in-left'
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+    }
+
+    $scope.sendMessage = function(message) {
+      $scope.message = message;
+      console.log(message);
+    }
 
 })
