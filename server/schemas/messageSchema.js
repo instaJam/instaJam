@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var messageSchema = new Schema({
-    message: [{
-        content: {type: String, required: true},
+var chatSchema = new Schema({
+    messages: [{
+        content: {type: String, required: false},
         fromUser: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
         toUser: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
         date: {type: Date, default: new Date()}
@@ -12,9 +12,9 @@ var messageSchema = new Schema({
     toUser: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 }, {timestamps: true})
 
-messageSchema.pre('find', function(next) {
+chatSchema.pre('find', function(next) {
     this.populate('fromUser toUser message.fromUser message.toUser');
     next();
 })
 
-module.exports = mongoose.model('Message', messageSchema);
+module.exports = mongoose.model('Chat', chatSchema);

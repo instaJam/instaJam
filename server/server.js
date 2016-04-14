@@ -52,17 +52,14 @@ app.get('/api/user', userCtrl.getAllUsers);
 app.get('/api/user/:id', userCtrl.getUser);
 app.put('/api/user/:id', userCtrl.updateUser);
 app.delete('/api/user/:id', userCtrl.deleteUser);
-app.get('/api/me', userCtrl.ensureAuthenticated, function(req, res) {
-  User.findById(req.user, function(err, user) {
-    res.send(user);
-  });
-});
+app.get('/api/me', userCtrl.ensureAuthenticated, userCtrl.getCurrentUser);
 
 
 
 /////////////
 //Messages//
 ///////////
+app.post('/api/chat/:toUser', messageCtrl.createChat);
 app.post('/api/message', messageCtrl.addMessage);
 app.delete('/api/message/:id', messageCtrl.deleteMessage);
 

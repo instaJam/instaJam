@@ -59,6 +59,11 @@ updateUser: function(req, res, next) {
                 }
             });
     },
+    getCurrentUser: function(req, res) {
+      User.findById(req.user, function(err, user) {
+        res.send(user);
+      })
+  },
       userLogin : function(req, res) {
         User.findOne({ username: req.body.username }, 'username password', function(err, user) {
           if (!user) {
