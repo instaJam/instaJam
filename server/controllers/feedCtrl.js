@@ -35,5 +35,21 @@ module.exports = {
           });
         }
       })
-    }
+    },
+    removeLike: function(req, res, next){
+      Post.findById(req.body.postId, function(err, post){
+        if (err) {
+          res.status(500).json(err);
+        }else {
+          post.likes.splice(post.likes.indexOf(req.body.userId, 0), 1);
+        }
+          post.save(function(err, data) {
+            if (err){
+              res.status(500).send(err);
+            }else {
+              res.status(200).json(data);
+            }
+          });
+        })
+      }
 }

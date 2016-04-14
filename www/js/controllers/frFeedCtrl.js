@@ -1,4 +1,4 @@
-angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation){
+angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q){
   $scope.test = "hey it works";
   $scope.chats = Chats.all();
 
@@ -15,17 +15,21 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   $scope.likesCounter = function (likesArray) {
     return likesArray.length;
   }
-  $scope.like = function(userId, postId){
-    console.log(userId, postId);
-    postService.like(userId, postId).then(function(res){
-      console.log(res.data);
-      $scope.post[postId] = res.data;
-      })
+  $scope.like = function(userId, postId, likes){
+    if (likes.indexOf(userId, 0) === -1){
+      postService.like(userId, postId).then(function(res){
+        $scope.getAllPosts();
+      });
+
+    }else {
+      postService.dislike(userId, postId).then(function(res) {
+        $scope.getAllPosts();
+    });
   }
+}
   $scope.getAllPosts();
 
   userService.getCurrentUser().then(function(data){
-    console.log(data.data);
       $scope.currentUser = data.data;
   });
 
@@ -36,6 +40,7 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
           long:position.coords.longitude
         }
 
+      console.log(cord);
       userService.editUserLoc(cord, $scope.currentUser._id)
     }, function(err) {
       console.log(err);
