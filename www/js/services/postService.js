@@ -16,5 +16,15 @@ this.like = function(userId, postId){
     }
   })
 }
+this.dislike = function(userId, postId){
+  return $http({
+    method: "post",
+    url: "api/post/dislike",
+    data: {
+      userId: userId,
+      postId: postId
+    }
+  })
+}
 
 });
