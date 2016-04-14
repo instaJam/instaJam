@@ -181,10 +181,21 @@
   text-align: center;
 }
 
+#map {
+  width: 90%;
+  height: 500px;
+  margin-top: 50px;
+  margin-right: 5%;
+  margin-left: 5%;
+  border-radius: 10px;
+  /*border-style:solid;*/
+  text-align: center;
+}
 .messageArea {
   margin-right: 10px;
   height: 250px;
   line-height: 30px;
   font-size: 18px;
   padding: 15px;
+
 }
