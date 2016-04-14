@@ -7,7 +7,6 @@ this.getCurrentUser = function(){
     });
 }
 
-
 this.editUserLoc = function(info, id){
     return $http({
         method:"PUT",
