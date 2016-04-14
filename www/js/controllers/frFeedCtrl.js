@@ -12,6 +12,33 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
         $scope.allPosts = res.data;
       })
     }
+  $scope.commentHider = true;
+  $scope.commentToggle = function () {
+    $scope.commentHider = !$scope.commentHider;
+    $scope.newComment = "";
+  }
+  $scope.submitComment = function (userId, postId, newComment) {
+    console.log(userId, postId, newComment);
+    postService.submitComment(userId, postId, newComment).then(function(res) {
+      $scope.getAllPosts();
+      $scope.commentToggle();
+    })
+  }
+  $scope.deleteCommentToggle = function(commentHider, userId) {
+    if (commentHider !== true && userId === $scope.currentUser._id){
+      $scope.deleteCommentHider = false;
+    }else {
+      $scope.deleteCommentHider = true;
+    }
+  }
+  $scope.deleteComment = function (postId, commentId) {
+    console.log(commentId);
+    postService.deleteComment(postId, commentId).then(function(res) {
+      $scope.getAllPosts();
+      $scope.commentToggle();
+    })
+
+  }
   $scope.likesCounter = function (likesArray) {
     return likesArray.length;
   }
