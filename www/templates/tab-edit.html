@@ -1,6 +1,8 @@
 <ion-view view-title="Edit Profile">
   <ion-content>
       <div><img class="editPic" src="{{currentUser.profpic}}" />
+            <input type="file" class="upload" prof-pic profile="currentUser" accept="image/*"/>
+             <!-- <button style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</button> -->
       </br>
     <div id="usernameForm">
         <button style="float:left; margin-left:1%" class="button button-positive" ng-click="userToggle()">username:</button> <span id="userLabel">{{currentUser.username}}</span>
