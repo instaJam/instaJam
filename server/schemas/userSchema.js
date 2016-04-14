@@ -19,9 +19,7 @@ var userSchema = new Schema({
     followers: [{
             user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
     }],
-    messages: [{
-        thread: {type: mongoose.Schema.Types.ObjectId, ref: 'Message'}
-    }],
+    chats: [{type: mongoose.Schema.Types.ObjectId, ref: 'Chat'}],
     profpic:{type:String, default:'http://1.bp.blogspot.com/-Tb_UK9_ePUM/U7oTNS-AnSI/AAAAAAAAPLE/2TT0ltTzqF4/s1600/default+image.jpg'},
     loc:{}
 })
@@ -30,7 +28,7 @@ var userSchema = new Schema({
 //Populate user info and messages info//
 ///////////////////////////////////////
 userSchema.pre('find', function(next) {
-    this.populate('user messages.thread');
+    this.populate('following.user followers.user messages.thread');
     next();
 })
 
