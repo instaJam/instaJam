@@ -27,4 +27,14 @@ this.dislike = function(userId, postId){
   })
 }
 
+this.postContent = function(data, user){
+    return $http({
+        method:"POST",
+        url:'/api/post',
+        data:{
+            content: data,
+            user: user
+        }
+    })
+}
 });
