@@ -12,7 +12,7 @@
   <ion-content>
     <div class="postContent">
 
-      <div class="list" ng-repeat="post in allPosts">
+      <div class="list" ng-repeat="post in allPosts track by post._id">
         <div class="item item-avatar">
           <img ng-src="{{post.user.profpic}}">
           <h2>{{post.user.username}}</h2>
@@ -24,7 +24,7 @@
         <div class="button-bar">
           <button class="button">
             <i class="ion-ios-chatbubble"></i>
-            <button class="button" ng-click="like(currentUser._id, post._id)">
+            <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
               <i class="ion-happy-outline" ></i>
             </button>
           </button>

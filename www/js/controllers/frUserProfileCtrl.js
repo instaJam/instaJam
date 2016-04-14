@@ -1,4 +1,4 @@
-angular.module('instajam').controller('frUserProfileCtrl', function($scope,$state,$auth, userService){
+angular.module('instajam').controller('frUserProfileCtrl', function($scope,$state,$auth, userService, $ionicModal){
 
     userService.getCurrentUser().then(function(res){
                 $scope.currentUser = res.data;
@@ -77,5 +77,21 @@ angular.module('instajam').controller('frUserProfileCtrl', function($scope,$stat
         f.style.display="none";
         // g.style.display="none";
     }
+
+    // $scope.toggleProfileView = function() {
+    //
+    // }
+
+    $ionicModal.fromTemplateUrl('templates/settings.html', {
+    scope: $scope,
+    animation: 'slide-in-left'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.settings = function() {
+      $scope.modal.hide();
+      $state.go('tab.edit');
+    };
 
 })

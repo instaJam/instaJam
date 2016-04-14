@@ -1,15 +1,30 @@
 
 <ion-view hide-nav-bar="true">
   <div class="profile-bg"></div>
-  <ion-content class="wrapper">
+  <ion-content class="wrapper" ion-scroll="false">
       <div class="main">
             <img id="profile-image" ng-src="{{currentUser.profpic}}">
-            <h3 id="profile-name">{{currentUser.username}}</h3>
+            <h2 id="profile-name">{{currentUser.username}}</h2>
             {{currentUser.bio}}
-            <button class="button button-icon" ui-sref="#">
-              <!-- Toggle Follow and Edit depending on currentUser -->
-              <i class="icon ion-star">Follow</i>
-            </button>
+            <p style="color: #b5b5b5;">
+              This is dummy data for the currentUser.bio that will go here.
+            </p>
+      </div>
+      <div class="followNav">
+        <div id="follow">
+          <h2>2,000</h2>
+          <h5>Followers</h5>
+        </div>
+        <!-- <div>
+          <button class="button button-icon" ui-sref="#">
+            <i class="icon ion-star"></i>
+            <h5>Follow</h5>
+          </button>
+        </div> -->
+        <div>
+          <h2>139</h2>
+          <h5>Following</h5>
+        </div>
       </div>
     <div class="middleNav">
       <div>
@@ -18,27 +33,46 @@
         </button>
       </div>
       <div>
-        <button class="button button-icon" ui-sref="#">
+        <button class="button button-icon" ng-click="newMessage()">
           <i class="icon ion-ios-email"></i>
         </button>
       </div>
       <div>
-        <button class="button button-icon" ui-sref="#">
-          <i class="icon ion-ios-cog"></i>
+        <button class="button button-icon" ng-click="modal.show()">
+          <i class="icon ion-ios-settings-strong"></i>
         </button>
       </div>
     </div>
+      <ion-scroll direction="y" class="thefeed">
         <div class="footer">
-          <button type="button" name="button"  ng-click="logout()">Logout</button>
-          <button type="button" name="button" ng-click='editUser(currentUser)'>EDIT USER</button>
-          <ul>
-            <li>
+          <ul class="feed-container">
+            <li class="feed-item">
+              <!--User Posts -->
+              <!--User Image -->
+              <!--Time of Post -->
+            </li>
+            <li class="feed-item">
+              <!--User Posts -->
+              <!--User Image -->
+              <!--Time of Post -->
+            </li>
+            <li class="feed-item">
+              <!--User Posts -->
+              <!--User Image -->
+              <!--Time of Post -->
+            </li>
+            <li class="feed-item">
+              <!--User Posts -->
+              <!--User Image -->
+              <!--Time of Post -->
+            </li>
+            <li class="feed-item">
               <!--User Posts -->
               <!--User Image -->
               <!--Time of Post -->
             </li>
           </ul>
         </div>
-        <div>
+        </ion-scroll>
   </ion-content>
 </ion-view>
