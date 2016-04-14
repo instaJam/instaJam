@@ -1,12 +1,13 @@
 <ion-view view-title="Edit Profile">
   <ion-content>
-      <div>
-        profile pic:<img class="editPic" src="{{currentUser.profpic}}" />
+      <div><img class="editPic" src="{{currentUser.profpic}}" />
+            <input type="file" class="upload" prof-pic profile="currentUser" accept="image/*"/>
+             <!-- <button style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</button> -->
       </br>
     <div id="usernameForm">
-        <button style="float:left; margin-left:1%" class="button button-positive" ng-click="userToggle()">user name:</button> <span id="userLabel">{{currentUser.username}}</span>
+        <button style="float:left; margin-left:1%" class="button button-positive" ng-click="userToggle()">username:</button> <span id="userLabel">{{currentUser.username}}</span>
         <div id="usernameChange" style="display:none" class="item item-input">
-  <input style="font-size:4vh" type="text" placeholder="new username"
+  <input style="font-size:2.5vh" type="text" placeholder="new username"
   ng-model="currentUser.username">
           <button style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</button>
 </div>
@@ -29,9 +30,15 @@
             <submit style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</submit>
   </div>
   </div>
-      </br>
-        password: {{currentUser.password}}
-
+      <!-- </br>
+      <div id="passwordForm">
+          <button style="float:left; margin-left:1%" class="button button-positive" ng-click="passwordToggle()">password:</button> <span id="passwordLabel">{{currentUser.password}}</span>
+          <div id="passwordChange" style="display:none" class="item item-input">
+    <textarea style="font-size:3vh" type="text" placeholder="new password"
+    ng-model="currentUser.password"></textarea>
+            <submit style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</submit>
+  </div>
+  </div> -->
       <!-- </div>  <input type="text" placeholder="username"
         ng-model="currentUser.username">
                 <button class="button button-positive" ng-click="editUser(currentUser)">Change</button> -->
