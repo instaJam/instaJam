@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="instajam">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -14,6 +14,7 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
@@ -28,6 +29,7 @@
     <script src="js/controllers/frMainCtrl.js"></script>
     <script src="js/controllers/frMessageCtrl.js"></script>
     <script src="js/controllers/frUserProfileCtrl.js"></script>
+    <script src="js/controllers/mainCtrl.js"></script>
     <script src='js/services/userService.js'></script>
     <script src='js/services/postService.js'></script>
 
@@ -36,8 +38,10 @@
     <script src="js/directives/uploadProfPic.js"></script>
     <script src="js/services/imagesService.js"></script>
 
+
+
   </head>
-  <body ng-app="instajam">
+  <body ng-controller = 'mainCtrl'>
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
