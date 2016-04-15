@@ -16,12 +16,10 @@ module.exports = {
                     if (err) console.log(err);
                 })
                 res.status(200).send(response);
-                console.log(response);
             }
         })
     },
     getChats:function(req, res, next){
-        console.log(req.query);
         if (req.query.chat) {
                 Chat.findById(req.query.chat).populate("toUser fromUser messages.toUser messages.fromUser").exec(function(err, response) {
                     err ? res.status(500).send(err) : res.status(200).send(response)
@@ -65,7 +63,6 @@ module.exports = {
                       if (err) console.log(err);
                   })
                   res.status(200).send(resp);
-                  console.log(resp);
               }
       });
   },
