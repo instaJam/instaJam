@@ -1,4 +1,4 @@
-angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q){
+angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService){
   $scope.test = "hey it works";
   $scope.chats = Chats.all();
 
@@ -59,6 +59,13 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   userService.getCurrentUser().then(function(data){
       $scope.currentUser = data.data;
   });
+
+  $scope.createChat = function(clickedUserId, currentUserId) {
+      chatService.createChat(clickedUserId, currentUserId)
+      .then(function(response) {
+          $state.go('tab.chat-detail', {chatId: response})
+      })
+  }
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
