@@ -1,4 +1,4 @@
-angular.module("instajam").service("messageSrvc", function($http) {
+angular.module("instajam").service("messageSrvc", function($http, $stateParams) {
 
     this.postMessage = function(msg){
 
@@ -6,13 +6,24 @@ angular.module("instajam").service("messageSrvc", function($http) {
 
     };
 
-    this.postMessageById= function(newMsg, id){
-        console.log(id,"here is id");
+    this.postMessage= function(msg, toUser,fromUser){
       return $http({
         method:"POST",
-        data: newMsg,
-        url:'/api/message' + id,
+        data: {content:msg, 
+                toUser:toUser,
+                fromUser:fromUser
+            },
+        url:'/api/message/' + $stateParams.chatId
 
-    });
+        });
     };
+    this.getChatDetail = function(){
+        return $http({
+            method:"GET",
+            url:'/api/chat/?chat=' + $stateParams.chatId
+        })
+    }
+
+
+
 });

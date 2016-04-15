@@ -21,29 +21,24 @@ module.exports = {
         })
     },
     getChats:function(req, res, next){
-        Chat.find({}, function(err, resp){
-            if (err) {
-                res.status(500).json(err);
+        console.log(req.query);
+        if (req.query.chat) {
+                Chat.findById(req.query.chat).populate("toUser fromUser messages.toUser messages.fromUser").exec(function(err, response) {
+                    err ? res.status(500).send(err) : res.status(200).send(response)
+                })
             } else {
-                res.status(200).json(resp);
+                Chat.find().populate("toUser fromUser messages.toUser messages.fromUser").exec(function(err, response) {
+                    err ? res.status(500).send(err) : res.status(200).send(response)
+                })
             }
-        })
     },
-    addMessage: function(req, res){
-            Chat.findById(req.params.id, function(err, user){
-                if(err){
-                    res.status(500).send(err)
-                }else{
-                    chats.messages.push(req.body);
-                    chats.save(function(err, data){
-                        if(err){
-                            res.status(500)
-                        }else{
-                            res.send(data)
-                        }
-                    })
-                }
-            })
+    addMessageToChat: function(req, res){
+        var id = req.params.id;
+        Chat.findByIdAndUpdate(id, {$push:{'messages':
+        req.body}}, function(err, resp){
+            err ? res.status(500).send(err):res.status(200).send(resp);
+
+        })
 
     },
     deleteMessage: function (req, res) {

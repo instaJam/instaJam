@@ -64,7 +64,7 @@ app.delete('/api/chat/:id/:toUser',userCtrl.ensureAuthenticated, messageCtrl.del
 /////////////
 //Messages//
 ///////////
-app.post('/api/message', messageCtrl.addMessage);
+app.post('/api/message/:id', messageCtrl.addMessageToChat);
 app.delete('/api/message/:id', messageCtrl.deleteMessage);
 
 ///////////////////
