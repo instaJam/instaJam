@@ -28,7 +28,7 @@ var userSchema = new Schema({
 //Populate user info and messages info//
 ///////////////////////////////////////
 userSchema.pre('find', function(next) {
-    this.populate('following.user followers.user messages.thread');
+    this.populate('following.user followers.user chats');
     next();
 })
 

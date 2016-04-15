@@ -6,14 +6,14 @@
 -->
 <ion-view view-title="{{chat.name}}">
   <ion-content class="padding">
-    <img ng-src="{{chat.toUser}}" style="width: 64px; height: 64px">
+    <img ng-src="{{currentUser.profpic}}" style="width: 64px; height: 64px">
     <p>
-      {{chat.lastText}}
+      {{chat.toUser}}
     </p>
 {{name}}
 
-<form action="" ng-submit="sendMsg(msg)">
- <input ng-model='msg' autocomplete="off" />
+<form action="" ng-submit="postMessage(content, chat.toUser)">
+ <input ng-model='content' autocomplete="off"/>
 </form>
 
     {{message}}
