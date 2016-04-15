@@ -51,12 +51,18 @@ app.put('/api/user/:id', userCtrl.updateUser);
 app.delete('/api/user/:id', userCtrl.deleteUser);
 app.get('/api/me', userCtrl.ensureAuthenticated, userCtrl.getCurrentUser);
 
+//////////////
+///CHATS/////
+////////////
+app.post('/api/chat/:toUser', messageCtrl.createChat);
+app.get('/api/chat', messageCtrl.getChats);
+app.delete('/api/chat/:id', messageCtrl.deleteChat);
+
 
 
 /////////////
 //Messages//
 ///////////
-app.post('/api/chat/:toUser', messageCtrl.createChat);
 app.post('/api/message', messageCtrl.addMessage);
 app.delete('/api/message/:id', messageCtrl.deleteMessage);
 

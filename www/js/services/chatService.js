@@ -12,5 +12,16 @@ this.createChat = function(clickedUserId, currentUserId) {
         return response.data._id;
     })
 }
-
+this.getChats = function(){
+    return $http({
+        method:"GET",
+        url:"/api/chat"
+    });
+};
+this.deleteChat =function(id){
+    return $http({
+        method:"DELETE",
+        url:'/api/chat/' + id
+    });
+    }
 })

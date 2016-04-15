@@ -11,4 +11,8 @@ angular.module('instajam').service('imagesService', function($http) {
       };
       return $http.post('/api/newimage', newImage);
   };
+
+
+
+
 })

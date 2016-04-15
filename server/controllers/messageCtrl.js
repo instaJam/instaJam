@@ -20,6 +20,15 @@ module.exports = {
             }
         })
     },
+    getChats:function(req, res, next){
+        Chat.find({}, function(err, resp){
+            if (err) {
+                res.status(500).json(err);
+            } else {
+                res.status(200).json(resp);
+            }
+        })
+    },
     addMessage: function(req, res){
         var message = new Message(req.body);
         message.save(function(err, data){
@@ -39,5 +48,14 @@ module.exports = {
             res.status(200).json(resp);
         }
     });
-}
+},deleteChat: function (req, res) {
+      var id = req.params.id;
+      Chat.findByIdAndRemove(id, function (err, resp) {
+          if (err) {
+              res.status(500).json(err);
+          } else {
+              res.status(200).json(resp);
+          }
+      });
+  },
 };
