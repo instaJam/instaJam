@@ -56,7 +56,7 @@ app.get('/api/me', userCtrl.ensureAuthenticated, userCtrl.getCurrentUser);
 ////////////
 app.post('/api/chat/:toUser', messageCtrl.createChat);
 app.get('/api/chat', messageCtrl.getChats);
-app.delete('/api/chat/:id', messageCtrl.deleteChat);
+app.delete('/api/chat/:id/:toUser', messageCtrl.deleteChat);
 
 
 

@@ -18,10 +18,10 @@ this.getChats = function(){
         url:"/api/chat"
     });
 };
-this.deleteChat =function(id){
+this.deleteChat =function(id, toUser){
     return $http({
         method:"DELETE",
-        url:'/api/chat/' + id
+        url:'/api/chat/' + id + "/"+  toUser
     });
     }
 })
