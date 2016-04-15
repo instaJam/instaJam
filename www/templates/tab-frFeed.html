@@ -19,26 +19,36 @@
 
           <button type="button" name="button"></button>
           <a>{{post.user._id}}</a>
+          <a ng-click="createChat(post.user._id, currentUser._id)">Message Me</a>
 
         </div>
         <div>
           <img ng-src="{{post.content}}" class="postSize">
         </div>
         <div class="button-bar">
-          <button class="button">
+          <button class="button" ng-click="commentToggle()">
             <i class="ion-ios-chatbubble"></i>
             <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
               <i class="ion-happy-outline" ></i>
             </button>
           </button>
+        </div class="list">
+          {{post.user.username}}: {{post.description}} {{likesCounter(post.likes) + " " + "likes!"}}
+          <div ng-repeat="comment in post.comments" >
+          {{comment.user.username}}:{{comment.comment}} {{deleteCommentToggle(commentHider, comment.user._id)}}
+          <button class="button button-small" ng-hide="deleteCommentHider" ng-click="deleteComment(post._id, comment._id)">
+            <i class="ion-trash-a"></i>
+          </button>
         </div>
-
-
-
-          {{post.user.username}}: {{post.description}} {{likesCounter(post.likes) + "likes!"}}
-
-
-      </div>
+          <div class="item item-input-inset" ng-hide="commentHider">
+            <label class="item-input-wrapper">
+              <input type="text" ng-model="newComment" placeholder="Add a comment">
+            </label>
+            <button class="button button-small" ng-click="submitComment(currentUser._id, post._id, newComment)" >
+              Submit
+            </button>
+            </div>
+              </div>
     </div>
 
 

@@ -4,7 +4,9 @@ this.getCurrentUser = function(){
     return $http({
         method:"GET",
         url:"/api/me"
-    });
+    }).then(function(response) {
+      return response;
+    })
 }
 
 this.editUserLoc = function(info, id){

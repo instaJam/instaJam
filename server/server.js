@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var moment = require('moment');
 var jwt = require('jwt-simple');
 var cors = require('cors');
-
 var userCtrl = require('./controllers/userCtrl.js')
 var User = require('./schemas/userSchema.js');
 var Keys = require('./keys.js');
@@ -27,8 +26,6 @@ app.use(express.static('../www'));
 /////////////
 //SOCKET.IO/
 ///////////
-
-
 io.on('connection', function(socket) {
  console.log("Sockets listining on backend");
  socket.on('ctrl message', function(msg) {
@@ -38,7 +35,7 @@ io.on('connection', function(socket) {
 });
 
 http.listen(3000, function() {
-  console.log('You are not one of us!!');
+  console.log('http listening');
 });
 
 
@@ -71,6 +68,8 @@ app.get('/api/post', feedCtrl.getAllPosts);
 app.get('/api/post/user', feedCtrl.getUserPosts);
 app.post('/api/post/likes', feedCtrl.addLike);
 app.post('/api/post/dislike', feedCtrl.removeLike);
+app.post('/api/post/submitComment', feedCtrl.submitComment);
+app.post('/api/post/deleteComment', feedCtrl.deleteComment);
 
 ///////////
 //IMAGES//

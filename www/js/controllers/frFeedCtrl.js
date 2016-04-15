@@ -1,4 +1,4 @@
-angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q){
+angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService){
   $scope.test = "hey it works";
   $scope.chats = Chats.all();
 
@@ -12,6 +12,33 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
         $scope.allPosts = res.data;
       })
     }
+  $scope.commentHider = true;
+  $scope.commentToggle = function () {
+    $scope.commentHider = !$scope.commentHider;
+    $scope.newComment = "";
+  }
+  $scope.submitComment = function (userId, postId, newComment) {
+    console.log(userId, postId, newComment);
+    postService.submitComment(userId, postId, newComment).then(function(res) {
+      $scope.getAllPosts();
+      $scope.commentToggle();
+    })
+  }
+  $scope.deleteCommentToggle = function(commentHider, userId) {
+    if (commentHider !== true && userId === $scope.currentUser._id){
+      $scope.deleteCommentHider = false;
+    }else {
+      $scope.deleteCommentHider = true;
+    }
+  }
+  $scope.deleteComment = function (postId, commentId) {
+    console.log(commentId);
+    postService.deleteComment(postId, commentId).then(function(res) {
+      $scope.getAllPosts();
+      $scope.commentToggle();
+    })
+
+  }
   $scope.likesCounter = function (likesArray) {
     return likesArray.length;
   }
@@ -32,6 +59,13 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   userService.getCurrentUser().then(function(data){
       $scope.currentUser = data.data;
   });
+
+  $scope.createChat = function(clickedUserId, currentUserId) {
+      chatService.createChat(clickedUserId, currentUserId)
+      .then(function(response) {
+          $state.go('tab.chat-detail', {chatId: response})
+      })
+  }
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
