@@ -105,9 +105,20 @@ userService.getCurrentUser().then(function(res){
       });
     }
 
+
+
     $scope.sendMessage = function(message) {
       $scope.message = message;
       console.log(message);
     }
 
+    $scope.profileMap = function() {
+      $ionicModal.fromTemplateUrl('templates/map.html', {
+      scope: $scope,
+      animation: 'slide-in-left'
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+    }
 })

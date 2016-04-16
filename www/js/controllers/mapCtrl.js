@@ -55,16 +55,16 @@ angular.module('instajam').controller('mapCtrl', function($scope,$state,$auth, u
                       $scope.picSelector = selectedMarker.pics;
                         }
           })
-
-  var cities = [
-      {
-          city : 'DevMountain',
-          desc : 'Current Location',
-          lat : 40.225971,
-          long : -111.6603612,
-          hours : '8AM-11PM',
-      }
-    ];
+  // 
+  // var cities = [
+  //     {
+  //         city : 'DevMountain',
+  //         desc : 'Current Location',
+  //         lat : 40.225971,
+  //         long : -111.6603612,
+  //         hours : '8AM-11PM',
+  //     }
+  //   ];
       //
       //
       // var mapOptions = {

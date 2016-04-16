@@ -16,28 +16,28 @@ module.exports = {
                     if (err) console.log(err);
                 })
                 res.status(200).send(response);
-                console.log(response);
             }
         })
     },
     getChats:function(req, res, next){
-        Chat.find({}, function(err, resp){
-            if (err) {
-                res.status(500).json(err);
+        if (req.query.chat) {
+                Chat.findById(req.query.chat).populate("toUser fromUser messages.toUser messages.fromUser").exec(function(err, response) {
+                    err ? res.status(500).send(err) : res.status(200).send(response)
+                })
             } else {
-                res.status(200).json(resp);
+                Chat.find().populate("toUser fromUser messages.toUser messages.fromUser").exec(function(err, response) {
+                    err ? res.status(500).send(err) : res.status(200).send(response)
+                })
             }
-        })
     },
-    addMessage: function(req, res){
-        var message = new Message(req.body);
-        message.save(function(err, data){
-            if(err){
-                res.status(500).send(err);
-            }else{
-                res.status(200).send(data);
-            }
-        });
+    addMessageToChat: function(req, res){
+        var id = req.params.id;
+        Chat.findByIdAndUpdate(id, {$push:{'messages':
+        req.body}}, function(err, resp){
+            err ? res.status(500).send(err):res.status(200).send(resp);
+
+        })
+
     },
     deleteMessage: function (req, res) {
     var id = req.params.id;
@@ -50,12 +50,20 @@ module.exports = {
     });
 },deleteChat: function (req, res) {
       var id = req.params.id;
+      var toUser = req.params.toUser;
       Chat.findByIdAndRemove(id, function (err, resp) {
           if (err) {
               res.status(500).json(err);
-          } else {
-              res.status(200).json(resp);
-          }
+          }     else {
+                  User.findByIdAndUpdate(req.user, {$pull: {'chats':
+                  id}}, function(err, stuff) {
+                      if (err) console.log(err);
+                  })
+                  User.findByIdAndUpdate(toUser, {$pull: {'chats':id}}, function(err, stuff) {
+                      if (err) console.log(err);
+                  })
+                  res.status(200).send(resp);
+              }
       });
   },
 };
