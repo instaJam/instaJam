@@ -25,7 +25,7 @@
           <img ng-src="{{post.content}}" class="postSize">
         </div>
         <div class="button-bar">
-          <button class="button" ng-click="commentToggle()">
+          <button class="button" ng-click="commentToggle($index)">
             <i class="ion-ios-chatbubble"></i>
             <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
               <i class="ion-happy-outline" ></i>
@@ -33,17 +33,17 @@
           </button>
         </div class="list">
           {{post.user.username}}: {{post.description}} {{likesCounter(post.likes) + " " + "likes!"}}
-          <div ng-repeat="comment in post.comments" >
-          {{comment.user.username}}:{{comment.comment}} {{deleteCommentToggle(commentHider, comment.user._id)}}
-          <button class="button button-small" ng-hide="deleteCommentHider" ng-click="deleteComment(post._id, comment._id)">
+          <div ng-repeat="comment in post.comments track by $index" >
+          {{comment.user.username}}:{{comment.comment}} {{deleteCommentToggle(comment.user._id)}}
+          <button class="button button-small" ng-show="deleteCommentHider && commentHiderArray[$parent.$index]" ng-click="deleteComment(post._id, $index, $parent.$index)">
             <i class="ion-trash-a"></i>
           </button>
         </div>
-          <div class="item item-input-inset" ng-hide="commentHider">
+          <div class="item item-input-inset" ng-show="commentHiderArray[$index]">
             <label class="item-input-wrapper">
               <input type="text" ng-model="newComment" placeholder="Add a comment">
             </label>
-            <button class="button button-small" ng-click="submitComment(currentUser._id, post._id, newComment)" >
+            <button class="button button-small" ng-click="submitComment(currentUser._id, post._id, newComment, $index)" >
               Submit
             </button>
             </div>
