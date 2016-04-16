@@ -79,7 +79,7 @@ module.exports = {
       if (err) {
         res.status(500).json(err);
       }else {
-        post.comments.splice(post.comments.indexOf(req.body.commentId, 0), 1);
+        post.comments.splice(req.body.commentIndex, 1);
       }
       post.save(function(err, data) {
         if (err){

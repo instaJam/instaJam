@@ -12,31 +12,26 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
         $scope.allPosts = res.data;
       })
     }
-  $scope.commentHider = true;
-  $scope.commentToggle = function () {
-    $scope.commentHider = !$scope.commentHider;
-    $scope.newComment = "";
-  }
-  $scope.submitComment = function (userId, postId, newComment) {
-    console.log(userId, postId, newComment);
+  $scope.commentHiderArray = [];
+  $scope.commentToggle = function ($index) {
+    if ($scope.commentHiderArray[$index] !== true){
+      $scope.commentHiderArray[$index] = true;
+    }else {
+      $scope.commentHiderArray[$index] = false;
+    }
+    }
+
+  $scope.submitComment = function (userId, postId, newComment, showIndex) {
     postService.submitComment(userId, postId, newComment).then(function(res) {
       $scope.getAllPosts();
-      $scope.commentToggle();
+      $scope.commentToggle(showIndex);
     })
   }
-  $scope.deleteCommentToggle = function(commentHider, userId) {
-    if (commentHider !== true && userId === $scope.currentUser._id){
-      $scope.deleteCommentHider = false;
-    }else {
-      $scope.deleteCommentHider = true;
-    }
-  }
-  $scope.deleteComment = function (postId, commentId) {
-    console.log(commentId);
-    postService.deleteComment(postId, commentId).then(function(res) {
+  $scope.deleteComment = function (postId, commentIndex, showIndex) {
+    postService.deleteComment(postId, commentIndex).then(function(res) {
       $scope.getAllPosts();
-      $scope.commentToggle();
-    })
+      $scope.commentToggle(showIndex);
+  })
 
   }
   $scope.likesCounter = function (likesArray) {
@@ -59,6 +54,15 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   userService.getCurrentUser().then(function(data){
       $scope.currentUser = data.data;
   });
+  $scope.deleteCommentToggle = function(userId) {
+
+    if (userId.toString() === $scope.currentUser._id.toString()){
+      $scope.deleteCommentHider = true;
+    }else {
+      $scope.deleteCommentHider = false;
+    }
+  }
+
 
   $scope.createChat = function(clickedUserId, currentUserId) {
       chatService.createChat(clickedUserId, currentUserId)

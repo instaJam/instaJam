@@ -37,13 +37,13 @@ this.submitComment = function (userId, postId, newComment) {
     }
   })
 }
-this.deleteComment = function(postId, commentId) {
+this.deleteComment = function(postId, commentIndex) {
   return $http({
     method: "POST",
     url: "api/post/deleteComment",
     data: {
       postId: postId,
-      commentId: commentId
+      commentIndex: commentIndex
     }
   })
 }
