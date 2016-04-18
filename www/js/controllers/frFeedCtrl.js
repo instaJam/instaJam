@@ -104,7 +104,13 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
         console.log(cord);
         userService.editUserLoc(cord, $scope.currentUser._id)
   });
-
+    $scope.getAllUsers = function(){
+        userService.getAllUsers().then(function(res){
+            console.log(res)
+            $scope.allUsers = res;
+        })
+    }
+    $scope.getAllUsers();
 
   watch.clearWatch();
   // OR
