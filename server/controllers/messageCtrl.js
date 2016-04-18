@@ -32,15 +32,6 @@ module.exports = {
                 })
             }
     },
-    addMessageToChat: function(req, res){
-        var id = req.params.id;
-        Chat.findByIdAndUpdate(id, {$push:{'messages':
-        req.body}}, function(err, resp){
-            err ? res.status(500).send(err):res.status(200).send(resp);
-
-        })
-
-    },
     deleteMessage: function (req, res) {
     var id = req.params.id;
     Message.findByIdAndRemove(id, function (err, resp) {
@@ -69,4 +60,12 @@ module.exports = {
               }
       });
   },
+  addMessageToChat: function(req, res){
+      console.log(req.body)
+      var id = req.params.id;
+      var update = {$push:{"messages":req.body}};
+      Chat.findByIdAndUpdate(id, update, function(err,resp){
+          if(err) return err;
+      })
+  }
 };

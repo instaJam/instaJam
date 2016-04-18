@@ -12,8 +12,8 @@
     </p>
 {{name}}
 
-<form action="" ng-submit="postMessage(content, chat.toUser)">
- <input ng-model='content' autocomplete="off"/>
+<form action="" ng-submit="addMessageToChat(currentUser._id, chat.toUser._id, data)">
+ <input ng-model='data' autocomplete="off"/>
 </form>
 
     {{message}}
