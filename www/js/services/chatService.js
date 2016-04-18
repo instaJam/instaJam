@@ -29,8 +29,8 @@ this.addMessageToChat = function(currentUser, toUser, data){
         method:"PUT",
         url:"/api/chat/" + $stateParams.chatId,
         data:{content:data,
-            toUser:toUser,
-            fromUser:currentUser
+            fromUser:currentUser,
+            toUser:toUser
         }
     })
 }
