@@ -6,16 +6,19 @@
 -->
 <ion-view view-title="{{chat.name}}">
   <ion-content class="padding">
-    <img ng-src="{{currentUser.profpic}}" style="width: 64px; height: 64px">
+    <img ng-src="{{chat.toUser.profpic}}" style="width: 64px; height: 64px">
     <p>
-      {{chat.toUser}}
-    </p>
-{{name}}
+      {{chat.toUser.username}}
 
-<form action="" ng-submit="addMessageToChat(currentUser._id, chat.toUser._id, data)">
+    </p>
+    <div ng-repeat = 'message in chat.messages' chat-detail-dir current-user="currentUser">
+            to : {{message.toUser.username}}
+            {{message.content}}
+    </div>
+
+<form action="" ng-submit="addMessageToChat( currentUser,chat.toUser, data, chat.fromUser)">
  <input ng-model='data' autocomplete="off"/>
 </form>
 
-    {{message}}
   </ion-content>
 </ion-view>

@@ -58,7 +58,6 @@ module.exports = {
       });
   },
   addMessageToChat: function(req, res){
-      console.log(req.body)
       var id = req.params.id;
       var update = {$push:{"messages":req.body}};
       Chat.findByIdAndUpdate(id, update, function(err,resp){
