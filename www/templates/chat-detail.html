@@ -11,12 +11,12 @@
       {{chat.toUser.username}}
 
     </p>
-    <div ng-repeat = 'message in chat.messages'>
+    <div ng-repeat = 'message in chat.messages' chat-detail-dir current-user="currentUser">
             to : {{message.toUser.username}}
             {{message.content}}
     </div>
 
-<form action="" ng-submit="addMessageToChat( currentUser,chat.toUser, data)">
+<form action="" ng-submit="addMessageToChat( currentUser,chat.toUser, data, chat.fromUser)">
  <input ng-model='data' autocomplete="off"/>
 </form>
 

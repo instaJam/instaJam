@@ -1,4 +1,4 @@
-angular.module("instajam").controller("messageCtrl", function($scope, Chats, $stateParams, chatService, userService, messageSrvc) {
+angular.module("instajam").controller("messageCtrl", function($scope, Chats, $stateParams, chatService, userService, messageSrvc, currentUser) {
   // $scope.chat = Chats.get($stateParams.chatId);
 
   $scope.$on('new message', function(event, msg) {
@@ -10,19 +10,21 @@ angular.module("instajam").controller("messageCtrl", function($scope, Chats, $st
     $scope.$emit("client message", msg);
   }
 
-  messageSrvc.getChatDetail().then(function(data) {
 
-      console.log(data.data)
+
+  messageSrvc.getChatDetail().then(function(data) {
     $scope.chat = data.data
   });
-  userService.getCurrentUser().then(function(resp) {
-    $scope.currentUser = resp.data;
-  });
+
+  $scope.currentUser = currentUser;
 
 
-  $scope.addMessageToChat = function(currentUser, toUser, data) {
-    chatService.addMessageToChat(currentUser, toUser, data);
-    messageSrvc.getChatDetail().then(function(data) {
+  $scope.addMessageToChat = function(currentUser, toUser, data, fromUser) {
+      if (toUser._id === currentUser._id) {
+          toUser = fromUser;
+      }
+      chatService.addMessageToChat(currentUser, toUser, data);
+      messageSrvc.getChatDetail().then(function(data) {
       $scope.chat = data.data
     });
   }
