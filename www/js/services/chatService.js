@@ -1,4 +1,4 @@
-angular.module('instajam').service('chatService', function($http) {
+angular.module('instajam').service('chatService', function($http, $stateParams) {
 
 this.createChat = function(clickedUserId, currentUserId) {
     return $http({
@@ -23,5 +23,15 @@ this.deleteChat =function(id, toUser){
         method:"DELETE",
         url:'/api/chat/' + id + "/"+  toUser
     });
-    }
+}
+this.addMessageToChat = function(currentUser, toUser, data){
+    return $http({
+        method:"PUT",
+        url:"/api/chat/" + $stateParams.chatId,
+        data:{content:data,
+            toUser:toUser,
+            fromUser:currentUser
+        }
+    })
+}
 })

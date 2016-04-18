@@ -21,4 +21,12 @@ messageSrvc.getChatDetail().then(function(data){
         messageSrvc.postMessage(msg, toUser,$scope.currentUser);
         }
 
+
+        $scope.addMessageToChat = function(id, toUser, data){
+                chatService.addMessageToChat(id, toUser, data);
+            }
+            userService.getCurrentUser().then(function(res){
+                $scope.currentUser = res.data;
+            });
+
 });

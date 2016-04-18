@@ -1,4 +1,4 @@
-angular.module('instajam').controller('chatCtrl', function($scope, chatService) {
+angular.module('instajam').controller('chatCtrl', function($scope, chatService, userService) {
 
 $scope.createChat = function(clickedUserId, currentUserId) {
     chatService.createChat(clickedUserId, currentUserId)
@@ -7,4 +7,5 @@ $scope.createChat = function(clickedUserId, currentUserId) {
     })
 }
 
-})
+
+});
