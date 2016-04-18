@@ -7,7 +7,7 @@
 // 'instajam.controllers' is found in controllers.js
 var socket = io();
 
-angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services', 'satellizer', 'ngCordova'])
+angular.module('instajam', ['ionic', 'youtube-embed', 'instajam.controllers', 'instajam.services', 'satellizer', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

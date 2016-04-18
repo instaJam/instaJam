@@ -19,9 +19,12 @@
 
           <button type="button" name="button"></button>
           <a ng-click="createChat(post.user._id, currentUser._id)">Message Me</a>
-
         </div>
-        <div>
+        {{youtubeChecker(post.content, $index)}}
+        <div class="embed-responsive embed-responsive-16by9" ng-if="isYoutubeArray[$index]">
+          <youtube-video class="embed-responsive-item" video-url="post.content"></youtube-video>
+        </div>
+        <div ng-if="!isYoutubeArray[$index]">
           <img ng-src="{{post.content}}" class="postSize">
         </div>
         <div class="button-bar">
