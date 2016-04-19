@@ -34,4 +34,14 @@ this.addMessageToChat = function(currentUser, toUser, data){
         }
     })
 }
+
+this.getUserChats = function(){
+    return $http({
+        method:"GET",
+        url:"/api/chat/userChats"
+    }).then(function(response) {
+        return response.data;
+    })
+}
+
 })
