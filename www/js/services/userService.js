@@ -41,8 +41,7 @@ this.getAllUsers = function(){
     url:'/api/user'
 }).then(function(res){
     console.log(res.data.length)
-    for(var i = 1; i < res.data.length; i++){
-        console.log(res.data[i].loc.long)
+    for(var i = 0; i < res.data.length; i++){
 
       var curLong =res.data[0].loc.long;
       var curLat =res.data[0].loc.lat;
@@ -54,9 +53,21 @@ this.getAllUsers = function(){
       }
 
       return res.data;
-})
-
-
+    })
 }
+
+
+this.addPostLoc = function(info, id){
+    return $http({
+        method:"PUT",
+        url:'/api/post/' + id,
+        data:{loc: info}
+    }).then(function(res){
+
+    })
+}
+
+
+
 
 });
