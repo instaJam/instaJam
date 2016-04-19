@@ -6,7 +6,8 @@ var postSchema = new Schema({
     description: String,
     likes: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     comments: [{user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}, comment: String}],
-    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    loc:{}
 }, {timestamps: true})
 
 postSchema.pre('find', function(next) {

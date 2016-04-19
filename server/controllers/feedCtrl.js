@@ -89,5 +89,10 @@ module.exports = {
         }
       });
     })
-  }
+},  addLocToPost: function(req, res, next) {
+      Post.findByIdAndUpdate(req.params.id, req.body, function(err, response) {
+        if (err) res.status(500).json(err);
+        else res.status(200).json(response);
+      })
+     }
 }
