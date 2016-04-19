@@ -6,10 +6,16 @@ $scope.createChat = function(clickedUserId, currentUserId) {
         $state.go('tab.chat-detal', {chatId: response})
     })
 }
-chatService.getChats().then(function(res){
-    $scope.allChats = res.data;
+// chatService.getChats().then(function(res){
+//     $scope.allChats = res.data;
+//     console.log($scope.allChats);
+// })
+
+chatService.getUserChats().then(function(response) {
+    $scope.allChats = response;
+    console.log($scope.allChats[0].username)
 })
-$scope.chats = Chats.all();
+
 $scope.remove = function(id, toUser) {
 chatService.deleteChat(id, toUser).then(function(res){
 $state.reload('tab.chats')
