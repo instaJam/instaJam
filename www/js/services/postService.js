@@ -1,11 +1,43 @@
 angular.module("instajam").service("postService", function($http) {
 
-this.getAllPosts = function(){
-    return $http({
-        method:"GET",
-        url:"/api/post"
-    });
-}
+
+    function distance(lat1, lon1, lat2, lon2) {
+     var p = 0.017453292519943295;    // Math.PI / 180
+     var c = Math.cos;
+     var a = 0.5 - c((lat2 - lat1) * p)/2 +
+             c(lat1 * p) * c(lat2 * p) *
+             (1 - c((lon2 - lon1) * p))/2;
+
+     return Math.ceil(7917.5117 * Math.asin(Math.sqrt(a))); // 2 * R; R = 6371 km
+    }
+
+    this.getAllPosts = function(){
+        return $http({
+        method:'GET',
+        url:'/api/post'
+    }).then(function(res){
+        console.log(res.data.length)
+        for(var i = 0; i < res.data.length; i++){
+            console.log(res.data)
+          var curLong =res.data[0].user.loc.long;
+          var curLat =res.data[0].user.loc.lat;
+          var savedLong =res.data[i].user.loc.long;
+          var savedLat =res.data[i].user.loc.lat;
+
+          var point = distance(curLat, curLong, savedLat, savedLong);
+          res.data[i].distance = point;
+          }
+
+          return res.data;
+        })
+    }
+
+// this.getAllPosts = function(){
+//     return $http({
+//         method:"GET",
+//         url:"/api/post"
+//     });
+// }
 this.like = function(userId, postId){
   return $http({
     method: "POST",

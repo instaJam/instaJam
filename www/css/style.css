@@ -34,7 +34,16 @@
   height: 100%;
   border: 0;
 }
+.rightMessage {
+    text-align: right;
+}
+
+.leftMessage {
+    text-align: left;
+}
+
 #loginPage {
+  margin-top: 90%;
   }
 #loginForm {
   margin-top: 30%;
@@ -217,4 +226,51 @@
   font-size: 18px;
   padding: 15px;
 
+}
+
+.landing-bg {
+  background-image:url("../img/landing-page.jpg");
+  background-size: cover;
+  background-position: center;
+ background-repeat: no-repeat;
+}
+
+.login-btn {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  border-color: transparent;
+  border-radius: 4px;
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  background-color: #262F34;
+  color: #fff;
+  border: 2px solid;
+  padding: 0 16px;
+  min-width: 68px;
+  min-height: 59px;
+  font-size: 20px;
+  line-height: 53px;
+  cursor: pointer;
+}
+
+.create-btn {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  border-color: transparent;
+  border-radius: 3px;
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  background-color: #262F34;
+  color: #fff;
+  border: 2px solid;
+  padding: 0 16px;
+  min-width: 48px;
+  min-height: 49px;
+  font-size: 16px;
+  line-height: 43px;
+  cursor: pointer;
 }

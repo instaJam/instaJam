@@ -10,13 +10,13 @@
     </div>
   </div>
   <ion-content>
+    
     <div class="postContent">
-
       <div class="list" ng-repeat="post in allPosts | orderBy:'createdAt':true  track by post._id">
         <div class="item item-avatar">
           <img ng-src="{{post.user.profpic}}">
           <h2>{{post.user.username}}</h2>
-
+          {{post.distance}} mile away
           <button type="button" name="button"></button>
           <a ng-click="createChat(post.user._id, currentUser._id)">Message Me</a>
         </div>

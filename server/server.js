@@ -62,6 +62,7 @@ app.put('/api/chat/:id', messageCtrl.addMessageToChat);
 
 
 
+
 /////////////
 //Messages//
 ///////////
@@ -78,6 +79,8 @@ app.post('/api/post/likes', feedCtrl.addLike);
 app.post('/api/post/dislike', feedCtrl.removeLike);
 app.post('/api/post/submitComment', feedCtrl.submitComment);
 app.post('/api/post/deleteComment', feedCtrl.deleteComment);
+app.put('/api/post/:id', feedCtrl.addLocToPost);
+
 
 ///////////
 //IMAGES//
