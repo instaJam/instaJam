@@ -115,7 +115,7 @@ userService.getCurrentUser().then(function(res){
       console.log(message);
     }
 
-    $scope.profilemap = function() {
+    $scope.profileMap = function() {
       $ionicModal.fromTemplateUrl('templates/map.html', {
       scope: $scope,
       animation: 'slide-in-left'
