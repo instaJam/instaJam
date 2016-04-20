@@ -13,7 +13,6 @@ $scope.createChat = function(clickedUserId, currentUserId) {
 
 chatService.getUserChats().then(function(response) {
     $scope.allChats = response;
-    console.log($scope.allChats[0].username)
 })
 
 $scope.remove = function(id, toUser) {
