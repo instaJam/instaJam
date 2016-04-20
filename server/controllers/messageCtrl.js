@@ -63,6 +63,11 @@ module.exports = {
       Chat.findByIdAndUpdate(id, update, function(err,resp){
           if(err) return err;
       })
+  },
+  getUserChats: function(req, res, next) {
+      Chat.find('toUser._id === req.user || fromUser._id === req.user').populate('toUser fromUser messages.toUser messages.fromUser').exec(function(err, response) {
+          err ? res.status(500).send(err) : res.status(200).send(response);
+      })
   }
 
 };

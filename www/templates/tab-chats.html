@@ -2,9 +2,10 @@
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in allChats" type="item-text-wrap" href="#/tab/chats/{{chat._id}}">
-        <img ng-src="{{chat.toUser.profpic}}">
-        <h2>{{chat.toUser.username}}</h2>
-        <p>{{chat.toUser.message}}</p>
+        <img ng-if="currentUser._id !== chat.toUser._id" ng-src="{{chat.toUser.profpic}}">
+        <h2 ng-if="currentUser._id !== chat.toUser._id">{{chat.toUser.username}}</h2>
+        <img ng-if="currentUser._id === chat.toUser._id" ng-src="{{chat.fromUser.profpic}}">
+        <h2 ng-if="currentUser._id === chat.toUser._id">{{chat.fromUser.username}}</h2>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(chat._id, chat.toUser._id)">

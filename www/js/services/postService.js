@@ -1,4 +1,4 @@
-angular.module("instajam").service("postService", function($http) {
+angular.module("instajam").service("postService", function($http, $stateParams) {
 
 
     function distance(lat1, lon1, lat2, lon2) {
@@ -88,6 +88,12 @@ this.postContent = function(data, user){
             content: data,
             user: user
         }
+    })
+}
+this.followUser = function(followUser){
+    return $http({
+        method:"PUT",
+        url:'/api/user/follow/'+ followUser
     })
 }
 });

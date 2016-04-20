@@ -67,7 +67,7 @@ angular.module('instajam', ['ionic', 'youtube-embed', 'instajam.controllers', 'i
       views: {
         'tab-chats': {
           templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+          controller: 'chatCtrl'
         }
       }
     })
@@ -82,6 +82,11 @@ angular.module('instajam', ['ionic', 'youtube-embed', 'instajam.controllers', 'i
                   return userService.getCurrentUser().then(function(response) {
                       return response.data
                   })
+              },
+              chatDetail: function(messageSrvc, $stateParams) {
+                  return messageSrvc.getChatDetailResolve($stateParams).then(function(data) {
+                      return data.data
+                    })
               }
           },
         }

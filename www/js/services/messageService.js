@@ -13,6 +13,13 @@ angular.module("instajam").service("messageSrvc", function($http, $stateParams) 
         })
     }
 
+    this.getChatDetailResolve = function(chatID){
+        return $http({
+            method:"GET",
+            url:'/api/chat/?chat=' + chatID.chatId
+        })
+    }
+
 
 
 });

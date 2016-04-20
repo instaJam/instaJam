@@ -51,12 +51,14 @@ app.get('/api/user/:id', userCtrl.getUser);
 app.put('/api/user/:id', userCtrl.updateUser);
 app.delete('/api/user/:id', userCtrl.deleteUser);
 app.get('/api/me', userCtrl.ensureAuthenticated, userCtrl.getCurrentUser);
+app.put('/api/user/follow/:id',userCtrl.ensureAuthenticated, userCtrl.followUser);
 
 //////////////
 ///CHATS/////
 ////////////
 app.post('/api/chat/:toUser', userCtrl.ensureAuthenticated, messageCtrl.createChat);
 app.get('/api/chat', messageCtrl.getChats);
+app.get('/api/chat/userChats', userCtrl.ensureAuthenticated, messageCtrl.getUserChats);
 app.delete('/api/chat/:id/:toUser',userCtrl.ensureAuthenticated, messageCtrl.deleteChat);
 app.put('/api/chat/:id', messageCtrl.addMessageToChat);
 
