@@ -1,11 +1,28 @@
-<ion-view view-title="Account">
+<ion-view view-title="Add a Post">
   <ion-content>
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    <!-- <input type="file" class="upload" prof-pic profile="profile" accept="image/*" /> -->
-    <input type="file" class="upload" feed-post profile="profile" accept="image/*" />
-    </ion-list>
+      <div class="list list-inset">
+
+    <input type="file"  feed-post profile="profile" accept="image/*" />
+  </div>
+    <div class="list list-inset">
+      <form action="http://www.youtube.com/results" method="get" target="_blank">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+        <input name="search_query" type="text" maxlength="128" placeholder="Search for a Youtube Video" />
+        </label>
+      </form>
+    </div>
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" ng-model="newPost" placeholder="Paste a youtube url">
+      </label>
+      <button class="button button-small" ng-click="submitPost(currentUser._id, post._id, newComment)" >
+        Submit
+      </button>
+      </div>
+
+
   </ion-content>
+
 </ion-view>

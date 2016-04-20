@@ -45,6 +45,13 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
             $scope.allUsers = res;
         })
     }
+    $scope.isYoutubeArray= [];
+    $scope.youtubeChecker = function(content, $index){
+      console.log(content.indexOf("youtu"));
+      if (content.indexOf("youtu") !== -1) {
+        $scope.isYoutubeArray[$index] = true;
+      }
+    }
     $scope.getAllUsers();
 
   watch.clearWatch();
@@ -98,9 +105,12 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       $scope.currentUser = data.data;
   });
   $scope.deleteCommentToggle = function(userId) {
-
-    if (userId.toString() === $scope.currentUser._id.toString()){
-      $scope.deleteCommentHider = true;
+    if ($scope.currentUser) {
+      if (userId.toString() === $scope.currentUser._id.toString()){
+        $scope.deleteCommentHider = true;
+      }else {
+        $scope.deleteCommentHider = false;
+      }
     }else {
       $scope.deleteCommentHider = false;
     }
@@ -113,6 +123,24 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
           $state.go('tab.chats')
       })
   }
+  var posOptions = {timeout: 10000, enableHighAccuracy: false};
+  $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+
+      var cord = {lat: position.coords.latitude,
+          long:position.coords.longitude
+        }
+
+      console.log(cord);
+      userService.editUserLoc(cord, $scope.currentUser._id)
+    }, function(err) {
+      console.log(err);
+    });
+
+
+  var watchOptions = {
+    timeout : 3000,
+    enableHighAccuracy: false // may cause errors if true
+  };
 
 
   // OR
