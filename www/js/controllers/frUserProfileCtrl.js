@@ -92,7 +92,10 @@ userService.getCurrentUser().then(function(res){
 
     $scope.settings = function() {
       $scope.modal.hide();
-      $state.go('tab.edit');
+      $state.go('edit');
+    };
+    $scope.backProf = function() {
+      $state.go('tab.profile');
     };
 
     $scope.newMessage = function() {
@@ -112,7 +115,7 @@ userService.getCurrentUser().then(function(res){
       console.log(message);
     }
 
-    $scope.profileMap = function() {
+    $scope.profilemap = function() {
       $ionicModal.fromTemplateUrl('templates/map.html', {
       scope: $scope,
       animation: 'slide-in-left'
