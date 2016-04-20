@@ -27,6 +27,10 @@
   padding-bottom: 56.25%;
 }
 
+.embed-responsive.embed-responsive-square {
+  padding-bottom: 100%;
+}
+
 .embed-responsive-item {
   position: absolute;
   top: 0;

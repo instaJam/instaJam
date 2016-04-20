@@ -89,7 +89,7 @@ app.put('/api/post/:id', feedCtrl.addLocToPost);
 /////////////////
 
 
-app.get('/api/youtubeSearch', youtubeCtrl.youtubeSearch);
+// app.get('/api/youtubeSearch', youtubeCtrl.youtubeSearch);
 
 
 
