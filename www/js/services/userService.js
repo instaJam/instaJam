@@ -40,7 +40,6 @@ this.getAllUsers = function(){
     method:'GET',
     url:'/api/user'
 }).then(function(res){
-    console.log(res.data.length)
     for(var i = 0; i < res.data.length; i++){
 
       var curLong =res.data[0].loc.long;
