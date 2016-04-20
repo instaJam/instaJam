@@ -15,7 +15,24 @@
 .list-item {
   color: #666666;
 }
+.accountButton{
+    font-size: 5em;
+color: lightslategray;
+position: absolute;
+top: 1250%;
+right: 43%;
+}
 
+
+.hideUploadButton{
+
+    width: 0.1px;
+height: 0.1px;
+opacity: 0;
+overflow: hidden;
+position: absolute;
+z-index: -1;
+}
 .rightMessage {
     text-align: right;
 letter-spacing: 1.1px;
