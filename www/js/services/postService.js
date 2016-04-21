@@ -30,12 +30,15 @@ angular.module("instajam").service("postService", function($http, $stateParams) 
         })
     }
 
-// this.getAllPosts = function(){
-//     return $http({
-//         method:"GET",
-//         url:"/api/post"
-//     });
-// }
+    this.getFollowingPosts = function() {
+        return $http({
+            method: 'GET',
+            url: '/api/post/following'
+        }).then(function(response) {
+            return response.data
+        })
+    }
+
 this.like = function(userId, postId){
   return $http({
     method: "POST",
@@ -90,7 +93,7 @@ this.postContent = function(data, user){
 }
 this.followUser = function(followUser){
     return $http({
-        method:"PUT",
+        method:"POST",
         url:'/api/user/follow/'+ followUser
     })
 }
