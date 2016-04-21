@@ -15,7 +15,12 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
         }
 
       console.log(cord);
-      userService.editUserLoc(cord, $scope.currentUser._id);
+      userService.editUserLoc(cord, $scope.currentUser._id).then(function(response) {
+          userService.getAllUsers().then(function(res) {
+              $scope.allUsers = res;
+              console.log($scope.allUsers)
+          })
+      })
     }, function(err) {
       console.log(err);
     });
@@ -38,21 +43,13 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
           }
 
         console.log(cord);
-        userService.editUserLoc(cord, $scope.currentUser._id)
-  });
-    $scope.getAllUsers = function(){
-        userService.getAllUsers().then(function(res){
-            $scope.allUsers = res;
+        userService.editUserLoc(cord, $scope.currentUser._id).then(function(response) {
+            userService.getAllUsers().then(function(res) {
+                $scope.allUsers = res;
+                console.log($scope.allUsers)
+            })
         })
-    }
-    $scope.isYoutubeArray= [];
-    $scope.youtubeChecker = function(content, $index){
-    //   console.log(content.indexOf("youtu"));
-      if (content.indexOf("youtu") !== -1) {
-        $scope.isYoutubeArray[$index] = true;
-      }
-    }
-    $scope.getAllUsers();
+  });
 
   watch.clearWatch();
   $scope.commentHiderArray = [];
