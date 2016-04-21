@@ -10,7 +10,7 @@
 
     <ion-scroll direction="y" class="thefeed">
 
-        
+
     <div ng-repeat = 'message in chat.messages' chat-detail-dir current-user="currentUser">
             <!-- to : {{message.toUser.username}} -->
             {{message.content}}
@@ -23,7 +23,7 @@
 <form action="" ng-submit="addMessageToChat( currentUser,chat.toUser, data, chat.fromUser)">
 <div class="bar-header item-input-inset">
   <label class="item-input-wrapper">
-    <input ng-model='data'type="search" placeholder="Type message...">
+    <input ng-model='data'type="search" placeholder="Type message....">
   </label>
   <button class="button button-clear">
     Send
