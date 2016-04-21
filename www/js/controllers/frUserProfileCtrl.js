@@ -92,10 +92,7 @@ userService.getCurrentUser().then(function(res){
 
     $scope.settings = function() {
       $scope.modal.hide();
-      $state.go('edit');
-    };
-    $scope.backProf = function() {
-      $state.go('tab.profile');
+      $state.go('tab.edit');
     };
 
     $scope.newMessage = function() {
