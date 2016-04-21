@@ -42,6 +42,7 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   });
     $scope.getAllUsers = function(){
         userService.getAllUsers().then(function(res){
+            console.log(res)
             $scope.allUsers = res;
         })
     }
@@ -66,6 +67,7 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
 
     $scope.getAllPosts = function() {
       postService.getAllPosts().then(function(res) {
+          console.log(res)
           $scope.allPosts = res;
         })
       }
@@ -128,7 +130,7 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   $scope.createChat = function(clickedUserId, currentUserId) {
       chatService.createChat(clickedUserId, currentUserId)
       .then(function(response) {
-          $state.go('tab.chats')
+          $state.go('tab.chat-detail', {chatId: response})
       })
   }
   var posOptions = {timeout: 10000, enableHighAccuracy: false};

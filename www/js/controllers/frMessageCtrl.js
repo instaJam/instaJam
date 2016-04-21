@@ -23,5 +23,8 @@ angular.module("instajam").controller("messageCtrl", function($scope, Chats, $st
       $scope.chat = data.data
     });
   }
+  userService.getCurrentUser().then(function(res) {
+    $scope.currentUser = res.data;
+  });
 
 });
