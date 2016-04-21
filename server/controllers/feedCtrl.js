@@ -1,4 +1,5 @@
 var Post = require('../schemas/postSchema.js');
+var User = require('../schemas/userSchema.js');
 
 module.exports = {
     addPost: function(req, res){
@@ -94,5 +95,15 @@ module.exports = {
         if (err) res.status(500).json(err);
         else res.status(200).json(response);
       })
-     }
+  },
+  getFollowingPosts: function(req, res, next) {
+      User.findById(req.user, function(err, response) {
+          if (err) res.status(500).send(err)
+          else {
+              Post.find({ $or: [{ user: {$in: response.following}}, {user: req.user}]}, function(err, response) {
+                  err ? res.status(500).send(err) : res.status(200).send(response)
+              })
+          }
+      })
+  }
 }
