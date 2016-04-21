@@ -92,14 +92,12 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
         }
       }
     })
-    .state('tab.edit', {
+    .state('edit', {
       url: '/edit',
-      views: {
-        'tab-edit': {
         templateUrl: 'templates/tab-edit.html',
         controller: 'frUserProfileCtrl'
-        }
-      }
+
+
     })
 
   .state('tab.account', {
@@ -129,7 +127,6 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
   //   templateUrl: 'templates/map.html',
   //   controller: 'mapCtrl',
   // })
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 

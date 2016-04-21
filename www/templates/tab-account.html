@@ -1,10 +1,16 @@
 <ion-view view-title="Add a Post">
   <ion-content>
     <ion-list>
-      <div class="list list-inset">
+    <!-- <ion-toggle  ng-model="settings.enableFriends">
+        Enable Friends
+    </ion-toggle> -->
+    <!-- <input type="file" class="upload" prof-pic profile="profile" accept="image/*" /> -->
+    <input type="file" class="upload" feed-post profile="profile" accept="image/*"/>
+    </ion-list>
 
-    <input type="file"  feed-post profile="profile" accept="image/*" />
-  </div>
+
+    <div class='ion-android-radio-button-on accountButton'type="button" name="button"> </div>
+     
     <div class="list list-inset">
       <form action="http://www.youtube.com/results" method="get" target="_blank">
         <label class="item item-input">
@@ -21,6 +27,7 @@
         Submit
       </button>
       </div>
+
 
 
   </ion-content>

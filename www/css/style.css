@@ -15,37 +15,45 @@
 .list-item {
   color: #666666;
 }
-.embed-responsive {
-  position: relative;
-  display: block;
-  height: 0;
-  padding: 0;
-  overflow: hidden;
+.accountButton{
+    font-size: 5em;
+color: lightslategray;
+position: absolute;
+top: 249%;
+right: 43%;
 }
 
-.embed-responsive.embed-responsive-16by9 {
-  padding-bottom: 56.25%;
-}
 
-.embed-responsive.embed-responsive-square {
-  padding-bottom: 100%;
-}
+.hideUploadButton{
 
-.embed-responsive-item {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+    width: 0.1px;
+height: 0.1px;
+opacity: 0;
+overflow: hidden;
+position: absolute;
+z-index: -1;
+
 }
 .rightMessage {
     text-align: right;
+letter-spacing: 1.1px;
+font-size: 15px;
+max-width: 16em;
+position: relative;
+right: -25%;
+padding-top: 2px;
+color: black;
 }
 
 .leftMessage {
     text-align: left;
+    letter-spacing: 1.1px;
+    font-size: 15px;
+    max-width: 16em;
+    position: relative;
+    left: 4%;
+    padding-top: 2px;
+    color: crimson;
 }
 .signupPage{
     background-image:url("../img/bed.jpeg");
