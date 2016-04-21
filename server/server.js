@@ -77,6 +77,7 @@ app.delete('/api/message/:id', messageCtrl.deleteMessage);
 app.post('/api/post', feedCtrl.addPost);
 app.get('/api/post', feedCtrl.getAllPosts);
 app.get('/api/post/user', feedCtrl.getUserPosts);
+app.get('/api/post/following', userCtrl.ensureAuthenticated, feedCtrl.getFollowingPosts)
 app.post('/api/post/likes', feedCtrl.addLike);
 app.post('/api/post/dislike', feedCtrl.removeLike);
 app.post('/api/post/submitComment', feedCtrl.submitComment);
