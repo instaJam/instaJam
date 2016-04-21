@@ -2,7 +2,7 @@
 <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
     <div class="tabs">
       <a class="tab-item active" href="#">
-        Everywhere
+        Following
       </a>
       <a class="tab-item" href="#">
         Near Me
@@ -17,7 +17,7 @@
           <img ng-src="{{post.user.profpic}}">
           <h2>{{post.user.username}}</h2>
           {{post.distance}} mile away
-          <div class="">
+          <div ng-click="followUser(post.user._id)">
               follow
           </div>
           <button type="button" name="button"></button>
