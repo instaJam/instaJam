@@ -7,7 +7,7 @@
 // 'instajam.controllers' is found in controllers.js
 var socket = io();
 
-angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services', 'satellizer', 'ngCordova'])
+angular.module('instajam', ['ionic', 'youtube-embed', 'instajam.controllers', 'instajam.services', 'satellizer', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -67,7 +67,7 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
       views: {
         'tab-chats': {
           templateUrl: 'templates/tab-chats.html',
-          controller: 'chatCtrl'
+          controller: 'ChatsCtrl'
         }
       }
     })
@@ -76,30 +76,14 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
       views: {
         'tab-chats': {
           templateUrl: 'templates/chat-detail.html',
-          controller: 'messageCtrl',
-          resolve: {
-               currentUser: function(userService) {
-                  return userService.getCurrentUser().then(function(response) {
-                      return response.data
-                  })
-              },
-              chatDetail: function(messageSrvc, $stateParams) {
-                  return messageSrvc.getChatDetailResolve($stateParams).then(function(data) {
-                      return data.data
-                    })
-              }
-          },
+          controller: 'messageCtrl'
         }
       }
     })
-    .state('tab.edit', {
+    .state('edit', {
       url: '/edit',
-      views: {
-        'tab-edit': {
         templateUrl: 'templates/tab-edit.html',
         controller: 'frUserProfileCtrl'
-        }
-      }
     })
 
   .state('tab.account', {
@@ -129,7 +113,6 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
   //   templateUrl: 'templates/map.html',
   //   controller: 'mapCtrl',
   // })
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 
