@@ -10,7 +10,6 @@ var Keys = require('./keys.js');
 var Amazon = require('./controllers/awsController.js');
 var messageCtrl = require('./controllers/messageCtrl.js');
 var feedCtrl = require('./controllers/feedCtrl.js');
-var youtubeCtrl = require('./controllers/youtubeController.js');
 var port = 3000;
 var app = express();
 var http = require('http').Server(app);
