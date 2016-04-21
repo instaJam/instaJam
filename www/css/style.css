@@ -55,6 +55,9 @@ color: black;
     padding-top: 2px;
     color: crimson;
 }
+.imagePost{
+    
+}
 .signupPage{
     background-image:url("../img/bed.jpeg");
     background-size: cover;

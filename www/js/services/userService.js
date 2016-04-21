@@ -25,6 +25,17 @@ this.editUser = function(user){
     })
 }
 
+
+
+this.addPostLoc = function(info, id){
+    return $http({
+        method:"PUT",
+        url:'/api/post/' + id,
+        data:{loc: info}
+    }).then(function(res){
+
+    })
+}
 function distance(lat1, lon1, lat2, lon2) {
  var p = 0.017453292519943295;    // Math.PI / 180
  var c = Math.cos;
@@ -41,10 +52,11 @@ this.getAllUsers = function(){
     url:'/api/user'
 }).then(function(res){
     for(var i = 0; i < res.data.length; i++){
-
+        console.log(res.data)
       var curLong =res.data[0].loc.long;
       var curLat =res.data[0].loc.lat;
       var savedLong =res.data[i].loc.long;
+      console.log(savedLong)
       var savedLat =res.data[i].loc.lat;
 
       var point = distance(curLat, curLong, savedLat, savedLong);
@@ -52,17 +64,6 @@ this.getAllUsers = function(){
       }
 
       return res.data;
-    })
-}
-
-
-this.addPostLoc = function(info, id){
-    return $http({
-        method:"PUT",
-        url:'/api/post/' + id,
-        data:{loc: info}
-    }).then(function(res){
-
     })
 }
 

@@ -1,28 +1,41 @@
-angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService){
+angular.module('instajam').controller('frFeedCtrl', function($scope, Chats, $state, $auth, userService, postService, $cordovaGeolocation, $q, chatService) {
   $scope.test = "hey it works";
   $scope.chats = Chats.all();
 
-  $scope.logout = function(){
-      $auth.logout().then(function(res){
-          $state.go('login');
-      });
-  }
-  var posOptions = {timeout: 10000, enableHighAccuracy: false};
-  $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
-
-      var cord = {lat: position.coords.latitude,
-          long:position.coords.longitude
-        }
-
-      console.log(cord);
-      userService.editUserLoc(cord, $scope.currentUser._id);
-    }, function(err) {
-      console.log(err);
+  userService.getCurrentUser().then(function(data) {
+    $scope.currentUser = data.data;
+  });
+  $scope.logout = function() {
+    $auth.logout().then(function(res) {
+      $state.go('login');
     });
+  }
+  var posOptions = {
+    timeout: 10000,
+    enableHighAccuracy: false
+  };
+  $cordovaGeolocation.getCurrentPosition(posOptions).then(function(position) {
+
+    var cord = {
+      lat: position.coords.latitude,
+      long: position.coords.longitude
+    }
+
+    console.log(cord);
+    userService.editUserLoc(cord, $scope.currentUser._id).then(function(resp){
+          userService.getAllUsers().then(function(res) {
+            $scope.allUsers = res;
+            console.log($scope.allUsers)
+          })
+
+    });
+  }, function(err) {
+    console.log(err);
+  });
 
 
   var watchOptions = {
-    timeout : 3000,
+    timeout: 3000,
     enableHighAccuracy: false // may cause errors if true
   };
 
@@ -33,108 +46,109 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       console.log(err);
     },
     function(position) {
-        var cord = {lat: position.coords.latitude,
-            long:position.coords.longitude
-          }
-
-        console.log(cord);
-        userService.editUserLoc(cord, $scope.currentUser._id)
-  });
-    $scope.getAllUsers = function(){
-        userService.getAllUsers().then(function(res){
-            $scope.allUsers = res;
-        })
-    }
-    $scope.isYoutubeArray= [];
-    $scope.youtubeChecker = function(content, $index){
-    //   console.log(content.indexOf("youtu"));
-      if (content.indexOf("youtu") !== -1) {
-        $scope.isYoutubeArray[$index] = true;
+      var cord = {
+        lat: position.coords.latitude,
+        long: position.coords.longitude
       }
-    }
-    $scope.getAllUsers();
+
+      console.log(cord);
+      userService.editUserLoc(cord, $scope.currentUser._id).then(function(resp){
+          $scope.getAllUsers = function() {
+            userService.getAllUsers().then(function(res) {
+              $scope.allUsers = res;
+            })
+          }
+          $scope.getAllUsers();
+      })
+    });
+
 
   watch.clearWatch();
+  $scope.isYoutubeArray = [];
+  $scope.youtubeChecker = function(content, $index) {
+    //   console.log(content.indexOf("youtu"));
+    if (content.indexOf("youtu") !== -1) {
+      $scope.isYoutubeArray[$index] = true;
+    }
+  }
+
   $scope.commentHiderArray = [];
-  $scope.commentToggle = function ($index) {
-    if ($scope.commentHiderArray[$index] !== true){
+  $scope.commentToggle = function($index) {
+    if ($scope.commentHiderArray[$index] !== true) {
       $scope.commentHiderArray[$index] = true;
-    }else {
+    } else {
       $scope.commentHiderArray[$index] = false;
     }
-    }
+  }
 
-    $scope.getAllPosts = function() {
-      postService.getAllPosts().then(function(res) {
-          $scope.allPosts = res;
-        })
-      }
+  $scope.getAllPosts = function() {
+    postService.getAllPosts().then(function(res) {
+      $scope.allPosts = res;
+    })
+  }
+  $scope.getAllPosts();
 
-    $scope.getFollowingPosts = function() {
-        postService.getFollowingPosts().then(function(response) {
-            $scope.followingPosts = response;
-            console.log($scope.followingPosts);
-        })
-    }
-    $scope.getFollowingPosts();
+  $scope.getFollowingPosts = function() {
+    postService.getFollowingPosts().then(function(response) {
+      $scope.followingPosts = response;
+      console.log($scope.followingPosts);
+    })
+  }
+  $scope.getFollowingPosts();
 
-  $scope.submitComment = function (userId, postId, newComment, showIndex) {
+  $scope.submitComment = function(userId, postId, newComment, showIndex) {
     postService.submitComment(userId, postId, newComment).then(function(res) {
       $scope.getAllPosts();
       $scope.commentToggle(showIndex);
     })
   }
-  $scope.deleteComment = function (postId, commentIndex, showIndex) {
+  $scope.deleteComment = function(postId, commentIndex, showIndex) {
     postService.deleteComment(postId, commentIndex).then(function(res) {
       $scope.getAllPosts();
       $scope.commentToggle(showIndex);
-  })
+    })
 
   }
-  $scope.likesCounter = function (likesArray) {
+  $scope.likesCounter = function(likesArray) {
     return likesArray.length;
   }
 
-  $scope.like = function(userId, postId, likes){
-    if (likes.indexOf(userId, 0) === -1){
-      postService.like(userId, postId).then(function(res){
+  $scope.like = function(userId, postId, likes) {
+    if (likes.indexOf(userId, 0) === -1) {
+      postService.like(userId, postId).then(function(res) {
         $scope.getAllPosts();
       });
 
-    }else {
+    } else {
       postService.dislike(userId, postId).then(function(res) {
         $scope.getAllPosts();
-    });
+      });
+    }
   }
-}
-  $scope.getAllPosts();
 
-  userService.getCurrentUser().then(function(data){
-      $scope.currentUser = data.data;
-  });
   $scope.deleteCommentToggle = function(userId) {
     if ($scope.currentUser) {
-      if (userId.toString() === $scope.currentUser._id.toString()){
+      if (userId.toString() === $scope.currentUser._id.toString()) {
         $scope.deleteCommentHider = true;
-      }else {
+      } else {
         $scope.deleteCommentHider = false;
       }
-    }else {
+    } else {
       $scope.deleteCommentHider = false;
     }
   }
 
 
   $scope.createChat = function(clickedUserId, currentUserId) {
-      chatService.createChat(clickedUserId, currentUserId)
+    chatService.createChat(clickedUserId, currentUserId)
       .then(function(response) {
-          $state.go('tab.chats')
+        $state.go('tab.chats')
       })
   }
 
 
   $scope.followUser = function(userId) {
-      postService.followUser(userId)
+    postService.followUser(userId)
   }
 
 })
