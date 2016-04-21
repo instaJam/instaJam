@@ -63,6 +63,14 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
         })
       }
 
+    $scope.getFollowingPosts = function() {
+        postService.getFollowingPosts().then(function(response) {
+            $scope.followingPosts = response;
+            console.log($scope.followingPosts);
+        })
+    }
+    $scope.getFollowingPosts();
+
   $scope.submitComment = function (userId, postId, newComment, showIndex) {
     postService.submitComment(userId, postId, newComment).then(function(res) {
       $scope.getAllPosts();
@@ -112,6 +120,10 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       .then(function(response) {
           $state.go('tab.chats')
       })
+  }
+
+  $scope.followUser = function(userId) {
+      postService.followUser(userId)
   }
 
 
