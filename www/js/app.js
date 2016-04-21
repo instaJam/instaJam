@@ -92,14 +92,12 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
         }
       }
     })
-    .state('tab.edit', {
+    .state('edit', {
       url: '/edit',
-      views: {
-        'tab-edit': {
         templateUrl: 'templates/tab-edit.html',
         controller: 'frUserProfileCtrl'
-        }
-      }
+
+
     })
 
   .state('tab.account', {
