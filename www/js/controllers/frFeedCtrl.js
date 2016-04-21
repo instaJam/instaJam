@@ -47,7 +47,7 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
     }
     $scope.isYoutubeArray= [];
     $scope.youtubeChecker = function(content, $index){
-      console.log(content.indexOf("youtu"));
+    //   console.log(content.indexOf("youtu"));
       if (content.indexOf("youtu") !== -1) {
         $scope.isYoutubeArray[$index] = true;
       }
@@ -131,29 +131,10 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
           $state.go('tab.chats')
       })
   }
-  var posOptions = {timeout: 10000, enableHighAccuracy: false};
-  $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
 
-      var cord = {lat: position.coords.latitude,
-          long:position.coords.longitude
-        }
-
-      console.log(cord);
-      userService.editUserLoc(cord, $scope.currentUser._id)
-    }, function(err) {
-      console.log(err);
-    });
-
-
-  var watchOptions = {
-    timeout : 3000,
-    enableHighAccuracy: false // may cause errors if true
-  };
 
   $scope.followUser = function(userId) {
       postService.followUser(userId)
   }
 
-
-  // OR
 })
