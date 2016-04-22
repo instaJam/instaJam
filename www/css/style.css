@@ -5,11 +5,26 @@
   max-height: 29em;
 
 }
+.distanceText{
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: flex-end;}
+.likesText{
+    color: dodgerblue;
+    font-family: 'Lato', sans-serif;
+}
 .postContent{
   padding-top: 50px;
 }
 .list-item-content {
   padding: 5px;
+}
+.postUserName{
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: dodgerblue;
+
 }
 
 .list-item {
@@ -17,11 +32,25 @@
 }
 
 .rightMessage {
-    text-align: right;
+   text-align: right;
+letter-spacing: 1.1px;
+font-size: 15px;
+max-width: 16em;
+position: relative;
+right: -25%;
+padding-top: 2px;
+color: black;
 }
 
 .leftMessage {
-    text-align: left;
+   text-align: left;
+   letter-spacing: 1.1px;
+   font-size: 15px;
+   max-width: 16em;
+   position: relative;
+   left: 4%;
+   padding-top: 2px;
+   color: crimson;
 }
 .signupPage{
     background-image:url("../img/bed.jpeg");

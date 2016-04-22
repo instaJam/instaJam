@@ -16,9 +16,7 @@ angular.module("instajam").service("postService", function($http, $stateParams) 
         method:'GET',
         url:'/api/post'
     }).then(function(res){
-        console.log(res.data.length)
         for(var i = 0; i < res.data.length; i++){
-            console.log(res.data)
           var curLong =res.data[0].user.loc.long;
           var curLat =res.data[0].user.loc.lat;
           var savedLong =res.data[i].user.loc.long;
