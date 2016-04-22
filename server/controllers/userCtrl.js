@@ -118,10 +118,10 @@ updateUser: function(req, res, next) {
   },followUser:function(req, res, next) {
           var currentUser = req.user;
           var userToFollow = req.params.id;
-             User.findByIdAndUpdate(userToFollow, {$push: {'following': currentUser}}, function(err, stuff) {
+             User.findByIdAndUpdate(userToFollow, {$push: {'followers': currentUser}}, function(err, stuff) {
                  if (err) console.log(err);
              })
-             User.findByIdAndUpdate(currentUser, {$push: {'followers': userToFollow}}, function(err, stuff) {
+             User.findByIdAndUpdate(currentUser, {$push: {'following': userToFollow}}, function(err, stuff) {
                  if (err) console.log(err);
                 })
             res.status(200).send(res);
