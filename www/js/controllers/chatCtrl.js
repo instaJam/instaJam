@@ -10,6 +10,7 @@ $scope.createChat = function(clickedUserId, currentUserId) {
 userService.getCurrentUser().then(function(response) {
     $scope.currentUser = response.data;
 })
+
 chatService.getUserChats().then(function(response) {
     $scope.allChats = response;
 })
