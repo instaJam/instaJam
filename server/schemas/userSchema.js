@@ -13,12 +13,8 @@ var userSchema = new Schema({
     password:{type: String, required: false},
     bio:{type: String, required:false},
     gender: String,
-    following:[{
-            user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-    }],
-    followers: [{
-            user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-    }],
+    following:[{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    followers: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     chats: [{type: mongoose.Schema.Types.ObjectId, ref: 'Chat'}],
     profpic:{type:String, default:'http://1.bp.blogspot.com/-Tb_UK9_ePUM/U7oTNS-AnSI/AAAAAAAAPLE/2TT0ltTzqF4/s1600/default+image.jpg'},
     loc:{}
