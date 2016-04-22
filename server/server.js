@@ -50,7 +50,8 @@ app.get('/api/user/:id', userCtrl.getUser);
 app.put('/api/user/:id', userCtrl.updateUser);
 app.delete('/api/user/:id', userCtrl.deleteUser);
 app.get('/api/me', userCtrl.ensureAuthenticated, userCtrl.getCurrentUser);
-app.post('/api/user/follow/:id',userCtrl.ensureAuthenticated, userCtrl.followUser);
+
+app.put('/api/user/follow/:id',userCtrl.ensureAuthenticated, userCtrl.followUser);
 
 //////////////
 ///CHATS/////

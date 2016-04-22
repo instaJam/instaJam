@@ -15,27 +15,37 @@
       <div class="list" ng-repeat="post in allPosts | orderBy:'createdAt':true  track by post._id">
         <div class="item item-avatar">
           <img ng-src="{{post.user.profpic}}">
-          <h2>{{post.user.username}}</h2>
-          {{post.distance}} mile away
-          <div ng-click="followUser(post.user._id)">
-              follow
-          </div>
-          <button type="button" name="button"></button>
-          <a ng-click="createChat(post.user._id, currentUser._id)">Message Me</a>
+          <div class = "postUserName">{{post.user.username}}</div>
+          <div class="">
+         </div>
+
+          <button class="button button-small button-positive"ng-click="createChat(post.user._id, currentUser._id)">
+Message</button>
+<div class="distanceText">
+    <ng-pluralize count='post.distance' when="{'1':'1 Mile Away',
+                        'other':'{} Miles Away '}">
+               </ng-pluralize>
+
+</div>
 
         </div>
-        <div>
+
+        <div ng-dblclick="like(currentUser._id, post._id, post.likes)">
           <img ng-src="{{post.content}}" class="postSize">
         </div>
         <div class="button-bar">
           <button class="button" ng-click="commentToggle($index)">
-            <i class="ion-ios-chatbubble"></i>
+            <i class="icon  ion-ios-chatbubble"></i>
             <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
-              <i class="ion-happy-outline" ></i>
+              <i class="icon ion-heart" ></i>
             </button>
           </button>
         </div class="list">
-          {{post.user.username}}: {{post.description}} {{likesCounter(post.likes) + " " + "likes!"}}
+        <div class="likesText">
+
+             {{post.description}}{{likesCounter(post.likes) + " " + "likes"}}
+        </div>
+
           <div ng-repeat="comment in post.comments track by $index" >
           {{comment.user.username}}:{{comment.comment}} {{deleteCommentToggle(comment.user._id)}}
           <button class="button button-small" ng-show="deleteCommentHider && commentHiderArray[$parent.$index]" ng-click="deleteComment(post._id, $index, $parent.$index)">
