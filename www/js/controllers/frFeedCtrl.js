@@ -18,7 +18,6 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       userService.editUserLoc(cord, $scope.currentUser._id).then(function(response) {
           userService.getAllUsers().then(function(res) {
               $scope.allUsers = res;
-              console.log($scope.allUsers)
           })
       })
     }, function(err) {
@@ -97,6 +96,14 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   }
 }
   $scope.getAllPosts();
+
+  $scope.getFollowingPosts = function() {
+      postService.getFollowingPosts().then(function(response) {
+          $scope.followingPosts = response;
+          console.log($scope.followingPosts);
+      })
+  }
+  $scope.getFollowingPosts();
 
   userService.getCurrentUser().then(function(data){
       $scope.currentUser = data.data;
