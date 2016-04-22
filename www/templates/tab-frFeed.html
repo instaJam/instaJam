@@ -16,29 +16,20 @@
         <div class="item item-avatar">
           <img ng-src="{{post.user.profpic}}">
           <div class = "postUserName">{{post.user.username}}</div>
-          <div class="">
-         </div>
+
 
           <button class="button button-small button-positive"ng-click="createChat(post.user._id, currentUser._id)">
-Message</button>
-<div class="distanceText">
-    <ng-pluralize count='post.distance' when="{'1':'1 Mile Away',
+          Message
+          </button>
+        <div class="distanceText">
+              <ng-pluralize count='post.distance' when="{'1':'1 Mile Away',
                         'other':'{} Miles Away '}">
                </ng-pluralize>
 
-</div>
-
-        </div>
-
-        <div ng-dblclick="like(currentUser._id, post._id, post.likes)">
-          <img ng-src="{{post.content}}" class="postSize">
-          {{post.distance}} mile away
-          <div ng-click="followUser(post.user._id)">
-              follow
           </div>
-          <button type="button" name="button"></button>
-          <a ng-click="createChat(post.user._id, currentUser._id)">Message Me</a>
+
         </div>
+
         {{youtubeChecker(post.content, $index)}}
         <div class="embed-responsive embed-responsive-16by9" ng-if="isYoutubeArray[$index]">
           <youtube-video class="embed-responsive-item" video-url="post.content"></youtube-video>

@@ -115,20 +115,16 @@ updateUser: function(req, res, next) {
       }
       req.user = payload.sub;
       next();
-<<<<<<< HEAD
 
-  },followUser:function(req, res, next) {
-=======
   },
   followUser: function(req, res, next) {
->>>>>>> 56d45d51624968589517a42790a39ea47f6ab4f6
           var currentUser = req.user;
           var userToFollow = req.params.id;
              User.findByIdAndUpdate(userToFollow, {$push: {'followers': currentUser}}, function(err, response) {
                  err ? res.staus(500).send(err) : res.status(200).send(response)
              })
              User.findByIdAndUpdate(currentUser, {$push: {'following': userToFollow}}, function(err, response) {
-                 if (err) res.status(500).send(err); 
+                 if (err) res.status(500).send(err);
                 })
 
 
