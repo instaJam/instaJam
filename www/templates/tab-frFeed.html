@@ -35,7 +35,7 @@ Message</button>
         </div>
         <div class="button-bar">
           <button class="button" ng-click="commentToggle($index)">
-            <i class="icon ion-ios-chatbubble"></i>
+            <i class="icon  ion-ios-chatbubble"></i>
             <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
               <i class="icon ion-heart" ></i>
             </button>
@@ -43,7 +43,7 @@ Message</button>
         </div class="list">
         <div class="likesText">
 
-             {{post.description}} {{likesCounter(post.likes) + " " + "likes"}}
+             {{post.description}}{{likesCounter(post.likes) + " " + "likes"}}
         </div>
 
           <div ng-repeat="comment in post.comments track by $index" >
