@@ -18,6 +18,9 @@
           <div class = "postUserName">{{post.user.username}}</div>
           <div class="">
          </div>
+         <div ng-click="followUser(post.user._id)">
+             Follow
+         </div>
 
           <button class="button button-small button-positive"ng-click="createChat(post.user._id, currentUser._id)">
 Message</button>
