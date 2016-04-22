@@ -262,3 +262,62 @@
   line-height: 43px;
   cursor: pointer;
 }
+
+/*#postPic {
+  border-color: transparent;
+  background-color: #387ef5;
+  color: #fff; }*/
+
+#outerPostPic {
+  border-color: transparent;
+  background-color: #387ef5;
+  color: #fff;
+  width:50%;
+  text-align: center;
+  display:inline-block;
+  vertical-align: middle;
+  margin-left: 3%;
+  font-size: 3vh;
+  border-radius: 5px;
+  margin-top: 10%;
+  position: relative;
+}
+#innerPostPic {
+  margin-top:5%;
+  margin-bottom: -10%;
+}
+#outerPostPic:hover {
+  color: #fff;
+  text-decoration: none;
+}
+#outerPostPic:active {
+
+    background-color: #0c60ee;
+}
+#postPic{
+  margin-left:-145px;
+  opacity:0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+  /*#postPic:hover {
+    color: #fff;
+    text-decoration: none; }
+  #postPic.active, #postPic.activated {
+    background-color: #0c60ee; }
+  #postPic.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #387ef5; }
+  #postPic.button-icon {
+    border-color: transparent;
+    background: none; }
+  #postPic.button-outline {
+    border-color: #387ef5;
+    background: transparent;
+    color: #387ef5; }
+    #postPic.button-outline.active, #postPic.button-outline.activated {
+      background-color: #387ef5;
+      box-shadow: none;
+      color: #fff; }*/
