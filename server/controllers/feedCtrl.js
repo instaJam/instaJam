@@ -100,7 +100,11 @@ module.exports = {
       User.findById(req.user, function(err, response) {
           if (err) res.status(500).send(err)
           else {
+<<<<<<< HEAD
               Post.find({ user: {$in: response.following}}, function(err, response) {
+=======
+              Post.find({ $or: [{ user: {$in: response.following}}, {user: req.user}]}, function(err, response) {
+>>>>>>> 56d45d51624968589517a42790a39ea47f6ab4f6
                   err ? res.status(500).send(err) : res.status(200).send(response)
               })
           }

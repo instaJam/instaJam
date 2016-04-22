@@ -93,7 +93,7 @@ this.postContent = function(data, user){
 }
 this.followUser = function(followUser){
     return $http({
-        method:"PUT",
+        method:"POST",
         url:'/api/user/follow/'+ followUser
     })
 }

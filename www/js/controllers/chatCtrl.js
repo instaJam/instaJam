@@ -6,15 +6,14 @@ $scope.createChat = function(clickedUserId, currentUserId) {
         $state.go('tab.chat-detal', {chatId: response})
     })
 }
-// chatService.getChats().then(function(res){
-//     $scope.allChats = res.data;
-//     console.log($scope.allChats);
-// })
 
 userService.getCurrentUser().then(function(response) {
     $scope.currentUser = response.data;
 })
+<<<<<<< HEAD
 
+=======
+>>>>>>> 56d45d51624968589517a42790a39ea47f6ab4f6
 chatService.getUserChats().then(function(response) {
     $scope.allChats = response;
 })

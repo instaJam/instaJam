@@ -31,9 +31,27 @@
 .list-item {
   color: #666666;
 }
+.accountButton{
+    font-size: 5em;
+color: lightslategray;
+position: absolute;
+top: 249%;
+right: 43%;
+}
 
+
+.hideUploadButton{
+
+    width: 0.1px;
+height: 0.1px;
+opacity: 0;
+overflow: hidden;
+position: absolute;
+z-index: -1;
+
+}
 .rightMessage {
-   text-align: right;
+    text-align: right;
 letter-spacing: 1.1px;
 font-size: 15px;
 max-width: 16em;
@@ -44,14 +62,14 @@ color: black;
 }
 
 .leftMessage {
-   text-align: left;
-   letter-spacing: 1.1px;
-   font-size: 15px;
-   max-width: 16em;
-   position: relative;
-   left: 4%;
-   padding-top: 2px;
-   color: crimson;
+    text-align: left;
+    letter-spacing: 1.1px;
+    font-size: 15px;
+    max-width: 16em;
+    position: relative;
+    left: 4%;
+    padding-top: 2px;
+    color: crimson;
 }
 .signupPage{
     background-image:url("../img/bed.jpeg");

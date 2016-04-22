@@ -32,6 +32,19 @@ Message</button>
 
         <div ng-dblclick="like(currentUser._id, post._id, post.likes)">
           <img ng-src="{{post.content}}" class="postSize">
+          {{post.distance}} mile away
+          <div ng-click="followUser(post.user._id)">
+              follow
+          </div>
+          <button type="button" name="button"></button>
+          <a ng-click="createChat(post.user._id, currentUser._id)">Message Me</a>
+        </div>
+        {{youtubeChecker(post.content, $index)}}
+        <div class="embed-responsive embed-responsive-16by9" ng-if="isYoutubeArray[$index]">
+          <youtube-video class="embed-responsive-item" video-url="post.content"></youtube-video>
+        </div>
+        <div class="embed-responsive embed-responsive-square" ng-if="!isYoutubeArray[$index]">
+          <img ng-src="{{post.content}}" class="embed-responsive-item">
         </div>
         <div class="button-bar">
           <button class="button" ng-click="commentToggle($index)">
