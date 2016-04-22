@@ -125,6 +125,9 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       })
   }
 
+  $scope.followUser = function(userId) {
+      postService.followUser(userId)
+  }
 
-  // OR
+
 })
