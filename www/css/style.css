@@ -5,11 +5,26 @@
   max-height: 29em;
 
 }
+.distanceText{
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: flex-end;}
+.likesText{
+    color: dodgerblue;
+    font-family: 'Lato', sans-serif;
+}
 .postContent{
   padding-top: 50px;
 }
 .list-item-content {
   padding: 5px;
+}
+.postUserName{
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: dodgerblue;
+
 }
 
 .list-item {
