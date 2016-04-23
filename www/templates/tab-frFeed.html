@@ -30,7 +30,7 @@ Message</button>
 
         </div>
 
-        <div ng-dblclick="like(currentUser._id, post._id, post.likes)">
+        <div on-double-tap="like(currentUser._id, post._id, post.likes)">
           <img ng-src="{{post.content}}" class="postSize">
         </div>
         <div class="button-bar">

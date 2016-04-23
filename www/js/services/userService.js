@@ -65,7 +65,14 @@ this.addPostLoc = function(info, id){
 
     })
 }
-
+this.getUserPost= function(){
+    return $http({
+        method:"GET",
+        url:'/api/post/user'
+    }).then(function(response){
+        return response
+    })
+}
 
 
 

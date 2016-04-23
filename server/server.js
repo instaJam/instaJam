@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var moment = require('moment');
 var jwt = require('jwt-simple');
 var cors = require('cors');
-var userCtrl = require('./controllers/userCtrl.js')
+var userCtrl = require('./controllers/userCtrl.js');
 var User = require('./schemas/userSchema.js');
 var Keys = require('./keys.js');
 var Amazon = require('./controllers/awsController.js');
@@ -76,7 +76,7 @@ app.delete('/api/message/:id', messageCtrl.deleteMessage);
 /////////////////
 app.post('/api/post', feedCtrl.addPost);
 app.get('/api/post', feedCtrl.getAllPosts);
-app.get('/api/post/user', feedCtrl.getUserPosts);
+app.get('/api/post/user',userCtrl.ensureAuthenticated, feedCtrl.getUserPosts);
 app.post('/api/post/likes', feedCtrl.addLike);
 app.post('/api/post/dislike', feedCtrl.removeLike);
 app.post('/api/post/submitComment', feedCtrl.submitComment);

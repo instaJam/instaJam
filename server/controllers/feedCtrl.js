@@ -94,5 +94,6 @@ module.exports = {
         if (err) res.status(500).json(err);
         else res.status(200).json(response);
       })
-     }
+  },
+
 }
