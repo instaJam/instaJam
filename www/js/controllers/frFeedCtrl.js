@@ -53,10 +53,8 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
     $scope.isYoutubeArray= [];
     $scope.youtubeChecker = function(content, $index){
     //   console.log(content.indexOf("youtu"));
-    console.log(content);
       if (content.indexOf("youtu") !== -1) {
         $scope.isYoutubeArray[$index] = true;
-        console.log($scope.isYoutubeArray[$index]);
       }
     }
 
