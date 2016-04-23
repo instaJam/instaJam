@@ -10,7 +10,7 @@
 
 
     <div class='ion-android-radio-button-on accountButton'type="button" name="button"> </div>
-     
+
     <div class="list list-inset">
       <form action="http://www.youtube.com/results" method="get" target="_blank">
         <label class="item item-input">
@@ -23,7 +23,7 @@
       <label class="item-input-wrapper">
         <input type="text" ng-model="newPost" placeholder="Paste a youtube url">
       </label>
-      <button class="button button-small" ng-click="submitPost(currentUser._id, post._id, newComment)" >
+      <button class="button button-small" ng-click="postVid(newPost, currentUser._id)" >
         Submit
       </button>
       </div>
