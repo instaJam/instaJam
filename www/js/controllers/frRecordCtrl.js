@@ -1,7 +1,7 @@
 angular.module('instajam').controller('frRecordCtrl', function($scope, $state, $auth, userService, postService, $cordovaGeolocation, $q, chatService){
 
   userService.getCurrentUser().then(function(data){
-      $scope.currentUser = data.data;
+      $scope.profile = data.data;
   });
 
 
