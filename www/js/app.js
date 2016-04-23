@@ -105,7 +105,7 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'youtube-embed', 'i
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        controller: 'frRecordCtrl'
       }
     }
   })
