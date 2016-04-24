@@ -1,15 +1,22 @@
 <ion-view view-title="Add a Post">
   <ion-content>
-    <ion-list>
     <!-- <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
     </ion-toggle> -->
     <!-- <input type="file" class="upload" prof-pic profile="profile" accept="image/*" /> -->
+
+    <button class="button button-full button-positive" ng-click="pictureShower()">
+      Post A Picture
+    </button>
+    <div ng-show="showPicture">
+
     <input type="file" class="upload" feed-post profile="profile" accept="image/*"/>
-    </ion-list>
+  </div>
+    <button class="button button-full button-positive" ng-click="youtubeShower()">
+      Post A Youtube Video
+    </button>
 
-
-    <div class='ion-android-radio-button-on accountButton'type="button" name="button"> </div>
+    <div ng-show="showYoutube">
 
     <div class="list list-inset">
       <form action="http://www.youtube.com/results" method="get" target="_blank">
@@ -23,10 +30,12 @@
       <label class="item-input-wrapper">
         <input type="text" ng-model="newPost" placeholder="Paste a youtube url">
       </label>
-      <button class="button button-small" ng-click="postVid(newPost, currentUser._id)" >
+      <button class="button button-small" ng-click="postVid(newPost, profile._id)" >
         Submit
       </button>
       </div>
+    </div>
+
 
 
 
