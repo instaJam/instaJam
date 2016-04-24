@@ -17,8 +17,6 @@ $scope.pictureShower = function() {
 $scope.postVid = function(data, user){
   postService.postContent(data, user).then(function(res){
   $scope.youtubeShower();
-  $scope.search_query.setPristine();
-  $scope.postInput.setPristine();
 
 })
 }

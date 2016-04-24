@@ -1,7 +1,14 @@
 angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService){
   $scope.test = "hey it works";
   $scope.chats = Chats.all();
-
+  $scope.doRefresh = function() {
+    postService.getAllPosts().then(function(res) {
+        $scope.allPosts = res;
+      }).finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
   $scope.logout = function(){
       $auth.logout().then(function(res){
           $state.go('login');
