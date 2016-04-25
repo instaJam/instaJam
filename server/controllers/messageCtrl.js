@@ -109,9 +109,20 @@ module.exports = {
           });
         },
         getUserChats: function(req, res, next) {
-          Chat.find('toUser._id === req.user || fromUser._id === req.user').populate('toUser fromUser messages.toUser messages.fromUser').exec(function(err, response) {
-            err ? res.status(500).send(err) : res.status(200).send(response);
-          });
+            User.findById(req.user, function(err, response){
+                if(err){
+                    res.status(500).send(err);
+                }else{
+                    Chat.find({_id:{$in: response.chats }}).populate('toUser fromUser').exec(function(err, resp){
+                        if(err){
+                            res.status(500).send(err);
+                        }else{
+                            res.status(200).send(resp)
+                        };
+                    });
+
+                }
+            })
         }
 
     };
