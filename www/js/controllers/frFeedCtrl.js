@@ -154,5 +154,12 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       postService.followUser(userId)
   }
 
+  $scope.getUser = function(id) {
+    userService.getUserProfile(id)
+    .then(function(response){
+      $scope.postUser = response.data;
+    });
+  };
+});
 
 })
