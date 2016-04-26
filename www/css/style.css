@@ -299,8 +299,8 @@ color: black;
 
 #outerPostPic {
   border-color: transparent;
-  background-color: #387ef5;
-  color: #fff;
+  background-color: #f34a4a;
+  color: black;
   width:50%;
   text-align: center;
   display:inline-block;
@@ -316,18 +316,22 @@ color: black;
   margin-bottom: -10%;
 }
 #outerPostPic:hover {
-  color: #fff;
+  color: black;
   text-decoration: none;
 }
 #outerPostPic:active {
 
-    background-color: #0c60ee;
+    background-color: red;
 }
 #postPic{
   margin-left:-145px;
   opacity:0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+.recordBack {
+  background-image: url(http://www.natomasarts.com/wp/wp-content/uploads/2011/07/microphone_black_background2.jpg);
+  background-size:cover;
 }
   /*#postPic:hover {
     color: #fff;
