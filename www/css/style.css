@@ -372,3 +372,17 @@ color: black;
   font-size: 12px;
   color: #AAAAAA;
 }
+
+.upload-btn {
+  border-color: transparent;
+  background-color: #F8F8F8;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  color: #444;
+  transition: opacity 0.1s;
+  padding: 0px 0px 5px 0px;
+  margin:0 auto;
+  display:block;
+  border-radius: 14px;
+  min-width: 50%;
+  min-height: 43px;
+}
