@@ -9,6 +9,10 @@ userService.getCurrentUser().then(function(res){
             $state.go('login');
         });
     }
+    userService.getUserPost().then(function(res){
+        console.log(res.data);
+        $scope.userPost = res.data
+    })
 
     $scope.userToggle = function() {
       var c = document.getElementById('usernameChange');

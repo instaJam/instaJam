@@ -46,7 +46,7 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
     function(position) {
         var cord = {lat: position.coords.latitude,
             long:position.coords.longitude
-          }
+        };
 
         console.log(cord);
         userService.editUserLoc(cord, $scope.currentUser._id).then(function(response) {
