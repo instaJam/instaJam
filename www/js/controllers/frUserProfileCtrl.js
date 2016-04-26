@@ -2,14 +2,13 @@ angular.module('instajam').controller('frUserProfileCtrl', function($scope,$stat
 
 userService.getCurrentUser().then(function(res){
                 $scope.currentUser = res.data;
-            })
+            });
 
     $scope.logout = function(){
         $auth.logout().then(function(res){
             $state.go('login');
         });
     }
-
 
     $scope.userToggle = function() {
       var c = document.getElementById('usernameChange');
@@ -124,4 +123,5 @@ userService.getCurrentUser().then(function(res){
         $scope.modal.show();
       });
     }
+
 })

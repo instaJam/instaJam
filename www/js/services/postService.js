@@ -97,4 +97,11 @@ this.followUser = function(followUser){
         url:'/api/user/follow/'+ followUser
     })
 }
+
+this.getUserResolve = function(userID){
+    return $http({
+        method:"GET",
+        url:'/api/user/?user=' + userId
+    })
+}
 });

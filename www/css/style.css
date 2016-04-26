@@ -5,13 +5,32 @@
   max-height: 29em;
 
 }
+
+.tabs-striped.tabs-background-positive .tabs {
+    background-color: #262F34;
+    background-image: none;
+}
+
+.button.button-positive {
+  background-color: #F34A4A;
+  float: right;
+  bottom: 37px;
+  left: 10px;
+}
 .distanceText{
     font-family: 'Lato', sans-serif;
-    display: flex;
-    justify-content: flex-end;}
+    color: #F34A4A;
+    float: right;
+    font-size: 14px;
+  }
 .likesText{
     color: dodgerblue;
     font-family: 'Lato', sans-serif;
+    margin-left: 5px;
+}
+
+.commentText {
+  margin-left: 5px;
 }
 .postContent{
   padding-top: 50px;
@@ -50,11 +69,7 @@ z-index: -1;
 
 }
 .rightMessage {
-<<<<<<< HEAD
-    text-align: right;
-=======
-   text-align: right;
->>>>>>> 5fb588136ea2d9ddec63d54bb47eb1fa503e10a3
+text-align: right;
 letter-spacing: 1.1px;
 font-size: 15px;
 max-width: 16em;
@@ -65,16 +80,6 @@ color: black;
 }
 
 .leftMessage {
-<<<<<<< HEAD
-    text-align: left;
-    letter-spacing: 1.1px;
-    font-size: 15px;
-    max-width: 16em;
-    position: relative;
-    left: 4%;
-    padding-top: 2px;
-    color: crimson;
-=======
    text-align: left;
    letter-spacing: 1.1px;
    font-size: 15px;
@@ -83,7 +88,7 @@ color: black;
    left: 4%;
    padding-top: 2px;
    color: crimson;
->>>>>>> 5fb588136ea2d9ddec63d54bb47eb1fa503e10a3
+
 }
 .signupPage{
     background-image:url("../img/bed.jpeg");
@@ -162,7 +167,6 @@ color: black;
 
 .main {
   text-align: center;
-  margin-top: 90px;
 }
 
 #profile-name{
@@ -173,11 +177,11 @@ color: black;
 #profile-image {
   display: block;
   border-radius: 6px;
-  width: 65px;
-  height: 65px;
-  margin: 30px auto 0;
-  box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
-  border: 3px solid #F1D3BC;
+  width: 100px;
+  height: 100px;
+  margin: 10px auto 0;
+  box-shadow: 0px 5px 6px #000;
+  border: 3px solid #262F34;
 }
 #usernameForm, #emailForm, #bioForm, #passwordForm {
   /*position: relative;*/
@@ -323,4 +327,48 @@ color: black;
   font-size: 16px;
   line-height: 43px;
   cursor: pointer;
+}
+
+#contentBox {
+  box-shadow: 0px 0px 13px #2D2D2D;
+
+}
+
+
+.item-avatar {
+  padding-left: 72px;
+  height: 65px;
+}
+
+.postUserName a{
+  color: #262F34;
+  text-decoration: none;
+  text-transform: uppercase;;
+  font-size: 14px;
+  font-weight: 600;
+  margin: auto;
+}
+
+.button-bar > .button {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.custom-icon{
+  font-size: 64px;
+  border-color: 1px solid #F34A4A;
+}
+
+.list {
+  margin-bottom: 14px;
+  padding-bottom: 2px
+}
+
+.item-avatar > img:first-child {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.dateText {
+  font-size: 12px;
+  color: #AAAAAA;
 }

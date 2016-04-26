@@ -122,6 +122,20 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     controller: 'frLoginCtrl'
   })
 
+  .state('user-profile', {
+    url: '/user/:id',
+        templateUrl: 'templates/user-profile.html',
+        controller: 'instaUserCtrl',
+        resolve: {
+             instaUser: function(userService, $stateParams){
+               return userService.getUserProfile($stateParams)
+               .then(function(response){
+                 console.log("RESPONSE HITTING: " + response);
+                 return response.data;
+               })
+             }
+            }
+    })
   // .state('map', {
   //   url: '/map',
   //   templateUrl: 'templates/map.html',
