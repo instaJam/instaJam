@@ -1,11 +1,44 @@
-<ion-view view-title="Account">
+<ion-view view-title="Add a Post">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
+    <!-- <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
-    </ion-toggle>
+    </ion-toggle> -->
     <!-- <input type="file" class="upload" prof-pic profile="profile" accept="image/*" /> -->
-    <input type="file" class="upload" feed-post profile="profile" accept="image/*" />
-    </ion-list>
+
+    <button class="button button-full button-positive" ng-click="pictureShower()">
+      Post A Picture
+    </button>
+    <div ng-show="showPicture">
+
+    <input type="file" class="upload" feed-post profile="profile" accept="image/*"/>
+  </div>
+    <button class="button button-full button-positive" ng-click="youtubeShower()">
+      Post A Youtube Video
+    </button>
+
+    <div ng-show="showYoutube">
+
+    <div class="list list-inset">
+      <form action="http://www.youtube.com/results" method="get" target="_blank">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+        <input name="search_query" type="text" maxlength="128" placeholder="Search for a Youtube Video" />
+        </label>
+      </form>
+    </div>
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" ng-model="newPost" placeholder="Paste a youtube url">
+      </label>
+      <button class="button button-small" ng-click="postVid(newPost, profile._id)" >
+        Submit
+      </button>
+      </div>
+    </div>
+
+
+
+
   </ion-content>
+
 </ion-view>

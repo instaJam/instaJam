@@ -12,25 +12,19 @@
   <ion-content>
 
     <div class="postContent">
-      <div class="list" ng-repeat="post in allPosts | orderBy:'createdAt':true  track by post._id">
+      <div class="list" id="contentBox" ng-repeat="post in allPosts | orderBy:'createdAt':true  track by post._id">
         <div class="item item-avatar">
           <img ng-src="{{post.user.profpic}}">
-          <div class = "postUserName">{{post.user.username}}</div>
-          <div class="">
-         </div>
-         <div ng-click="followUser(post.user._id)">
-             Follow
-         </div>
-
-          <button class="button button-small button-positive"ng-click="createChat(post.user._id, currentUser._id)">
-Message</button>
-<div class="distanceText">
-    <ng-pluralize count='post.distance' when="{'1':'1 Mile Away',
-                        'other':'{} Miles Away'}">
-               </ng-pluralize>
-
-</div>
-
+          <div class = "postUserName"><a ui-sref="user-profile({id: post.user._id})">{{post.user.username}}</a>
+            <div class="distanceText">
+              <ng-pluralize count='post.distance' when="{'1':'1 Mile Away',
+                                'other':'{} Miles Away '}">
+                       </ng-pluralize>
+            </div>
+            <div class="dateText">Posted on {{post.createdAt | date : medium}}</div>
+          </div>
+          <!-- <button class="button button-small button-positive"ng-click="createChat(post.user._id, currentUser._id)">
+Message</button> -->
         </div>
 
         <div ng-dblclick="like(currentUser._id, post._id, post.likes)">
@@ -38,9 +32,9 @@ Message</button>
         </div>
         <div class="button-bar">
           <button class="button" ng-click="commentToggle($index)">
-            <i class="icon  ion-ios-chatbubble"></i>
+            <i class="icon ion-ios-chatbubble custom-icon"></i>
             <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
-              <i class="icon ion-heart" ></i>
+              <i class="icon ion-heart custom-icon" ></i>
             </button>
           </button>
         </div class="list">
@@ -49,10 +43,10 @@ Message</button>
              {{post.description}}{{likesCounter(post.likes) + " " + "likes"}}
         </div>
 
-          <div ng-repeat="comment in post.comments track by $index" >
-          {{comment.user.username}}:{{comment.comment}} {{deleteCommentToggle(comment.user._id)}}
+          <div ng-repeat="comment in post.comments track by $index" class="commentText" >
+          {{comment.user.username}}:&nbsp;{{comment.comment}}&nbsp;&nbsp; &nbsp;&nbsp; {{deleteCommentToggle(comment.user._id)}}
           <button class="button button-small" ng-show="deleteCommentHider && commentHiderArray[$parent.$index]" ng-click="deleteComment(post._id, $index, $parent.$index)">
-            <i class="ion-trash-a"></i>
+            <i class="icon ion-trash-a"></i>
           </button>
         </div>
           <div class="item item-input-inset" ng-show="commentHiderArray[$index]">
@@ -65,8 +59,7 @@ Message</button>
             </div>
               </div>
     </div>
-
-
+  </div>
 
 
   </ion-content>

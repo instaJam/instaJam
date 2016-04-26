@@ -34,6 +34,8 @@ angular.module('instajam.controllers', [])
     $scope.settings = {
       enableFriends: true
     };
+
+
     userService.getCurrentUser().then(function(res) {
       $scope.profile = res.data;
     })
