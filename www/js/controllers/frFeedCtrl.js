@@ -1,7 +1,14 @@
 angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService){
   $scope.test = "hey it works";
   $scope.chats = Chats.all();
-
+  $scope.doRefresh = function() {
+    postService.getAllPosts().then(function(res) {
+        $scope.allPosts = res;
+      }).finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
   $scope.logout = function(){
       $auth.logout().then(function(res){
           $state.go('login');
@@ -18,7 +25,6 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       userService.editUserLoc(cord, $scope.currentUser._id).then(function(response) {
           userService.getAllUsers().then(function(res) {
               $scope.allUsers = res;
-              console.log($scope.allUsers)
           })
       })
     }, function(err) {
@@ -49,7 +55,14 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
                 console.log($scope.allUsers)
             })
         })
-  });
+    })
+    $scope.isYoutubeArray= [];
+    $scope.youtubeChecker = function(content, $index){
+    //   console.log(content.indexOf("youtu"));
+      if (content.indexOf("youtu") !== -1) {
+        $scope.isYoutubeArray[$index] = true;
+      }
+    }
 
   watch.clearWatch();
   $scope.commentHiderArray = [];
@@ -66,6 +79,14 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
           $scope.allPosts = res;
         })
       }
+
+    $scope.getFollowingPosts = function() {
+        postService.getFollowingPosts().then(function(response) {
+            $scope.followingPosts = response;
+            console.log($scope.followingPosts);
+        })
+    }
+    $scope.getFollowingPosts();
 
   $scope.submitComment = function (userId, postId, newComment, showIndex) {
     postService.submitComment(userId, postId, newComment).then(function(res) {
@@ -98,13 +119,24 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
 }
   $scope.getAllPosts();
 
+  $scope.getFollowingPosts = function() {
+      postService.getFollowingPosts().then(function(response) {
+          $scope.followingPosts = response;
+          console.log($scope.followingPosts);
+      })
+  }
+  $scope.getFollowingPosts();
+
   userService.getCurrentUser().then(function(data){
       $scope.currentUser = data.data;
   });
   $scope.deleteCommentToggle = function(userId) {
-
-    if (userId.toString() === $scope.currentUser._id.toString()){
-      $scope.deleteCommentHider = true;
+    if ($scope.currentUser) {
+      if (userId.toString() === $scope.currentUser._id.toString()){
+        $scope.deleteCommentHider = true;
+      }else {
+        $scope.deleteCommentHider = false;
+      }
     }else {
       $scope.deleteCommentHider = false;
     }
@@ -118,6 +150,16 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       })
   }
 
+  $scope.followUser = function(userId) {
+      postService.followUser(userId)
+  }
 
-  // OR
+  $scope.getUser = function(id) {
+    userService.getUserProfile(id)
+    .then(function(response){
+      $scope.postUser = response.data;
+    });
+  };
+});
+
 })

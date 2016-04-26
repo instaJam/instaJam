@@ -1,4 +1,4 @@
-angular.module("instajam").service("userService", function($http) {
+angular.module("instajam").service("userService", function($http, $stateParams) {
 
 this.getCurrentUser = function(){
     return $http({
@@ -8,6 +8,7 @@ this.getCurrentUser = function(){
       return response;
     })
 }
+
 
 this.editUserLoc = function(info, id){
     return $http({
@@ -73,7 +74,12 @@ this.getUserPost= function(){
         return response
     })
 }
-
+this.getUserProfile = function(id){
+  return $http({
+    method: "GET",
+    url: '/api/user/' + id.id
+  })
+}
 
 
 });

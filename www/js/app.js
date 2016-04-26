@@ -7,7 +7,7 @@
 // 'instajam.controllers' is found in controllers.js
 var socket = io();
 
-angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services', 'satellizer', 'ngCordova'])
+angular.module('instajam', ['ionic', 'instajam.controllers', 'youtube-embed', 'instajam.services', 'satellizer', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -96,6 +96,8 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
       url: '/edit',
         templateUrl: 'templates/tab-edit.html',
         controller: 'frUserProfileCtrl'
+
+
     })
 
   .state('tab.account', {
@@ -103,7 +105,7 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        controller: 'frRecordCtrl'
       }
     }
   })
@@ -120,12 +122,25 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     controller: 'frLoginCtrl'
   })
 
+  .state('user-profile', {
+    url: '/user/:id',
+        templateUrl: 'templates/user-profile.html',
+        controller: 'instaUserCtrl',
+        resolve: {
+             instaUser: function(userService, $stateParams){
+               return userService.getUserProfile($stateParams)
+               .then(function(response){
+                 console.log("RESPONSE HITTING: " + response);
+                 return response.data;
+               })
+             }
+            }
+    })
   // .state('map', {
   //   url: '/map',
   //   templateUrl: 'templates/map.html',
   //   controller: 'mapCtrl',
   // })
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 

@@ -10,6 +10,7 @@ var Keys = require('./keys.js');
 var Amazon = require('./controllers/awsController.js');
 var messageCtrl = require('./controllers/messageCtrl.js');
 var feedCtrl = require('./controllers/feedCtrl.js');
+var youtubeCtrl = require('./controllers/youtubeController.js');
 var port = 3000;
 var app = express();
 var http = require('http').Server(app);
@@ -50,7 +51,7 @@ app.get('/api/user/:id', userCtrl.getUser);
 app.put('/api/user/:id', userCtrl.updateUser);
 app.delete('/api/user/:id', userCtrl.deleteUser);
 app.get('/api/me', userCtrl.ensureAuthenticated, userCtrl.getCurrentUser);
-app.put('/api/user/follow/:id',userCtrl.ensureAuthenticated, userCtrl.followUser);
+app.post('/api/user/follow/:id',userCtrl.ensureAuthenticated, userCtrl.followUser);
 
 //////////////
 ///CHATS/////
@@ -77,11 +78,20 @@ app.delete('/api/message/:id', messageCtrl.deleteMessage);
 app.post('/api/post', feedCtrl.addPost);
 app.get('/api/post', feedCtrl.getAllPosts);
 app.get('/api/post/user',userCtrl.ensureAuthenticated, feedCtrl.getUserPosts);
+app.get('/api/post/following', userCtrl.ensureAuthenticated, feedCtrl.getFollowingPosts)
 app.post('/api/post/likes', feedCtrl.addLike);
 app.post('/api/post/dislike', feedCtrl.removeLike);
 app.post('/api/post/submitComment', feedCtrl.submitComment);
 app.post('/api/post/deleteComment', feedCtrl.deleteComment);
 app.put('/api/post/:id', feedCtrl.addLocToPost);
+
+///////////////////
+//Youtube ENDPOINTS//
+/////////////////
+
+
+// app.get('/api/youtubeSearch', youtubeCtrl.youtubeSearch);
+
 
 
 ///////////
