@@ -1,19 +1,35 @@
-<ion-view view-title="Add a Post">
+<ion-view view-title="Add a Post" class="recordBack">
   <ion-content>
+
+    <ion-list>
+
     <!-- <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
     </ion-toggle> -->
     <!-- <input type="file" class="upload" prof-pic profile="profile" accept="image/*" /> -->
 
+<!--
     <button class="button button-full button-positive" ng-click="pictureShower()">
       Post A Picture
     </button>
-    <div ng-show="showPicture">
+    <div ng-show="showPicture"> -->
 
-    <input type="file" class="upload" feed-post profile="profile" accept="image/*"/>
+    <div id="outerPostPic">
+      <div id="innerPostPic">
+      Post a Picture
+    </div>
+    <input id="postPic" type="file" feed-post profile="profile" accept="image/*" />
   </div>
-    <button class="button button-full button-positive" ng-click="youtubeShower()">
-      Post A Youtube Video
+
+    <!-- <input type="file" class="upload" feed-post profile="profile" accept="image/*"/> -->
+  </div>
+</br>
+</br>
+</br>
+</br>
+</br>
+    <button class="button button-positive" style="color:black; float:left;" ng-click="youtubeShower()">
+      Post a Youtube Video
     </button>
 
     <div ng-show="showYoutube">
@@ -37,7 +53,7 @@
     </div>
 
 
-
+    </ion-list>
 
   </ion-content>
 
