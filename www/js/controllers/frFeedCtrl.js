@@ -1,6 +1,5 @@
-angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService){
-  $scope.test = "hey it works";
-  $scope.chats = Chats.all();
+angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService,$ionicActionSheet, $timeout){
+  $scope.showDistance = 5;
   $scope.doRefresh = function() {
     postService.getAllPosts().then(function(res) {
         $scope.allPosts = res;
@@ -160,6 +159,45 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
       $scope.postUser = response.data;
     });
   };
-});
 
-})
+  $scope.show = function() {
+
+     // Show the action sheet
+     var hideSheet = $ionicActionSheet.show({
+       buttons: [
+         { text: 5  + " miles"},
+         { text: 10  + " miles"},
+         { text: 15  + " miles"},
+         { text: 25  + " miles"},
+         { text: 50  + " miles"}
+       ],
+       titleText: 'Select Distance',
+       cancelText: 'Cancel',
+
+       buttonClicked: function(index) {
+           switch (index) {
+               case 0: day = $scope.showDistance = 5;
+                   break;
+               case 1: day = $scope.showDistance = 10;
+                   break;
+               case 2: day = $scope.showDistance = 15;
+                   break;
+               case 3: day = $scope.showDistance = 25;
+                   break;
+               case 4: day = $scope.showDistance = 50;
+                   break;
+           }
+           hideSheet();
+           console.log($scope.showDistance);
+       }
+     });
+
+     // For example's sake, hide the sheet after two seconds
+
+
+   };
+
+
+
+
+});
