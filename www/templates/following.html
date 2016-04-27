@@ -1,9 +1,9 @@
 
         <ion-content>
-            <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
           <div class="postContent">
             <div class="list" id="contentBox" ng-repeat="post in followingPosts | orderBy:'createdAt':true  track by post._id">
-                <div class="item item-avatar">
+              <div class="item item-avatar">
                 <img ng-src="{{post.user.profpic}}">
                 <div class = "postUserName"><a ui-sref="user-profile({id: post.user._id})">{{post.user.username}}</a>
                   <div class="distanceText">
@@ -16,6 +16,7 @@
                 <!-- <button class="button button-small button-positive"ng-click="createChat(post.user._id, currentUser._id)">
       Message</button> -->
               </div>
+
               {{youtubeChecker(post.content, $index)}}
               <div class="embed-responsive embed-responsive-16by9" on-double-tap="like(currentUser._id, post._id, post.likes)" ng-if="isYoutubeArray[$index]">
               <youtube-video class="embed-responsive-item" video-url="post.content"></youtube-video>

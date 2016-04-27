@@ -120,7 +120,11 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'youtube-embed', 'i
     url: '/signup',
     templateUrl: 'templates/newUserLogin.html',
     controller: 'frLoginCtrl'
-  })
+}) .state('search', {
+     url: '/search',
+     templateUrl: 'templates/search.html',
+     controller: 'searchCtrl'
+   })
 
   .state('user-profile', {
     url: '/user/:id',
