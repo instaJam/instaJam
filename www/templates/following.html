@@ -1,10 +1,9 @@
 
         <ion-content>
-
+            <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
           <div class="postContent">
             <div class="list" id="contentBox" ng-repeat="post in followingPosts | orderBy:'createdAt':true  track by post._id">
-              <div class="item item-avatar">
-                  
+                <div class="item item-avatar">
                 <img ng-src="{{post.user.profpic}}">
                 <div class = "postUserName"><a ui-sref="user-profile({id: post.user._id})">{{post.user.username}}</a>
                   <div class="distanceText">
@@ -17,19 +16,23 @@
                 <!-- <button class="button button-small button-positive"ng-click="createChat(post.user._id, currentUser._id)">
       Message</button> -->
               </div>
+              {{youtubeChecker(post.content, $index)}}
+              <div class="embed-responsive embed-responsive-16by9" on-double-tap="like(currentUser._id, post._id, post.likes)" ng-if="isYoutubeArray[$index]">
+              <youtube-video class="embed-responsive-item" video-url="post.content"></youtube-video>
+            </div>
+            <div class="embed-responsive embed-responsive-square" on-double-tap="like(currentUser._id, post._id, post.likes)" ng-if="!isYoutubeArray[$index]">
+              <img ng-src="{{post.content}}" class="embed-responsive-item">
+            </div>
 
-              <div on-double-tap="like(currentUser._id, post._id, post.likes)">
-                <img ng-src="{{post.content}}" class="postSize">
-              </div>
-              <div class="button-bar">
-                <button class="button" ng-click="commentToggle($index)">
-                  <i class="icon ion-ios-chatbubble custom-icon"></i>
-                  <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
-                    <i class="icon ion-heart custom-icon" ></i>
-                  </button>
+            <div class="button-bar">
+              <button class="button" ng-click="commentToggle($index)">
+                <i class="icon ion-ios-chatbubble custom-icon"></i>
+                <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
+                  <i class="icon ion-heart custom-icon" ></i>
                 </button>
-              </div class="list">
-              <div class="likesText">
+              </button>
+            </div class="list">
+            <div class="likesText">
 
                    {{post.description}}{{likesCounter(post.likes) + " " + "likes"}}
               </div>
