@@ -32,10 +32,10 @@
   border: 0;
 }
 
-.tabs-striped.tabs-background-positive .tabs {
-    background-color: #262F34;
+/*.tabs-striped.tabs-background-positive .tabs {
+    background: #2F2D2E;
     background-image: none;
-}
+}*/
 
 .button.button-positive {
   background-color: #F34A4A;
@@ -353,12 +353,6 @@ color: black;
   cursor: pointer;
 }
 
-#contentBox {
-  box-shadow: 0px 0px 13px #2D2D2D;
-
-}
-
-
 .item-avatar {
   padding-left: 72px;
   height: 65px;
@@ -374,12 +368,11 @@ color: black;
 }
 
 .button-bar > .button {
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  
 }
 
 .custom-icon{
   font-size: 64px;
-  border-color: 1px solid #F34A4A;
 }
 
 .list {
@@ -483,3 +476,8 @@ color: black;
       background-color: #387ef5;
       box-shadow: none;
       color: #fff; }*/
+
+/*Override from Ionic for footer tabs*/
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color: #fff;
+}
