@@ -51,6 +51,8 @@
             <!--Time of Post -->
           </li>
           <div class="likesText">
+              <div class="dateText">Posted on {{post.createdAt | date : medium}}</div>
+            </div>
               <ng-pluralize count='post.likes.length' when="{'1':'1 like',
                                   'other':'{}  likes '}">
                          </ng-pluralize>
