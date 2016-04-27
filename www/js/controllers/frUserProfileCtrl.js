@@ -128,4 +128,9 @@ userService.getCurrentUser().then(function(res){
       });
     }
 
+    // $scope.getAllUserPosts = function(res) {
+    //   console.log("Res.Data : " + res.data);
+    //   $scope.allUserPosts = res.data;
+    // }
+
 })
