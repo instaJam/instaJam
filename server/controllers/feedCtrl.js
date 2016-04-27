@@ -101,7 +101,7 @@ module.exports = {
           if (err) res.status(500).send(err)
           else {
               var following = response.following;
-              Post.find({ $or: [{ user: {$in: following}}, {user: req.user}]}, function(err, response) {
+              Post.find({ $or: [{ user: {$in: following}}, {user: req.user}]}).populate("comments.user").exec(function(err, response) {
                   err ? res.status(500).send(err) : res.status(200).send(response)
               })
           }
