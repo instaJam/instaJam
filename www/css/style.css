@@ -6,6 +6,22 @@
 
 
 }
+
+.item1 {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+    margin-bottom: -3px;
+    text-decoration: none;
+}
 .embed-responsive {
   position: relative;
   display: block;
@@ -14,7 +30,7 @@
   overflow: hidden;
 }
 .titleBox{
-    
+
 }
 
 .embed-responsive.embed-responsive-16by9 {

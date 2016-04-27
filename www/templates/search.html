@@ -1,19 +1,31 @@
+<ion-view hide-nav-bar="true">
 
-<ion-view view-title="Instajam">
-  <!-- <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
-    <div class="tabs">
-      <a class="tab-item active" href="#">
-        Following
-      </a>
-      <a class="tab-item" href="#">
-        Near Me
-      </a>
+  <ion-content>
+
+
+
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search"ng-model='lookForUsers'placeholder="Search">
+      </label>
+      <button class="button button-clear">
+        Cancel
+      </button>
     </div>
-  </div> -->
-  <ion-tabs class="tabs-dark tabs-icon-only tabs-striped tabs-top">
+
+  <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in allUsers | filter:lookForUsers" type="item-text-wrap" href="#/tab/chats/{{chat._id}}">
+    <img style="background: url({{user.profpic}}) no-repeat; background-size: cover; background-position: center;">
+    <h2 >{{user.username}}</h2>
 
 
-hi
-  </ion-tabs>
+    <i class="icon ion-chevron-right icon-accessory"></i>
+
+    <ion-option-button class="button-assertive" ng-click="remove(chat._id, chat.toUser._id)">
+      Delete
+    </ion-option-button>
+  </ion-item>
+
+</ion-content>
 
 </ion-view>
