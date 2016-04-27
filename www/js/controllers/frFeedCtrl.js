@@ -204,4 +204,5 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
 
    };
 
+
 });
