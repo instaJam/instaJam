@@ -3,9 +3,41 @@
   width: 100%;
   height: 100%;
   max-height: 29em;
-
-
 }
+.editBoxFlex{
+    display: flex;
+flex-direction: column;
+min-width: 79%;
+}
+.imageOnEditPage{
+}
+
+#fileupload-example-5 {
+    position: relative;
+    overflow: hidden;
+}
+
+#fileupload-example-5 input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.001
+}
+
+.EditUserPagePicStuff{
+    display: flex;
+    margin-top: 15px;
+}
+.editUserNameOnEditPage{
+    width: 18em;
+}
+.editUserNameOnEditPageBio{
+    width: 21em;
+}
+
+
 
 .item1 {
     border-color: #ddd;
@@ -56,6 +88,10 @@
     background-image: none;
 }*/
 
+#feed-button {
+    max-width: 40px;
+}
+
 
 .distanceText{
     font-family: 'Lato', sans-serif;
@@ -66,22 +102,54 @@
 .likesText{
     color: dodgerblue;
     font-family: 'Lato', sans-serif;
-    margin-left: 5px;
+    background: none;
+    width: 100%;
+    margin-left: 15px;
 }
 
 .commentText {
-  margin-left: 5px;
+  background-color: #f8f8f8;
+
+    font-family: 'Lato', sans-serif;
+    margin-left: 15px;
 }
+
+
 
 .list-item-content {
   padding: 5px;
 }
-.postUserName{
+/*.postUserName{
+    font-family: sans-serif;
+/* font-size: 22px; */
+/* margin-bottom: 5px; */
+/* color: dodgerblue; */
+/*display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+margin-right: 2em;*/
+/*}*/
+
+.postUserName {
     font-family: 'Lato', sans-serif;
     font-size: 22px;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     color: dodgerblue;
+    line-height: 25px;
+}
 
+#border-bottom {
+    border-bottom: 1px solid grey;
+    border-top: none;
+}
+
+.feed-hr {
+    border-top: 1px solid lightgrey;
+    width: 93%;
+    height: 0;
+    margin: auto;
+    margin-bottom: 5px;
 }
 
 .list-item {
@@ -202,24 +270,64 @@ color: black;
   justify-content: space-around;
   display: flex;
 }
+.followingP{
 
-.main {
-  text-align: center;
 }
+.editUserButton{
+    position: absolute;
+    top: 7.0%;
+    right: 4%;
+}
+
+.editUserText{
+    border-radius: 3px;
+    background-color: lightgrey;
+    border: none;
+    font-size: 12px;
+    width: 54%;
+    font-weight: 300;
+    margin-top: 45px;
+}
+.followersP{
+    margin-right: 41px;
+
+}
+.followText{
+    display: flex;
+        flex-direction: row;
+}
+.main {
+    text-align: center;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 32px;
+        height: 18vh
+    }
+
+
+    .userNameText{
+        margin-left: -60%;
+        margin-bottom: 8%;
+        margin-top: -1%;
+    }
 
 #profile-name{
   margin-top: 5px;
+  margin-top: 5px;
+float: left;
+margin-left: 17%;
+margin-top: 3%;
 }
 
 
 #profile-image {
-  display: block;
-  border-radius: 6px;
-  width: 100px;
+    /* display: block; */
+  border-radius: 58px;
+  /* width: 100px; */
   height: 100px;
-  margin: 10px auto 0;
-  box-shadow: 0px 5px 6px #000;
-  border: 3px solid #262F34;
+  /* margin: 10px auto 0; */
+  /* box-shadow: 0px 5px 6px #000; */
+  /* border: 3px solid #262F34; */
 }
 #usernameForm, #emailForm, #bioForm, #passwordForm {
   /*position: relative;*/
@@ -238,11 +346,8 @@ color: black;
   font-size: 3vh;
 }
 .editPic {
-  width:80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 5%;
-}
+    width: 25%;
+        border-radius: 60%;}
 
 .bar settingsHeader {
   background-color: ccc;
@@ -382,7 +487,7 @@ color: black;
 }
 
 .button-bar > .button {
-  
+
 }
 
 .goAway{
@@ -390,7 +495,7 @@ color: black;
 }
 
 .custom-icon{
-  font-size: 64px;
+  font-size: 14px;
 }
 
 .list {
@@ -406,6 +511,7 @@ color: black;
 .dateText {
   font-size: 12px;
   color: #AAAAAA;
+  margin-left: 15px;
 }
 
 .upload-btn {
@@ -427,10 +533,10 @@ color: black;
   top: 25%;
 }
 
-#contentBoxProfile {
+/*#contentBoxProfile {
   box-shadow: 0px 0px 13px #2D2D2D;
   margin-top: 10px;
-}
+}*/
 
 /*#postPic {
   border-color: transparent;
@@ -470,8 +576,8 @@ color: black;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
 .recordBack {
-  background-image: url(http://www.natomasarts.com/wp/wp-content/uploads/2011/07/microphone_black_background2.jpg);
-  background-size:cover;
+  /*background-image: url(http://www.natomasarts.com/wp/wp-content/uploads/2011/07/microphone_black_background2.jpg);*/
+  /*background-size:cover;*/
 }
   /*#postPic:hover {
     color: #fff;

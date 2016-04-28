@@ -7,9 +7,9 @@ angular.module('instajam').directive('messageProfPic', function() {
             currentUser: '=',
             chat: '='
         },
-        template:   '<img ng-if="currentUser._id !== chat.toUser._id" ng-src="{{chat.toUser.profpic}}" style="width: 64px; height: 64px">' +
+        template:   '<img ng-if="currentUser._id !== chat.toUser._id" style="background: url({{chat.toUser.profpic}}) no-repeat; background-size: cover; background-position: center; width: 64px; height: 64px">' +
                     '<p ng-if="currentUser._id !== chat.toUser._id"> {{chat.toUser.username}}</p>' +
-                    '<img ng-if="currentUser._id === chat.toUser._id" ng-src="{{chat.fromUser.profpic}}" style="width: 64px; height: 64px">' +
+                    '<img ng-if="currentUser._id === chat.toUser._id" style="background: url({{chat.toUser.profpic}}) no-repeat; background-size: cover; background-position: center; width: 64px; height: 64px">' +
                     '<p ng-if="currentUser._id === chat.toUser._id"> {{chat.fromUser.username}}</p>'
     }
 

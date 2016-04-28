@@ -1,47 +1,62 @@
 <ion-view view-title="Edit Profile">
   <ion-content>
-              <button class="button button-clear button-primary" ng-click="backProf()">Cancel</button>
-      <div><img class="editPic" src="{{currentUser.profpic}}" />
-            <input type="file" class="upload" prof-pic profile="currentUser" accept="image/*"/>
-             <!-- <button style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</button> -->
-      </br>
-    <div id="usernameForm">
-        <button style="float:left; margin-left:1%" class="button button-positive" ng-click="userToggle()">username:</button> <span id="userLabel">{{currentUser.username}}</span>
-        <div id="usernameChange" style="display:none" class="item item-input">
-  <input style="font-size:2.5vh" type="text" placeholder="new username"
-  ng-model="currentUser.username">
-          <button style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</button>
+
+    <button class="button button-clear button-primary" ng-click="backProf()">Cancel</button>
+    <div ng-click=''id="fileupload-example-5">
+        <input type="file"  prof-pic profile="currentUser" accept="image/*" />
+        <span><img class="editPic" src="{{currentUser.profpic}}" />
+    </span>
+    edit
+    </div>
+<div class="EditUserPagePicStuff">
+
+<div class="editBoxFlex">
+
+
+<div class="editUserNameOnEditPage">
+
+      <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+            <i class='ion-person'></i>
+          <input type="search" placeholder="Edit Name..." ng-model="currentUser.username">
+        </label>
+        <button class="button button-clear" ng-click="editUser(currentUser)">
+          change
+        </button>
+      </div>
+  </div>
+  <div class="editUserNameOnEditPage">
+
+      <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="ion-email"></i>
+          <input type="search" placeholder="Edit email..." ng-model="currentUser.email">
+        </label>
+        <button class="button button-clear" ng-click="editUser(currentUser)">
+          change
+        </button>
+      </div>
+</div>
+<div class="editUserNameOnEditPageBio">
+
+      <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="ion-information-circled"></i>
+          <input type="search" placeholder="Edit bio..." ng-model="currentUser.bio">
+        </label>
+        <button class="button button-clear" ng-click="editUser(currentUser)">
+          change
+        </button>
+      </div>
+
 </div>
 </div>
-      </br>
-      <div id="emailForm">
-          <button style="float:left; margin-left:1%" class="button button-positive" ng-click="emailToggle()">email:</button> <span id="emailLabel">{{currentUser.email}}</span>
-          <div id="emailChange" style="display:none" class="item item-input">
-    <input style="font-size:3vh" type="text" placeholder="new email"
-    ng-model="currentUser.email">
-            <button style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</button>
-  </div>
-  </div>
-      </br>
-      <div id="bioForm">
-          <button style="float:left; margin-left:1%" class="button button-positive" ng-click="bioToggle()">Bio:</button> <span id="bioLabel">{{currentUser.bio}}</span>
-          <div id="bioChange" style="display:none" class="item item-input">
-    <textarea style="font-size:3vh" type="text" placeholder="new bio"
-    ng-model="currentUser.bio"></textarea>
-            <submit style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</submit>
-  </div>
-  </div>
-      <!-- </br>
-      <div id="passwordForm">
-          <button style="float:left; margin-left:1%" class="button button-positive" ng-click="passwordToggle()">password:</button> <span id="passwordLabel">{{currentUser.password}}</span>
-          <div id="passwordChange" style="display:none" class="item item-input">
-    <textarea style="font-size:3vh" type="text" placeholder="new password"
-    ng-model="currentUser.password"></textarea>
-            <submit style="right:1%; position:absolute; top:0" class="button button-positive" ng-click="editUser(currentUser)">Change</submit>
-  </div>
-  </div> -->
-      <!-- </div>  <input type="text" placeholder="username"
-        ng-model="currentUser.username">
-                <button class="button button-positive" ng-click="editUser(currentUser)">Change</button> -->
+
+
+
+
+</div>
+
+
   </ion-content>
 </ion-view>
