@@ -8,6 +8,9 @@ angular.module("instajam").controller("searchCtrl", function($scope, searchServi
     //
     // })
 
+ $scope.clearSearch = function() {
+     $scope.lookForUsers = null;
+ }
 
 
   // Setup the loader
@@ -22,7 +25,6 @@ angular.module("instajam").controller("searchCtrl", function($scope, searchServi
   // Set a timeout to clear loader, however you would actually call the $ionicLoading.hide(); method whenever everything is ready or loaded.
   $timeout(function () {
       searchService.getAllUsers().then(function(res){
-          console.log(res)
               $ionicLoading.hide()
           $scope.allUsers = res.data
 
