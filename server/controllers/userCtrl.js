@@ -127,7 +127,7 @@ updateUser: function(req, res, next) {
                   })
 
 
-        }
+        };
 
 
 
