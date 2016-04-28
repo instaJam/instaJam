@@ -101,9 +101,10 @@ min-width: 79%;
   }
 .likesText{
     color: dodgerblue;
-font-family: 'Lato', sans-serif;
-background: #f8f8f8;
-width: 100%;
+    font-family: 'Lato', sans-serif;
+    background: none;
+    width: 100%;
+    margin-left: 15px;
 }
 
 .commentText {
@@ -285,6 +286,7 @@ color: black;
     font-size: 12px;
     width: 54%;
     font-weight: 300;
+    margin-top: 45px;
 }
 .followersP{
     margin-right: 41px;
