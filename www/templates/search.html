@@ -1,0 +1,28 @@
+<ion-view hide-nav-bar="true">
+
+  <ion-content>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search"ng-model='lookForUsers'placeholder="Search">
+      </label>
+      <button class="button button-clear" ng-click="lookForUsers = '' ">
+        Cancel
+      </button>
+    </div>
+
+  <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in allUsers | filter:lookForUsers" type="item-text-wrap" ui-sref="user-profile({id: user._id})">
+    <img style="background: url({{user.profpic}}) no-repeat; background-size: cover; background-position: center;">
+    <h2 >{{user.username}}</h2>
+
+
+    <i class="icon ion-chevron-right icon-accessory"></i>
+
+    <ion-option-button class="button-assertive" ng-click="remove(chat._id, chat.toUser._id)">
+      Delete
+    </ion-option-button>
+  </ion-item>
+
+</ion-content>
+
+</ion-view>
