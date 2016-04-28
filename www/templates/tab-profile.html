@@ -51,37 +51,43 @@
   Message</button> -->
           </div>
 
-          <div on-double-tap="like(currentUser._id, post._id, post.likes)">
-            <img ng-src="{{post.content}}" class="postSize">
-          </div>
-          <div class="button-bar">
-            <button class="button" ng-click="commentToggle($index)">
-              <i class="icon ion-ios-chatbubble custom-icon"></i>
-              <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
-                <i class="icon ion-heart custom-icon" ></i>
-              </button>
-            </button>
-          </div class="list">
-          <div class="likesText">
+         {{youtubeChecker(post.content, $index)}}
+         <div class="embed-responsive embed-responsive-16by9" on-double-tap="like(currentUser._id, post._id, post.likes)" ng-if="isYoutubeArray[$index]">
+         <youtube-video class="embed-responsive-item" video-url="post.content"></youtube-video>
+       </div>
+       <div class="embed-responsive embed-responsive-square" on-double-tap="like(currentUser._id, post._id, post.likes)" ng-if="!isYoutubeArray[$index]">
+         <img ng-src="{{post.content}}" class="embed-responsive-item">
+       </div>
 
-               {{post.description}}{{likesCounter(post.likes) + " " + "likes"}}
-          </div>
+       <div class="button-bar">
+         <button class="button" ng-click="commentToggle($index)">
+           <i class="icon ion-ios-chatbubble custom-icon"></i>
+           <button class="button" ng-click="like(currentUser._id, post._id, post.likes)">
+             <i class="icon ion-heart custom-icon" ></i>
+           </button>
+         </button>
+       </div class="list">
+       <div class="likesText">
 
-            <div ng-repeat="comment in post.comments track by $index" class="commentText" >
-            {{comment.user.username}}:&nbsp;{{comment.comment}}&nbsp;&nbsp; &nbsp;&nbsp; {{deleteCommentToggle(comment.user._id)}}
-            <button class="button button-small" ng-show="deleteCommentHider && commentHiderArray[$parent.$index]" ng-click="deleteComment(post._id, $index, $parent.$index)">
-              <i class="icon ion-trash-a"></i>
-            </button>
-          </div>
-            <div class="item item-input-inset" ng-show="commentHiderArray[$index]">
-              <label class="item-input-wrapper">
-                <input type="text" ng-model="newComment" placeholder="Add a comment">
-              </label>
-              <button class="button button-small" ng-click="submitComment(currentUser._id, post._id, newComment, $index)" >
-                Submit
-              </button>
-              </div>
-                </div>
+
+              {{post.description}}{{likesCounter(post.likes) + " " + "likes"}}
+         </div>
+
+           <div ng-repeat="comment in post.comments track by $index" class="commentText" >
+           {{comment.user.username}}:&nbsp;{{comment.comment}}&nbsp;&nbsp; &nbsp;&nbsp; {{deleteCommentToggle(comment.user._id)}}
+           <button class="button button-small" ng-show="deleteCommentHider && commentHiderArray[$parent.$index]" ng-click="deleteComment(post._id, $index, $parent.$index)">
+             <i class="icon ion-trash-a"></i>
+           </button>
+         </div>
+           <div class="item item-input-inset" ng-show="commentHiderArray[$index]">
+             <label class="item-input-wrapper">
+               <input type="text" ng-model="newComment" placeholder="Add a comment">
+             </label>
+             <button class="button button-small" ng-click="submitComment(currentUser._id, post._id, newComment, $index)" >
+               Submit
+             </button>
+             </div>
+               </div>
       </div>
   </ion-content>
 </ion-view>
