@@ -58,6 +58,10 @@
     background-image: none;
 }*/
 
+#feed-button {
+    max-width: 40px;
+}
+
 
 .distanceText{
     font-family: 'Lato', sans-serif;
@@ -486,8 +490,8 @@ color: black;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
 .recordBack {
-  background-image: url(http://www.natomasarts.com/wp/wp-content/uploads/2011/07/microphone_black_background2.jpg);
-  background-size:cover;
+  /*background-image: url(http://www.natomasarts.com/wp/wp-content/uploads/2011/07/microphone_black_background2.jpg);*/
+  /*background-size:cover;*/
 }
   /*#postPic:hover {
     color: #fff;
