@@ -1,7 +1,6 @@
 
 <ion-view hide-nav-bar="true">
-  <div></div>
-  <ion-content class="wrapper" ion-scroll="false">
+  <ion-content class="wrapper" ion-scroll="true">
       <div class="main">
             <img id="profile-image" ng-src="{{instaUser.profpic}}">
             <h2 id="profile-name">{{instaUser.username}}</h2>
@@ -14,12 +13,6 @@
           <h2>{{ instaUser.followers.length }}</h2>
           <h5>Followers</h5>
         </div>
-        <!-- <div>
-          <button class="button button-icon" ui-sref="#">
-            <i class="icon ion-star"></i>
-            <h5>Follow</h5>
-          </button>
-        </div> -->
         <div>
           <h2>{{ instaUser.following.length }}</h2>
           <h5>Following</h5>
@@ -42,36 +35,5 @@
         </button>
       </div>
     </div>
-      <ion-scroll direction="y" class="thefeed">
-        <div class="footer">
-          <ul class="feed-container">
-            <li class="feed-item">
-              <!--User Posts -->
-              <!--User Image -->
-              <!--Time of Post -->
-            </li>
-            <li class="feed-item">
-              <!--User Posts -->
-              <!--User Image -->
-              <!--Time of Post -->
-            </li>
-            <li class="feed-item">
-              <!--User Posts -->
-              <!--User Image -->
-              <!--Time of Post -->
-            </li>
-            <li class="feed-item">
-              <!--User Posts -->
-              <!--User Image -->
-              <!--Time of Post -->
-            </li>
-            <li class="feed-item">
-              <!--User Posts -->
-              <!--User Image -->
-              <!--Time of Post -->
-            </li>
-          </ul>
-        </div>
-        </ion-scroll>
   </ion-content>
 </ion-view>
