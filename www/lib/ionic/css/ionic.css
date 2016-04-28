@@ -3357,7 +3357,6 @@ body.grade-c {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  margin-top: -13px;
   padding-top: 1px;
   margin-bottom: -1px;
   width: auto;
@@ -5038,7 +5037,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 /* If you change this, change platform.scss as well */
 .tabs-top > .tabs,
 .tabs.tabs-top {
-  top: 32px;
+  top: 44px;
   padding-top: 0;
   background-position: bottom;
   border-top-width: 0;

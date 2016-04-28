@@ -27,9 +27,23 @@ angular.module('instajam.controllers', [])
     };
 
   })
-  .controller('instaUserCtrl', function($scope, $stateParams,  instaUser) {
+  .controller('instaUserCtrl', function($scope, $stateParams,  instaUser, postService, chatService, userService, $state) {
 
     $scope.instaUser = instaUser;
+    userService.getCurrentUser().then(function(data){
+        $scope.currentUser = data.data;
+    });
+
+    $scope.followUser = function(userId) {
+        postService.followUser(userId)
+    }
+
+    $scope.createChat = function(clickedUserId, currentUserId) {
+        chatService.createChat(clickedUserId, currentUserId)
+        .then(function(response) {
+            $state.go('tab.chats')
+        })
+    }
 
   })
   .controller('AccountCtrl', function($scope, userService) {
