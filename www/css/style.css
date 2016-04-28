@@ -37,12 +37,7 @@
     background-image: none;
 }
 
-.button.button-positive {
-  background-color: #F34A4A;
-  float: right;
-  bottom: 37px;
-  left: 10px;
-}
+
 .distanceText{
     font-family: 'Lato', sans-serif;
     color: #F34A4A;
