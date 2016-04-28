@@ -7,7 +7,7 @@
 // 'instajam.controllers' is found in controllers.js
 var socket = io();
 
-angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services', 'satellizer', 'ngCordova'])
+angular.module('instajam', ['ionic', 'instajam.controllers', 'youtube-embed', 'instajam.services', 'satellizer', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -51,6 +51,16 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
       }
     }
   })
+  .state('tab.search', {
+      url: '/search',
+      views:{
+          'tab-search':{
+          templateUrl: 'templates/search.html',
+          controller:'searchCtrl'
+              }
+    }
+
+    })
 
   .state('tab.profile', {
     url: '/profile',
@@ -120,8 +130,7 @@ angular.module('instajam', ['ionic', 'instajam.controllers', 'instajam.services'
     url: '/signup',
     templateUrl: 'templates/newUserLogin.html',
     controller: 'frLoginCtrl'
-  })
-
+})
   .state('user-profile', {
     url: '/user/:id',
         templateUrl: 'templates/user-profile.html',

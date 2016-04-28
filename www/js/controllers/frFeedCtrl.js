@@ -3,7 +3,10 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   $scope.doRefresh = function() {
     postService.getAllPosts().then(function(res) {
         $scope.allPosts = res;
-      }).finally(function() {
+        postService.getFollowingPosts().then(function(response) {
+            $scope.followingPosts = response;
+        })
+          }).finally(function() {
        // Stop the ion-refresher from spinning
        $scope.$broadcast('scroll.refreshComplete');
      });
@@ -82,7 +85,6 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
     $scope.getFollowingPosts = function() {
         postService.getFollowingPosts().then(function(response) {
             $scope.followingPosts = response;
-            console.log($scope.followingPosts);
         })
     }
     $scope.getFollowingPosts();
@@ -90,12 +92,14 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   $scope.submitComment = function (userId, postId, newComment, showIndex) {
     postService.submitComment(userId, postId, newComment).then(function(res) {
       $scope.getAllPosts();
+      $scope.getFollowingPosts();
       $scope.commentToggle(showIndex);
     })
   }
   $scope.deleteComment = function (postId, commentIndex, showIndex) {
     postService.deleteComment(postId, commentIndex).then(function(res) {
       $scope.getAllPosts();
+      $scope.getFollowingPosts();
       $scope.commentToggle(showIndex);
   })
 
@@ -108,11 +112,13 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
     if (likes.indexOf(userId, 0) === -1){
       postService.like(userId, postId).then(function(res){
         $scope.getAllPosts();
+        $scope.getFollowingPosts();
       });
 
     }else {
       postService.dislike(userId, postId).then(function(res) {
         $scope.getAllPosts();
+        $scope.getFollowingPosts();
     });
   }
 }
@@ -121,7 +127,6 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   $scope.getFollowingPosts = function() {
       postService.getFollowingPosts().then(function(response) {
           $scope.followingPosts = response;
-          console.log($scope.followingPosts);
       })
   }
   $scope.getFollowingPosts();
@@ -196,8 +201,6 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
 
 
    };
-
-
 
 
 });
