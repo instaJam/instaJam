@@ -14,12 +14,17 @@
     </button>
     <div ng-show="showPicture"> -->
 
-    <div id="outerPostPic">
+    <div id="picButton" class="outerPostPic">
       <div id="innerPostPic">
       Post a Picture
     </div>
     <input id="postPic" type="file" feed-post profile="profile" accept="image/*" />
   </div>
+  <div class="outerPostPic" ng-click="youtubeShower()">
+    <div id="innerPostPic">
+    Upload a Youtube Video
+  </div>
+</div>
 
     <!-- <input type="file" class="upload" feed-post profile="profile" accept="image/*"/> -->
 </br>
@@ -27,11 +32,11 @@
 </br>
 </br>
 </br>
-    <button class="button button-assertive" style="color:black; float:left;" ng-click="youtubeShower()">
+    <!-- <button class="button button-assertive" style="color:black; float:left;" ng-click="youtubeShower()">
       Post a Youtube Video
-    </button>
+    </button> -->
 
-    <div ng-show="showYoutube">
+    <div ng-show="showYoutube" id="youtubeDiv">
       <button class="button button-small goAway" >
       </button>
     <div class="list list-inset ">
