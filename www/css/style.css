@@ -3,10 +3,39 @@
   width: 100%;
   height: 100%;
   max-height: 29em;
-
-
+}
+.editBoxFlex{
+    display: flex;
+flex-direction: column;
+min-width: 79%;
+}
+.imageOnEditPage{
 }
 
+#fileupload-example-5 {
+    position: relative;
+    overflow: hidden;
+}
+
+#fileupload-example-5 input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.001
+}
+
+.EditUserPagePicStuff{
+    display: flex;
+    margin-top: 15px;
+}
+.editUserNameOnEditPage{
+    width: 18em;
+}
+.editUserNameOnEditPageBio{
+    width: 21em;
+}
 .item1 {
     border-color: #ddd;
     background-color: #fff;
@@ -51,17 +80,12 @@
   border: 0;
 }
 
-.tabs-striped.tabs-background-positive .tabs {
-    background-color: #262F34;
+/*.tabs-striped.tabs-background-positive .tabs {
+    background: #2F2D2E;
     background-image: none;
-}
+}*/
 
-.button.button-positive {
-  background-color: #F34A4A;
-  float: right;
-  bottom: 37px;
-  left: 10px;
-}
+
 .distanceText{
     font-family: 'Lato', sans-serif;
     color: #F34A4A;
@@ -70,22 +94,29 @@
   }
 .likesText{
     color: dodgerblue;
-    font-family: 'Lato', sans-serif;
-    margin-left: 5px;
+font-family: 'Lato', sans-serif;
+background: #f8f8f8;
+width: 100%;
 }
 
 .commentText {
-  margin-left: 5px;
+  background-color: #f8f8f8;
+
 }
 
 .list-item-content {
   padding: 5px;
 }
 .postUserName{
-    font-family: 'Lato', sans-serif;
-    font-size: 22px;
-    margin-bottom: 5px;
-    color: dodgerblue;
+    font-family: sans-serif;
+/* font-size: 22px; */
+/* margin-bottom: 5px; */
+/* color: dodgerblue; */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+margin-right: 2em;
 
 }
 
@@ -282,11 +313,8 @@ margin-top: 3%;
   font-size: 3vh;
 }
 .editPic {
-  width:80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 5%;
-}
+    width: 25%;
+        border-radius: 60%;}
 
 .bar settingsHeader {
   background-color: ccc;
@@ -411,12 +439,6 @@ margin-top: 3%;
   cursor: pointer;
 }
 
-#contentBox {
-  box-shadow: 0px 0px 13px #2D2D2D;
-
-}
-
-
 .item-avatar {
   padding-left: 72px;
   height: 65px;
@@ -432,12 +454,15 @@ margin-top: 3%;
 }
 
 .button-bar > .button {
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.goAway{
+  visibility: hidden;
 }
 
 .custom-icon{
   font-size: 64px;
-  border-color: 1px solid #F34A4A;
 }
 
 .list {
@@ -474,10 +499,10 @@ margin-top: 3%;
   top: 25%;
 }
 
-#contentBoxProfile {
+/*#contentBoxProfile {
   box-shadow: 0px 0px 13px #2D2D2D;
   margin-top: 10px;
-}
+}*/
 
 /*#postPic {
   border-color: transparent;
@@ -541,3 +566,8 @@ margin-top: 3%;
       background-color: #387ef5;
       box-shadow: none;
       color: #fff; }*/
+
+/*Override from Ionic for footer tabs*/
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color: #fff;
+}

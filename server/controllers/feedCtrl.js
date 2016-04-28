@@ -55,7 +55,7 @@ module.exports = {
   },
   getUserPosts: function(req, res, next) {
       var id = req.user;
-      Post.find({'user': id}, function(err, response) {
+      Post.find({'user': id}).populate("comments.user").exec(function(err, response) {
           err ? res.status(500).send(err) : res.status(200).send(response);
       })
   },
