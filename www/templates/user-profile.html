@@ -3,11 +3,10 @@
   <ion-content class="wrapper" ion-scroll="true">
       <div class="main">
             <img id="profile-image" ng-src="{{instaUser.profpic}}">
-            <h2 id="profile-name">{{instaUser.username}}</h2>
-            <p style="color: #b5b5b5;">
-              {{instaUser.bio}}
-            </p>
+
       </div>
+      <p id="profile-name">{{instaUser.username}}</p>
+
       <div class="followNav">
         <div id="follow">
           <h2>{{ instaUser.followers.length }}</h2>
