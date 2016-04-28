@@ -4363,7 +4363,7 @@ a.subdued {
       background-position: top;
       background-size: 100% 1px;
       background-repeat: no-repeat;
-      background-color: #C13E36;
+      background-color: #262F34;
       } }
 
 
@@ -4628,7 +4628,7 @@ a.subdued {
   top: 4%; }
 
 .tabs-striped.tabs-dark .tabs {
-  background-color: #444; }
+  background-color: #262F34; }
 
 .tabs-striped.tabs-dark .tab-item {
   color: rgba(255, 255, 255, 0.4);
