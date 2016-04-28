@@ -8,9 +8,7 @@ angular.module("instajam").controller("searchCtrl", function($scope, searchServi
     //
     // })
 
- $scope.clearSearch = function() {
-     $scope.lookForUsers = null;
- }
+
 
 
   // Setup the loader
