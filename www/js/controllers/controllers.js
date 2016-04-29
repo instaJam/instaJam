@@ -30,6 +30,18 @@ angular.module('instajam.controllers', [])
   .controller('instaUserCtrl', function($scope, $stateParams,  instaUser, postService, chatService, userService, $state) {
 
     $scope.instaUser = instaUser;
+    userService.getInstaUserPosts($scope.instaUser._id).then(function(response) {
+            $scope.instaUserPosts = response;
+    })
+
+    $scope.isYoutubeArray= [];
+    $scope.youtubeChecker = function(content, $index){
+    //   console.log(content.indexOf("youtu"));
+      if (content.indexOf("youtu") !== -1) {
+        $scope.isYoutubeArray[$index] = true;
+      }
+    }
+
     userService.getCurrentUser().then(function(data){
         $scope.currentUser = data.data;
     });
