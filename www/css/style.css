@@ -323,7 +323,7 @@ margin-top: 3%;
 #profile-image {
     /* display: block; */
   border-radius: 58px;
-  /* width: 100px; */
+   width: 100px;
   height: 100px;
   /* margin: 10px auto 0; */
   /* box-shadow: 0px 5px 6px #000; */
@@ -346,8 +346,10 @@ margin-top: 3%;
   font-size: 3vh;
 }
 .editPic {
-    width: 25%;
-        border-radius: 60%;}
+    width: 27%;
+    height: 7em;
+    border-radius: 60%;
+}
 
 .bar settingsHeader {
   background-color: ccc;
