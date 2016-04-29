@@ -106,5 +106,11 @@ module.exports = {
               })
           }
       })
+  },
+  getClickedUserPosts: function(req, res, next) {
+      var id = req.params.id;
+      Post.find({'user': id}).populate("comments.user").exec(function(err, response) {
+          err ? res.status(500).send(err) : res.status(200).send(response);
+      })
   }
 }

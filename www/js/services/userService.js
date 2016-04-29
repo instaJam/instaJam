@@ -81,5 +81,14 @@ this.getUserProfile = function(id){
   })
 }
 
+this.getInstaUserPosts = function(id) {
+    return $http({
+        method: 'GET',
+        url: '/api/post/user/' + id
+    }).then(function(response) {
+        return response.data;
+    })
+}
+
 
 });
