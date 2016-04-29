@@ -175,27 +175,39 @@ z-index: -1;
 
 }
 .rightMessage {
-text-align: right;
+text-align: left;
+float:right;
 letter-spacing: 1.1px;
 font-size: 15px;
-max-width: 16em;
+width: 55%;
 position: relative;
-right: -25%;
-padding-top: 2px;
-color: black;
+padding: 10px;
+color: white;
+background: #8E8E93;
+border-radius: 9px;
+margin-bottom: 5px;
 }
 
 .leftMessage {
    text-align: left;
    letter-spacing: 1.1px;
    font-size: 15px;
-   max-width: 16em;
+   width: 55%;
    position: relative;
    left: 4%;
-   padding-top: 2px;
-   color: crimson;
-
+   padding: 10px;
+   color: #fff;
+   background: #007AFF;
+   border-radius: 9px;
+   margin-bottom: 5px;
+   float: left;
 }
+
+#inputChat {
+  width: 100%;
+}
+
+
 .signupPage{
     background-image:url("../img/bed.jpeg");
     background-size: cover;

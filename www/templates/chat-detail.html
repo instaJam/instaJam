@@ -15,10 +15,10 @@
 </ion-scroll>
 <!-- <form action="" ng-submit="addMessageToChat( currentUser,chat.toUser, data, chat.fromUser)">
 <input ng-model='data' autocomplete="off"/> -->
-<form action="" ng-submit="addMessageToChat( currentUser,chat.toUser, data, chat.fromUser)">
+<form class="chatInput" action="" ng-submit="addMessageToChat( currentUser,chat.toUser, data, chat.fromUser)">
 <div class="bar-header item-input-inset">
  <label class="item-input-wrapper">
-   <input ng-model='data'type="search" placeholder="Type message....">
+   <input id="inputChat" ng-model='data'type="search" placeholder="Type message....">
  </label>
  <button class="button button-clear">
    Send
