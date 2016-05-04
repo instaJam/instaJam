@@ -59,7 +59,7 @@ Create One!
         <div class="loginBack">
 
 
-          <button class="icon icon-left " ng-click="closeModal(1)">back</button>
+          <button class="icon icon-left " ng-click="closeModal(1)"><i class='ion-arrow-left-c loginBackButton'></i></button>
 
 
           <div class='logoPos'>
@@ -72,16 +72,17 @@ Create One!
 
 
             <div class="loginBox">
-
-              <input class="loginBoxText" type="Email" name="name" value="" placeholder="Email">
+              <input   ng-model="user.username"class="loginBoxText" onfocus="this.placeholder = ''"type="text" name="name" value="" placeholder="Username" onfocusout="this.placeholder = 'Username'">
             </div>
 
 
             <div class="loginBox">
-              <input class="loginBoxText" type="password" name="name" value="" placeholder="Password">
+              <input ng-model="user.password"class="loginBoxText" type="password" onfocus="this.placeholder = ''" name="name" value="" placeholder="Password" onfocusout="this.placeholder = 'Password'">
             </div>
 
+            <button ng-click="login(user)" class='loginButton'><div class='submitText'>Login</div</button>
           </div>
+
 
 
 
@@ -102,7 +103,7 @@ Create One!
           <div class="loginBack">
 
 
-            <button class="icon icon-left " ng-click="closeModal(2)">back</button>
+            <button class="icon icon-left " ng-click="closeModal(2)"><i class='ion-arrow-left-c loginBackButton'></i></button>
 
 
             <div class='logoPos'>
@@ -112,21 +113,22 @@ Create One!
             </div>
             <div class='signUpBox'>
               <div class="loginBox">
-                <input class="loginBoxText" type="text" name="name" value="" placeholder="First Name">
+                <input class="loginBoxText" type="text" name="name" value="" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'First Name'"placeholder="Name">
               </div>
 
               <div class="loginBox">
-                <input class="loginBoxText" type="text" name="name" value="" placeholder="Last Name">
+                <input class="loginBoxText" type="text" name="name" value="" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Username'"placeholder="Username"ng-model="newUser.username">
               </div>
               <div class="loginBox">
 
-                <input class="loginBoxText" type="Email" name="name" value="" placeholder="Email">
+                <input class="loginBoxText" type="Email" name="name" value="" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Email'"placeholder="Email" ng-model="newUser.email">
               </div>
 
 
               <div class="loginBox">
-                <input class="loginBoxText" type="password" name="name" value="" placeholder="Password">
+                <input class="loginBoxText" type="password" name="name" value="" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Password'"placeholder="Password" ng-model="newUser.password">
               </div>
+              <button ng-click="signUp(newUser)" class='loginButton'><div class='submitText'>Login</div</button>
 
             </div>
 
