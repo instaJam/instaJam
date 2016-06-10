@@ -52,7 +52,7 @@ angular.module('instajam').controller('frLoginCtrl', function($scope, $auth, $st
            });
 
            $scope.openModal = function(index) {
-
+              
              if (index ===1) $scope.oModal1.show();
              else $scope.oModal2.show();
            };
@@ -87,20 +87,15 @@ angular.module('instajam').controller('frLoginCtrl', function($scope, $auth, $st
 
     $scope.login = function(user){
         $auth.login(user).then(function(res){
-            $scope.oModal1.hide().then(function(){
-                $state.go('tab.frFeed');
-
-            });
+            $state.go('tab.frFeed');
         });
     }
 
     $scope.signUp = function(user) {
         $auth.signup(user).then(function(response) {
              $auth.setToken(response.data.token);
-             $scope.oModal2.hide().then(function(){
-                 $state.go('tab.frFeed');
-
-             });        });
+             $state.go('tab.frFeed');
+        });
     }
 
     $scope.logout = function(){

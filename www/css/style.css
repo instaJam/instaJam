@@ -316,29 +316,6 @@ font-weight: bolder;
     background-size: cover;
 
 }
-.submitText{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.loginButton{
-    background-color: #3385ff;
-border: none;
-border-radius: 3px;
-/* display: flex; */
-/* justify-content: center; */
-/* text-align: center; */
-margin-top: 30px;
-height: 39px;
-width: 53%;
-color: white;
-font-size: 4vh;
-font-weight: 500;
-letter-spacing: 1.2px;
-font-family: 'Permanent marker';
-
-}
-
 .signUpBox{
     display: flex;
     flex-direction: column;
@@ -367,17 +344,10 @@ font-family: 'Permanent marker';
   background-color: transparent;
   color: white
 }
-.loginBackButton{
-    font-size: 5vh;
-margin-left: 11px;
-color: white;
-}
-
 .loginBoxText:focus {
   outline: none;
   border-bottom: 1.5px solid #3385ff;
 }
-
 .text2{
     font-family: 'Permanent marker';
     color:white;
