@@ -1,15 +1,6 @@
-<ion-view view-title="Login" class="login-bg" hide-nav-bar="true">
-  <ion-content scroll='false'>
-
-
-    <div class='logoPos'>
-      <div class="text1">
-        instajam
-      </div>
-    </div>
-
-
-    <!--
+<ion-view view-title="Login" class="landing-bg" hide-nav-bar="true">
+  <ion-content>
+    <div id="loginPage">
     <div class="list list-inset" id="loginForm">
       <label class="item item-input">
         <input type="text" placeholder="Username" ng-model="user.username">
@@ -26,119 +17,16 @@
   <button ui-sref="signup"style="float:right" class="create-btn" >
 Create One!
   </button>
+</div>
+<!-- <div id="loginWithBut">
+
+  <button class="button button-block button-positive">
+  Login with Facebook</button>
+  <button class="button button-block button-calm">
+  Login with Instagram</button>
+  <button class="button button-block button-balanced">
+  Login with Jam</button>
 </div> -->
-    <div class="customModalStuff">
-
-      <div class="customModalButton" ng-click="openModal(1)">
-
-        <div class="onTop">
-          Login
-        </div>
-
-      </div>
-    </div>
-    <div class="customModalStuffSignUp">
-
-      <div class="customModalButton" ng-click="openModal(2)">
-
-        <div class="onTop">
-          Sign Up
-        </div>
-
-      </div>
-    </div>
-
-
-    <script id="login.html" type="text/ng-template">
-      <ion-modal-view>
-
-
-      <ion-content scroll='false'>
-
-
-        <div class="loginBack">
-
-
-          <button class="icon icon-left " ng-click="closeModal(1)">back</button>
-
-
-          <div class='logoPos'>
-            <div class="text2">
-              login
-            </div>
-          </div>
-          <div class='signUpBox'>
-
-
-
-            <div class="loginBox">
-
-              <input class="loginBoxText" type="Email" name="name" value="" placeholder="Email">
-            </div>
-
-
-            <div class="loginBox">
-              <input class="loginBoxText" type="password" name="name" value="" placeholder="Password">
-            </div>
-
-          </div>
-
-
-
-
-        </div>
-
-      </ion-content>
-      </ion-modal-view>
-    </script>
-
-    <script id="signUp.html" type="text/ng-template">
-      <ion-modal-view>
-
-
-        <ion-content scroll='false'>
-
-
-          <div class="loginBack">
-
-
-            <button class="icon icon-left " ng-click="closeModal(2)">back</button>
-
-
-            <div class='logoPos'>
-              <div class="text2">
-                sign up
-              </div>
-            </div>
-            <div class='signUpBox'>
-              <div class="loginBox">
-                <input class="loginBoxText" type="text" name="name" value="" placeholder="First Name">
-              </div>
-
-              <div class="loginBox">
-                <input class="loginBoxText" type="text" name="name" value="" placeholder="Last Name">
-              </div>
-              <div class="loginBox">
-
-                <input class="loginBoxText" type="Email" name="name" value="" placeholder="Email">
-              </div>
-
-
-              <div class="loginBox">
-                <input class="loginBoxText" type="password" name="name" value="" placeholder="Password">
-              </div>
-
-            </div>
-
-
-
-
-          </div>
-
-        </ion-content>
-      </ion-modal-view>
-    </script>
-
-
-  </ion-content>
+</ion-content>
 </ion-view>
+</div>
