@@ -1,6 +1,10 @@
-<ion-view view-title="Login" class="landing-bg" hide-nav-bar="true">
+<ion-view view-title="Login"  hide-nav-bar="true">
   <ion-content>
+    <div class="theLoginBackGround">
+
     <div id="loginPage">
+      <img class="landing-bg" src="./img/landing-page.jpg" />
+      <div class="loginHolderBox">
     <div class="list list-inset" id="loginForm">
       <label class="item item-input">
         <input type="text" placeholder="Username" ng-model="user.username">
@@ -9,14 +13,15 @@
         <input type="password" placeholder="Password" ng-model="user.password">
       </label>
     </div>
-    <button class="login-btn" id="submitBut" ng-click="login(user)">
+    <button class="login-btn" ng-click="login(user)">
   Login
 </button>
 <div id="createAcctBut">
   <span style="color:#fff;">Dont have an account?</span>
-  <button ui-sref="signup"style="float:right" class="create-btn" >
+  <button ui-sref="signup" class="create-btn" >
 Create One!
   </button>
+</div>
 </div>
 <!-- <div id="loginWithBut">
 
@@ -27,6 +32,7 @@ Create One!
   <button class="button button-block button-balanced">
   Login with Jam</button>
 </div> -->
+  </div>
+</div>
 </ion-content>
 </ion-view>
-</div>

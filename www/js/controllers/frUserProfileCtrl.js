@@ -88,13 +88,24 @@ userService.getCurrentUser().then(function(res){
       scope: $scope,
       animation: 'slide-in-left'
       }).then(function(modal) {
-        $scope.modal = modal;
-        $scope.modal.show();
+        if($scope.modal){
+          $scope.modal.remove();
+          $scope.modal = modal;
+          $scope.modal.show();
+        }else {
+          $scope.modal = modal;
+          $scope.modal.show();
+           }
+
       });
     }
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
 
     $scope.settings = function() {
       $scope.modal.hide();
+      $scope.modal.remove();
       $state.go('edit');
     };
     $scope.backProf = function() {
@@ -123,8 +134,15 @@ userService.getCurrentUser().then(function(res){
       scope: $scope,
       animation: 'slide-in-left'
       }).then(function(modal) {
-        $scope.modal = modal;
-        $scope.modal.show();
+        if($scope.modal){
+          $scope.modal.remove();
+          $scope.modal = modal;
+          $scope.modal.show();
+        }else {
+          $scope.modal = modal;
+          $scope.modal.show();
+           }
+
       });
     }
 

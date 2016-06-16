@@ -215,26 +215,16 @@ margin-bottom: 5px;
    background-repeat: no-repeat;
 }
 #loginPage {
-  margin-top: 90%;
   }
 #loginForm {
-  margin-top: 30%;
-}
-#submitBut {
-  float:right;
-  margin-right: 5%;
-  background-color: maroon;
+  display: inline-block;
+
 }
 #createAcctBut {
   font-size: 2.5vh;
-  margin-top: 40%;
-  margin-right: 5%;
-  margin-left: 13%;
 }
 #loginWithBut {
-  margin-top: 15%;
-  margin-right: 5%;
-  margin-left: 5%;
+
 }
 
 .wrapper {
@@ -358,7 +348,7 @@ margin-top: 3%;
   font-size: 3vh;
 }
 .editPic {
-    width: 27%;
+    width: 7em;
     height: 7em;
     border-radius: 60%;
 }
@@ -440,22 +430,32 @@ margin-top: 3%;
 }
 
 .landing-bg {
-  background-image:url("../img/landing-page.jpg");
-  background-size: cover;
-  background-position: center;
- background-repeat: no-repeat;
+  height: 100vh;
+  width: auto;
+  margin: auto;
 }
+.theLoginBackGround{
+  background-color: #223032;
+  text-align: center;
+  position: relative;
+}
+.loginHolderBox{
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  left: 0;
 
+}
 .login-btn {
   position: relative;
   display: inline-block;
-  margin: 0;
+  margin: 20px 0px;
   border-color: transparent;
   border-radius: 4px;
   vertical-align: top;
   text-align: center;
   text-overflow: ellipsis;
-  background-color: #262F34;
+  background-color: maroon;
   color: #fff;
   border: 2px solid;
   padding: 0 16px;
@@ -465,11 +465,13 @@ margin-top: 3%;
   line-height: 53px;
   cursor: pointer;
 }
-
+#submitBut{
+  margin: 20px 0px;
+}
 .create-btn {
   position: relative;
   display: inline-block;
-  margin: 0;
+  margin: 0px;
   border-color: transparent;
   border-radius: 3px;
   vertical-align: top;
@@ -596,8 +598,14 @@ margin-top: 3%;
     background-color: red;
 }
 #postPic{
-  margin-left:-145px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   opacity:0;
+  width: 100%;
+  background: black;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
