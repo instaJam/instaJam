@@ -167,6 +167,7 @@ userService.getCurrentUser().then(function(res){
             $scope.currentUser = "";
             $window.location.reload();
             $state.go('login');
+            
         });
     }
     var posOptions = {timeout: 10000, enableHighAccuracy: false};
