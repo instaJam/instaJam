@@ -59,7 +59,7 @@ min-width: 79%;
   display: block;
   height: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: scroll;
 }
 .titleBox{
 
@@ -561,7 +561,12 @@ margin-top: 3%;
 #picButton {
     margin-top: 100px;
 }
+  .custom-tab-bar{
+    background-color: #262F34;
+    opacity: 1;
+    height: 48px;
 
+  }
   .outerPostPic {
       border-color: transparent;
       background-color: #c13e36;

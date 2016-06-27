@@ -1,13 +1,12 @@
-angular.module('instajam').controller('frUserProfileCtrl', function($scope,$state,$auth, $ionicModal,Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService,$ionicActionSheet, $timeout){
+angular.module('instajam').controller('frUserProfileCtrl', function($scope,$state,$auth, $ionicModal,Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService,$ionicActionSheet, $timeout, $window){
 
 userService.getCurrentUser().then(function(res){
                 $scope.currentUser = res.data;
             });
-
-    $scope.logout = function(){
-        $auth.logout().then(function(res){
-            $state.go('login');
-        });
+    $scope.makeUserAppear = function () {
+      userService.getCurrentUser().then(function(res){
+                      $scope.currentUser = res.data;
+                  });
     }
     userService.getUserPost().then(function(res){
         console.log(res.data);
@@ -163,8 +162,12 @@ userService.getCurrentUser().then(function(res){
        });
     };
     $scope.logout = function(){
+      console.log("This is a monkey");
         $auth.logout().then(function(res){
+            $scope.currentUser = "";
+            $window.location.reload();
             $state.go('login');
+            
         });
     }
     var posOptions = {timeout: 10000, enableHighAccuracy: false};
