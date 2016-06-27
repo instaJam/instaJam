@@ -20,7 +20,7 @@ angular.module('instajam.controllers', [])
         })
     }
     $scope.chats = Chats.all();
-    $scope.getRidOfChat = function(id, toUser) {
+    $scope.remove = function(id, toUser) {
       chatService.deleteChat(id, toUser).then(function(res) {
         $state.reload('tab.chats')
       });
