@@ -1,12 +1,13 @@
-angular.module('instajam').controller('frUserProfileCtrl', function($scope,$state,$auth, $ionicModal,Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService,$ionicActionSheet, $timeout, $window){
+angular.module('instajam').controller('frUserProfileCtrl', function($scope,$state,$auth, $ionicModal,Chats,$state,$auth, userService, postService,$cordovaGeolocation,$q, chatService,$ionicActionSheet, $timeout){
 
 userService.getCurrentUser().then(function(res){
                 $scope.currentUser = res.data;
             });
-    $scope.makeUserAppear = function () {
-      userService.getCurrentUser().then(function(res){
-                      $scope.currentUser = res.data;
-                  });
+
+    $scope.logout = function(){
+        $auth.logout().then(function(res){
+            $state.go('login');
+        });
     }
     userService.getUserPost().then(function(res){
         console.log(res.data);
@@ -87,24 +88,13 @@ userService.getCurrentUser().then(function(res){
       scope: $scope,
       animation: 'slide-in-left'
       }).then(function(modal) {
-        if($scope.modal){
-          $scope.modal.remove();
-          $scope.modal = modal;
-          $scope.modal.show();
-        }else {
-          $scope.modal = modal;
-          $scope.modal.show();
-           }
-
+        $scope.modal = modal;
+        $scope.modal.show();
       });
     }
-    $scope.$on('$destroy', function() {
-      $scope.modal.remove();
-    });
 
     $scope.settings = function() {
       $scope.modal.hide();
-      $scope.modal.remove();
       $state.go('edit');
     };
     $scope.backProf = function() {
@@ -133,15 +123,8 @@ userService.getCurrentUser().then(function(res){
       scope: $scope,
       animation: 'slide-in-left'
       }).then(function(modal) {
-        if($scope.modal){
-          $scope.modal.remove();
-          $scope.modal = modal;
-          $scope.modal.show();
-        }else {
-          $scope.modal = modal;
-          $scope.modal.show();
-           }
-
+        $scope.modal = modal;
+        $scope.modal.show();
       });
     }
 
@@ -162,10 +145,7 @@ userService.getCurrentUser().then(function(res){
        });
     };
     $scope.logout = function(){
-      console.log("This is a monkey");
         $auth.logout().then(function(res){
-            $scope.currentUser = "";
-            $window.location.reload();
             $state.go('login');
         });
     }

@@ -15,7 +15,7 @@ chatService.getUserChats().then(function(response) {
     $scope.allChats = response;
 })
 
-$scope.getRidOfChat = function(id, toUser) {
+$scope.remove = function(id, toUser) {
 chatService.deleteChat(id, toUser).then(function(res){
 $state.reload('tab.chats')
 });
