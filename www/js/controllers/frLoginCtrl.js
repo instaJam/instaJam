@@ -15,6 +15,7 @@ angular.module('instajam').controller('frLoginCtrl', function($scope, $auth, $st
     }
 
     $scope.logout = function(){
+      console.log("Holy radishes this is the loginCtrl");
         $auth.logout().then(function(res){
             $state.go('login');
         });
