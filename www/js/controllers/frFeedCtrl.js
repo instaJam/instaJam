@@ -13,6 +13,8 @@ angular.module('instajam').controller('frFeedCtrl', function($scope, Chats,$stat
   };
   $scope.logout = function(){
       $auth.logout().then(function(res){
+        console.log("holy crap batman, is this even firing?");
+
           $state.go('login');
       });
   }

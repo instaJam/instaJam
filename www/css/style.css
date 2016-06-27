@@ -1,6 +1,4 @@
-body {
-  cursor: url('http://ionicframework.com/img/finger.png'), auto;
-}
+
 .postSize{
   width: 100%;
   height: 100%;
@@ -61,7 +59,7 @@ min-width: 79%;
   display: block;
   height: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: scroll;
 }
 .titleBox{
 
@@ -208,214 +206,25 @@ margin-bottom: 5px;
 #inputChat {
   width: 100%;
 }
-.jamLogo{
-    height: 20vh;
-        width: 20vh;
-}
-
-.loginBack{
-     background: #272A33;
-     height: 100%
-}
 
 
-
-
-
-.logoPos{
-    display: flex;
-    justify-content: center;
-    margin-top: 24vh;
-margin-bottom: 8vh;
-
-}
 .signupPage{
     background-image:url("../img/bed.jpeg");
     background-size: cover;
     background-position: 51%;
    background-repeat: no-repeat;
 }
+#loginPage {
+  }
+#loginForm {
+  display: inline-block;
 
-.customModalButton{
-    height: 3em;
-    width: 93%;
-    border-radius: 0%;
-    /*border-style: ridge;
-    border-color: #3385ff;
-    border-width: thin;
-    border-radius: 3px;*/
-}
-
-.customModalButton:hover{
-    height: 3em;
-    width: 57%;
-    border-radius: 0%;
-
-}
-
-.customModalButton{
-  color:#fff;
-  border:none;
-  position:relative;
-  height:50px;
-  font-size:1.6em;
-  padding:0 2em;
-  cursor:pointer;
-  transition:800ms ease all;
-  outline:none;
-}
-.customModalButton:hover{
-  background:;
-  color:#3385ff;
-}
-.customModalButton:before,.customModalButton:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #3385ff;
-  transition:400ms ease all;
-}
-.customModalButton:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.customModalButton:hover:before,.customModalButton:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
-.onTop{
-    color: white;
-font-size: 30px;
-font-weight: 400;
-letter-spacing: 1.3px;
-display: flex;
-justify-content: center;
-padding: 13px;
-font-family: 'Poiret One';
-font-weight: bolder;
-
-    }
-
-.customModalStuff{
-    display: flex;
-    justify-content: center;
-    margin-top: 40vh;
-}
-.customModalStuffSignUp{
-    display: flex;
-    justify-content: center;
-    margin-top: 5vh;
-}
-.login-bg{
-    background-image: url('../img/fistPump.jpg');
-    background-size: cover;
-
-}
-.submitText{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.loginButton{
-    background-color: #3385ff;
-border: none;
-border-radius: 3px;
-/* display: flex; */
-/* justify-content: center; */
-/* text-align: center; */
-margin-top: 30px;
-height: 39px;
-width: 53%;
-color: white;
-font-size: 4vh;
-font-weight: 500;
-letter-spacing: 1.2px;
-font-family: 'Permanent marker';
-
-}
-
-.signUpBox{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-}
-.loginBox{
-    border-bottom: 1px solid #3385ff;
-    width: 50%;
-
-}
-.text1{
-    font-family: 'Permanent marker';
-    color:white;
-    font-size: 8vh;
-}
-.loginBoxText {
-    text-align: center;
-  width: 100%;
-  height: 40px;
-  font-size: 16px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  border: none;
-  border-bottom: 1px solid #CCC;
-  background-color: transparent;
-  color: white
-}
-.loginBackButton{
-    font-size: 5vh;
-margin-left: 11px;
-color: white;
-}
-
-.loginBoxText:focus {
-  outline: none;
-  border-bottom: 1.5px solid #3385ff;
-}
-
-.text2{
-    font-family: 'Permanent marker';
-    color:white;
-    font-size: 8vh;
-}
-
-::-webkit-input-placeholder {
-   color: #808080;
-   text-align: center;
-
-}
-
-:-moz-placeholder {
-   color: #808080;
-   text-align: center;
-
-}
-/*#loginPage {
-  margin-top: 90%;
-  }*/
-/*#loginForm {
-  margin-top: 30%;
-}*/
-#submitBut {
-  float:right;
-  margin-right: 5%;
-  background-color: maroon;
 }
 #createAcctBut {
   font-size: 2.5vh;
-  margin-top: 40%;
-  margin-right: 5%;
-  margin-left: 13%;
 }
 #loginWithBut {
-  margin-top: 15%;
-  margin-right: 5%;
-  margin-left: 5%;
+
 }
 
 .wrapper {
@@ -539,7 +348,7 @@ margin-top: 3%;
   font-size: 3vh;
 }
 .editPic {
-    width: 27%;
+    width: 7em;
     height: 7em;
     border-radius: 60%;
 }
@@ -620,18 +429,33 @@ margin-top: 3%;
 
 }
 
+.landing-bg {
+  height: 100vh;
+  width: auto;
+  margin: auto;
+}
+.theLoginBackGround{
+  background-color: #223032;
+  text-align: center;
+  position: relative;
+}
+.loginHolderBox{
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  left: 0;
 
-
+}
 .login-btn {
   position: relative;
   display: inline-block;
-  margin: 0;
+  margin: 20px 0px;
   border-color: transparent;
   border-radius: 4px;
   vertical-align: top;
   text-align: center;
   text-overflow: ellipsis;
-  background-color: #262F34;
+  background-color: maroon;
   color: #fff;
   border: 2px solid;
   padding: 0 16px;
@@ -641,11 +465,13 @@ margin-top: 3%;
   line-height: 53px;
   cursor: pointer;
 }
-
+#submitBut{
+  margin: 20px 0px;
+}
 .create-btn {
   position: relative;
   display: inline-block;
-  margin: 0;
+  margin: 0px;
   border-color: transparent;
   border-radius: 3px;
   vertical-align: top;
@@ -735,7 +561,12 @@ margin-top: 3%;
 #picButton {
     margin-top: 100px;
 }
+  .custom-tab-bar{
+    background-color: #262F34;
+    opacity: 1;
+    height: 48px;
 
+  }
   .outerPostPic {
       border-color: transparent;
       background-color: #c13e36;
@@ -772,8 +603,14 @@ margin-top: 3%;
     background-color: red;
 }
 #postPic{
-  margin-left:-145px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   opacity:0;
+  width: 100%;
+  background: black;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }

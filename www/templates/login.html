@@ -1,15 +1,10 @@
-<ion-view view-title="Login" class="login-bg" hide-nav-bar="true">
-  <ion-content scroll='false'>
+<ion-view view-title="Login"  hide-nav-bar="true">
+  <ion-content>
+    <div class="theLoginBackGround">
 
-
-    <div class='logoPos'>
-      <div class="text1">
-        instajam
-      </div>
-    </div>
-
-
-    <!--
+    <div id="loginPage">
+      <img class="landing-bg" src="./img/landing-page.jpg" />
+      <div class="loginHolderBox">
     <div class="list list-inset" id="loginForm">
       <label class="item item-input">
         <input type="text" placeholder="Username" ng-model="user.username">
@@ -18,129 +13,26 @@
         <input type="password" placeholder="Password" ng-model="user.password">
       </label>
     </div>
-    <button class="login-btn" id="submitBut" ng-click="login(user)">
+    <button class="login-btn" ng-click="login(user)">
   Login
 </button>
 <div id="createAcctBut">
   <span style="color:#fff;">Dont have an account?</span>
-  <button ui-sref="signup"style="float:right" class="create-btn" >
+  <button ui-sref="signup" class="create-btn" >
 Create One!
   </button>
+</div>
+</div>
+<!-- <div id="loginWithBut">
+
+  <button class="button button-block button-positive">
+  Login with Facebook</button>
+  <button class="button button-block button-calm">
+  Login with Instagram</button>
+  <button class="button button-block button-balanced">
+  Login with Jam</button>
 </div> -->
-    <div class="customModalStuff">
-
-      <div class="customModalButton" ng-click="openModal(1)">
-
-        <div class="onTop">
-          Login
-        </div>
-
-      </div>
-    </div>
-    <div class="customModalStuffSignUp">
-
-      <div class="customModalButton" ng-click="openModal(2)">
-
-        <div class="onTop">
-          Sign Up
-        </div>
-
-      </div>
-    </div>
-
-
-    <script id="login.html" type="text/ng-template">
-      <ion-modal-view>
-
-
-      <ion-content scroll='false'>
-
-
-        <div class="loginBack">
-
-
-          <button class="icon icon-left " ng-click="closeModal(1)"><i class='ion-arrow-left-c loginBackButton'></i></button>
-
-
-          <div class='logoPos'>
-            <div class="text2">
-              login
-            </div>
-          </div>
-          <div class='signUpBox'>
-
-
-
-            <div class="loginBox">
-              <input   ng-model="user.username"class="loginBoxText" onfocus="this.placeholder = ''"type="text" name="name" value="" placeholder="Username" onfocusout="this.placeholder = 'Username'">
-            </div>
-
-
-            <div class="loginBox">
-              <input ng-model="user.password"class="loginBoxText" type="password" onfocus="this.placeholder = ''" name="name" value="" placeholder="Password" onfocusout="this.placeholder = 'Password'">
-            </div>
-
-            <button ng-click="login(user)" class='loginButton'><div class='submitText'>Login</div</button>
-          </div>
-
-
-
-
-
-        </div>
-
-      </ion-content>
-      </ion-modal-view>
-    </script>
-
-    <script id="signUp.html" type="text/ng-template">
-      <ion-modal-view>
-
-
-        <ion-content scroll='false'>
-
-
-          <div class="loginBack">
-
-
-            <button class="icon icon-left " ng-click="closeModal(2)"><i class='ion-arrow-left-c loginBackButton'></i></button>
-
-
-            <div class='logoPos'>
-              <div class="text2">
-                sign up
-              </div>
-            </div>
-            <div class='signUpBox'>
-              <div class="loginBox">
-                <input class="loginBoxText" type="text" name="name" value="" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'First Name'"placeholder="Name">
-              </div>
-
-              <div class="loginBox">
-                <input class="loginBoxText" type="text" name="name" value="" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Username'"placeholder="Username"ng-model="newUser.username">
-              </div>
-              <div class="loginBox">
-
-                <input class="loginBoxText" type="Email" name="name" value="" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Email'"placeholder="Email" ng-model="newUser.email">
-              </div>
-
-
-              <div class="loginBox">
-                <input class="loginBoxText" type="password" name="name" value="" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Password'"placeholder="Password" ng-model="newUser.password">
-              </div>
-              <button ng-click="signUp(newUser)" class='loginButton'><div class='submitText'>Login</div</button>
-
-            </div>
-
-
-
-
-          </div>
-
-        </ion-content>
-      </ion-modal-view>
-    </script>
-
-
-  </ion-content>
+  </div>
+</div>
+</ion-content>
 </ion-view>
