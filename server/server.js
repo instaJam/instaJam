@@ -11,7 +11,7 @@ var Amazon = require('./controllers/awsController.js');
 var messageCtrl = require('./controllers/messageCtrl.js');
 var feedCtrl = require('./controllers/feedCtrl.js');
 var youtubeCtrl = require('./controllers/youtubeController.js');
-var port = 3000;
+var port = 8925;
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -35,8 +35,8 @@ io.on('connection', function(socket) {
  });
 });
 
-http.listen(3000, function() {
-  console.log('http listening');
+http.listen(port, function() {
+  console.log('http listening on port ' + port);
 });
 
 
