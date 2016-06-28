@@ -147,7 +147,6 @@ userService.getCurrentUser().then(function(res){
     $scope.logout = function(){
         $auth.logout().then(function(res){
             $state.go('login');
-            
         });
     }
     var posOptions = {timeout: 10000, enableHighAccuracy: false};

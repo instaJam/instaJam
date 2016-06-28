@@ -18,8 +18,6 @@
              </div>
 
              {{youtubeChecker(post.content, $index)}}
-
-             <!-- this is  a change to make sure committing works -->
              <div class="embed-responsive embed-responsive-16by9" on-double-tap="like(currentUser._id, post._id, post.likes)" ng-if="isYoutubeArray[$index]">
              <youtube-video class="embed-responsive-item" video-url="post.content"></youtube-video>
            </div>
